@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT 完全ガイド 2026年5月20日版｜プラン・機能・著作権の完全リファレンス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Noto+Sans+JP:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1E33;
+    --ink-soft:#2C3E50;
+    --paper:#FFFFFF;
+    --cream:#FAF6F0;
+    --line:#E6DFD4;
+    --muted:#6B7280;
+    --accent:#C8462B;
+    --accent-soft:#FCE8E0;
+    --gold:#B8893F;
+    --success:#1F6E43;
+    --warn:#B45309;
+    --danger:#B91C1C;
+    --chip:#F1EDE4;
+    --grad:linear-gradient(135deg,#0B1E33 0%,#1E3A5F 100%);
+    --shadow:0 1px 0 rgba(11,30,51,.04), 0 20px 50px -20px rgba(11,30,51,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--paper);
+    line-height:1.75;font-weight:400;-webkit-font-smoothing:antialiased;
+  }
+
+  /* ========= Header ========= */
+  .header{
+    position:relative;padding:60px 8% 60px;background:var(--paper);
+    border-bottom:1px solid var(--line);overflow:hidden;
+  }
+  .header::before{
+    content:"";position:absolute;top:0;right:-10%;width:60%;height:100%;
+    background:radial-gradient(circle at 70% 30%, var(--accent-soft) 0%, transparent 60%);
+    opacity:.6;z-index:0;
+  }
+  .header-inner{position:relative;z-index:1;max-width:1300px;margin:0 auto}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin-bottom:20px;
+  }
+  .eyebrow::before{content:"";width:40px;height:1px;background:var(--accent)}
+  h1.title{
+    font-family:"Fraunces",serif;font-weight:900;
+    font-size:clamp(2.3rem,5vw,4rem);line-height:1.05;letter-spacing:-.02em;
+    color:var(--ink);margin-bottom:20px;
+  }
+  h1.title em{font-style:italic;color:var(--accent);font-weight:400}
+  .subtitle{
+    font-size:1rem;color:var(--ink-soft);max-width:760px;line-height:1.8;margin-bottom:28px;
+  }
+  .header-meta{
+    display:flex;flex-wrap:wrap;gap:24px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--muted);
+  }
+  .header-meta strong{color:var(--ink);font-weight:600;display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+
+  /* ========= Main Tab Navigation ========= */
+  .main-tabs{
+    position:sticky;top:0;z-index:50;background:var(--paper);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 4px 12px -8px rgba(11,30,51,.1);
+  }
+  .main-tabs-inner{
+    max-width:1300px;margin:0 auto;padding:0 8%;
+    display:flex;overflow-x:auto;scrollbar-width:thin;
+  }
+  .main-tab{
+    padding:18px 20px;font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;
+    white-space:nowrap;user-select:none;display:flex;align-items:center;gap:8px;
+  }
+  .main-tab:hover{color:var(--accent);background:rgba(200,70,43,.04)}
+  .main-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:rgba(200,70,43,.04)}
+  .main-tab .num{
+    font-family:"Fraunces",serif;font-style:italic;font-size:13px;
+    color:var(--muted);font-weight:600;
+  }
+  .main-tab.active .num{color:var(--accent)}
+
+  /* ========= Tab Panel ========= */
+  .tab-panel{display:none;animation:fadeIn .3s ease-out}
+  .tab-panel.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ========= Common Section Styles ========= */
+  section.tab-section{padding:60px 8% 80px;max-width:1400px;margin:0 auto}
+  .section-header{margin-bottom:48px;max-width:880px}
+  .section-num{
+    font-family:"Fraunces",serif;font-style:italic;
+    font-size:14px;color:var(--accent);letter-spacing:.15em;
+    text-transform:uppercase;font-weight:600;margin-bottom:12px;
+  }
+  h2{
+    font-family:"Fraunces",serif;font-weight:700;
+    font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;letter-spacing:-.015em;margin-bottom:20px;
+  }
+  h2 em{font-style:italic;color:var(--accent)}
+  h3{
+    font-family:"Fraunces",serif;font-weight:600;font-size:1.4rem;line-height:1.3;
+    margin:36px 0 16px;color:var(--ink);
+  }
+  h4{
+    font-weight:700;font-size:14px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:12px;
+  }
+  p{margin-bottom:14px;color:var(--ink-soft)}
+  .lede{font-size:1.02rem;color:var(--ink-soft);line-height:1.9}
+
+  /* ========= Callout boxes ========= */
+  .callout{
+    padding:24px 28px;margin:24px 0;border-radius:2px;
+    border-left:4px solid var(--accent);background:var(--accent-soft);
+  }
+  .callout.warn{border-color:var(--warn);background:#FEF3E7}
+  .callout.info{border-color:var(--gold);background:#FAF4E5}
+  .callout.good{border-color:var(--success);background:#E7F3EC}
+  .callout.danger{border-color:var(--danger);background:#FEE8E8}
+  .callout h4{color:inherit;margin-bottom:8px;font-size:12.5px}
+  .callout.warn h4{color:var(--warn)}
+  .callout.info h4{color:var(--gold)}
+  .callout.good h4{color:var(--success)}
+  .callout.danger h4{color:var(--danger)}
+  .callout.warn h4::before{content:"⚠ "}
+  .callout.info h4::before{content:"ℹ "}
+  .callout.good h4::before{content:"✓ "}
+  .callout.danger h4::before{content:"✕ "}
+  .callout p{font-size:13.5px;margin:0;color:var(--ink);line-height:1.75}
+  .callout p + p{margin-top:8px}
+
+  /* ========= Term annotations ========= */
+  .term-note{
+    display:block;font-size:12.5px;padding:10px 14px;background:var(--cream);
+    border-left:3px solid var(--accent);margin:8px 0 16px;color:var(--ink-soft);line-height:1.65;
+  }
+  .term-note strong{color:var(--accent);font-weight:700}
+
+  /* ========= Plan cards ========= */
+  .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .plan-card{
+    position:relative;padding:28px 24px;border:1px solid var(--line);background:var(--paper);
+    border-radius:4px;transition:all .3s;display:flex;flex-direction:column;
+  }
+  .plan-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--ink)}
+  .plan-card.featured{background:var(--grad);color:var(--paper);border-color:var(--ink)}
+  .plan-card.featured h3,.plan-card.featured .price,
+  .plan-card.featured .plan-desc,.plan-card.featured ul li{color:var(--paper)}
+  .plan-card.featured ul li::before{color:#E8B560}
+  .plan-card.featured .badge{background:#E8B560;color:var(--ink)}
+  .badge{
+    position:absolute;top:-10px;right:18px;
+    background:var(--accent);color:var(--paper);font-size:10px;font-weight:700;letter-spacing:.15em;
+    padding:4px 12px;text-transform:uppercase;
+  }
+  .plan-card h3{font-size:1.4rem;margin:0 0 4px;font-family:"Fraunces",serif}
+  .plan-desc{font-size:12px;color:var(--muted);letter-spacing:.05em;margin-bottom:16px;text-transform:uppercase}
+  .price{
+    font-family:"Fraunces",serif;font-size:2rem;font-weight:700;
+    display:flex;align-items:baseline;gap:4px;margin-bottom:4px;
+  }
+  .price small{font-size:13px;font-weight:400;color:var(--muted)}
+  .plan-card.featured .price small{color:#B8C8D9}
+  .price-note{font-size:11.5px;color:var(--muted);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .plan-card.featured .price-note{color:#B8C8D9;border-color:rgba(255,255,255,.2)}
+  .plan-card ul{list-style:none;padding:0}
+  .plan-card ul li{
+    font-size:13px;padding:5px 0 5px 24px;position:relative;color:var(--ink-soft);line-height:1.6;
+  }
+  .plan-card ul li::before{
+    content:"✓";position:absolute;left:0;top:5px;color:var(--accent);font-weight:700;
+  }
+
+  /* ========= Tables ========= */
+  .table-wrap{overflow-x:auto;margin:28px 0;box-shadow:var(--shadow);border-radius:2px}
+  table{
+    width:100%;border-collapse:collapse;background:var(--paper);
+    font-size:13px;min-width:720px;
+  }
+  thead{background:var(--ink);color:var(--paper)}
+  thead th{padding:16px 14px;text-align:left;font-weight:600;font-size:11px;letter-spacing:.15em;text-transform:uppercase}
+  thead th:first-child{width:220px}
+  tbody td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--cream)}
+  tbody td:first-child{font-weight:600;color:var(--ink)}
+  .check{color:var(--success);font-weight:700}
+  .cross{color:var(--muted)}
+  .partial{color:var(--warn);font-weight:600;font-size:12px}
+  .hl{background:var(--accent-soft);font-weight:600}
+
+  /* ========= Plan Detail ========= */
+  .plan-detail{margin-bottom:48px;padding:36px;background:var(--cream);border-left:4px solid var(--accent);border-radius:2px}
+  .plan-detail-header{
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;
+    padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:20px;
+  }
+  .plan-detail-header h3{font-size:1.6rem;margin:0}
+  .plan-detail-header .pill{
+    font-size:12px;padding:6px 14px;background:var(--ink);color:var(--paper);
+    border-radius:100px;font-weight:600;letter-spacing:.1em;
+  }
+  .plan-attrs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:20px 0}
+  .plan-attr{padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:2px}
+  .plan-attr strong{display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .plan-attr span{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;display:block}
+
+  /* ========= Feature Catalog (NEW) ========= */
+  .catalog-layout{
+    display:grid;grid-template-columns:240px 1fr;gap:32px;margin-top:32px;
+    background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  }
+  .catalog-nav{
+    background:var(--cream);padding:24px 0;border-right:1px solid var(--line);
+    position:sticky;top:60px;align-self:start;max-height:calc(100vh - 80px);overflow-y:auto;
+  }
+  .catalog-nav-section{padding:0 0 8px}
+  .catalog-nav-title{
+    font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--muted);padding:12px 24px 6px;
+  }
+  .catalog-nav-item{
+    padding:9px 24px;border-left:3px solid transparent;
+    font-size:13px;font-weight:500;color:var(--ink-soft);cursor:pointer;
+    transition:all .2s;user-select:none;
+  }
+  .catalog-nav-item:hover{background:rgba(200,70,43,.05);color:var(--accent)}
+  .catalog-nav-item.active{border-color:var(--accent);background:var(--paper);color:var(--accent);font-weight:700}
+  .catalog-nav-item .new-flag{
+    font-size:9px;background:var(--accent);color:var(--paper);
+    padding:1px 6px;border-radius:100px;margin-left:6px;font-weight:700;letter-spacing:.05em;
+  }
+  .catalog-content{padding:28px 32px;min-height:600px}
+  .catalog-feature{display:none}
+  .catalog-feature.active{display:block;animation:fadeIn .25s ease-out}
+  .feature-head{margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--line)}
+  .feature-cat{
+    display:inline-block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin-bottom:8px;
+  }
+  .feature-title{
+    font-family:"Fraunces",serif;font-size:1.8rem;font-weight:700;margin-bottom:8px;color:var(--ink);line-height:1.2;
+  }
+  .feature-subtitle{font-size:14px;color:var(--muted);font-style:italic}
+  .feature-plans{
+    display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;
+  }
+  .plan-tag{
+    font-size:11px;font-weight:600;letter-spacing:.05em;
+    padding:3px 10px;border-radius:100px;background:var(--chip);color:var(--ink);
+  }
+  .plan-tag.free{background:#E7F3EC;color:var(--success);border:1px solid #B9D5C2}
+  .plan-tag.go{background:#F0EDE5;color:var(--ink-soft);border:1px solid var(--line)}
+  .plan-tag.plus{background:var(--accent-soft);color:var(--accent);border:1px solid #F2C5B5}
+  .plan-tag.pro{background:var(--ink);color:var(--paper)}
+  .plan-tag.business{background:#FAF4E5;color:var(--gold);border:1px solid #E5D2A1}
+  .plan-tag.not-avail{background:#F3F4F6;color:var(--muted);text-decoration:line-through}
+
+  .feature-block{margin:20px 0}
+  .feature-block-head{
+    display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink);margin-bottom:10px;padding-bottom:6px;border-bottom:1px dashed var(--line);
+  }
+  .feature-block-head .icon{
+    width:24px;height:24px;background:var(--accent);color:var(--paper);
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:50%;font-size:11px;font-weight:700;font-family:"Fraunces",serif;
+  }
+  .feature-block-head.limit .icon{background:var(--warn)}
+  .feature-block-head.steps .icon{background:var(--success)}
+  .feature-block-head.overview .icon{background:var(--ink)}
+  .feature-list{list-style:none;padding:0;margin:0}
+  .feature-list li{
+    padding:7px 0 7px 24px;position:relative;font-size:13.5px;line-height:1.7;color:var(--ink-soft);
+  }
+  .feature-list li::before{
+    content:"●";position:absolute;left:6px;top:7px;color:var(--accent);font-size:8px;
+  }
+  .step-list{counter-reset:s;list-style:none;padding:0;margin:0}
+  .step-list li{
+    padding:8px 0 8px 38px;position:relative;font-size:13.5px;line-height:1.7;color:var(--ink-soft);
+    counter-increment:s;
+  }
+  .step-list li::before{
+    content:counter(s);position:absolute;left:0;top:9px;
+    width:24px;height:24px;background:var(--success);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;border-radius:50%;
+    font-size:11px;font-weight:700;font-family:"JetBrains Mono",monospace;
+  }
+  .limit-list{list-style:none;padding:0;margin:0}
+  .limit-list li{
+    padding:7px 0 7px 24px;position:relative;font-size:13.5px;line-height:1.7;color:var(--ink-soft);
+  }
+  .limit-list li::before{
+    content:"✕";position:absolute;left:4px;top:7px;color:var(--warn);font-weight:700;font-size:13px;
+  }
+
+  /* ========= Settings Layout ========= */
+  .settings-layout{
+    display:grid;grid-template-columns:240px 1fr;gap:32px;margin:32px 0;
+    background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  }
+  .settings-nav{background:var(--cream);padding:20px 0;border-right:1px solid var(--line)}
+  .settings-nav-item{
+    padding:12px 24px;border-left:3px solid transparent;
+    font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;
+    transition:all .2s;user-select:none;
+  }
+  .settings-nav-item:hover{background:rgba(200,70,43,.05);color:var(--accent)}
+  .settings-nav-item.active{border-color:var(--accent);background:var(--paper);color:var(--accent)}
+  .settings-nav-item .icon{margin-right:10px;color:var(--accent)}
+  .settings-content{padding:24px 28px;min-height:420px}
+  .settings-panel{display:none;animation:fadeIn .25s ease-out}
+  .settings-panel.active{display:block}
+  .settings-content h5{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--ink)}
+  .setting-row{padding:14px 0;border-bottom:1px solid var(--line)}
+  .setting-row:last-child{border-bottom:none}
+  .setting-label{font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:4px}
+  .setting-desc{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+  @media(max-width:900px){
+    .catalog-layout,.settings-layout{grid-template-columns:1fr}
+    .catalog-nav,.settings-nav{
+      position:static;max-height:none;border-right:none;
+      border-bottom:1px solid var(--line);display:flex;overflow-x:auto;flex-wrap:wrap;
+    }
+    .catalog-nav-section{display:contents}
+    .catalog-nav-title{display:none}
+    .catalog-nav-item,.settings-nav-item{
+      white-space:nowrap;border-left:none;border-bottom:3px solid transparent;
+    }
+    .catalog-nav-item.active,.settings-nav-item.active{
+      border-bottom-color:var(--accent);border-left-color:transparent;
+    }
+  }
+
+  /* ========= Comparison ========= */
+  .compare-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0}
+  .compare-col{padding:28px;border:1px solid var(--line);border-radius:2px;background:var(--paper)}
+  .compare-col.a{border-top:4px solid var(--success)}
+  .compare-col.b{border-top:4px solid var(--accent)}
+  .compare-col h4{margin-bottom:14px;color:var(--ink)}
+  .compare-col.a h4{color:var(--success)}
+  .compare-col.b h4{color:var(--accent)}
+  .compare-col h5{font-size:17px;font-weight:700;margin:0 0 14px;font-family:"Fraunces",serif}
+  .compare-col ul{list-style:none;padding:0;margin:10px 0}
+  .compare-col li{font-size:13px;padding:7px 0 7px 22px;position:relative;line-height:1.6}
+  .compare-col li::before{position:absolute;left:0;top:7px;font-weight:700}
+  .compare-col.a li::before{content:"＋";color:var(--success)}
+  .compare-col.b li::before{content:"＊";color:var(--accent)}
+  @media(max-width:768px){.compare-2col{grid-template-columns:1fr}}
+
+  /* ========= Rights Grid ========= */
+  .rights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:28px 0}
+  .rights-card{padding:22px;background:var(--paper);border:1px solid var(--line);border-radius:2px;border-top:4px solid var(--gold)}
+  .rights-card.ng{border-top-color:var(--accent)}
+  .rights-card.ok{border-top-color:var(--success)}
+  .rights-card h5{font-size:13.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .rights-card.ok h5{color:var(--success)}
+  .rights-card.ng h5{color:var(--accent)}
+  .rights-card h5::before{font-family:"Fraunces",serif;font-size:18px;font-weight:900}
+  .rights-card.ok h5::before{content:"OK"}
+  .rights-card.ng h5::before{content:"NG"}
+  .rights-card p{font-size:12.5px;line-height:1.7;margin:0;color:var(--ink-soft)}
+
+  /* ========= Models tree ========= */
+  .models-tree{background:var(--cream);padding:32px;border-radius:4px;margin:24px 0}
+  .model-row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-bottom:1px dashed var(--line);align-items:center}
+  .model-row:last-child{border-bottom:none}
+  .model-name{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:13.5px;color:var(--accent)}
+  .model-name small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:4px}
+  .model-desc{font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .model-avail{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .tag{
+    font-size:10px;font-weight:600;letter-spacing:.05em;
+    padding:3px 10px;border-radius:100px;background:var(--chip);color:var(--ink);
+  }
+  .tag.pro{background:var(--ink);color:var(--paper)}
+  .tag.plus{background:var(--accent);color:var(--paper)}
+  .tag.free{background:var(--cream);border:1px solid var(--line)}
+  .tag.retired{background:#F3F4F6;color:var(--muted);text-decoration:line-through}
+  @media(max-width:768px){.model-row{grid-template-columns:1fr}}
+
+  /* ========= Timeline ========= */
+  .timeline{position:relative;padding:0 0 0 30px;margin:28px 0;border-left:2px solid var(--line)}
+  .timeline-item{position:relative;padding-bottom:24px}
+  .timeline-item::before{
+    content:"";position:absolute;left:-37px;top:4px;
+    width:11px;height:11px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--paper);box-shadow:0 0 0 2px var(--accent);
+  }
+  .timeline-item.retired::before{background:var(--muted);box-shadow:0 0 0 2px var(--muted)}
+  .timeline-item.upcoming::before{background:var(--warn);box-shadow:0 0 0 2px var(--warn)}
+  .timeline-date{font-family:"Fraunces",serif;font-style:italic;font-size:12.5px;color:var(--accent);font-weight:600;margin-bottom:3px}
+  .timeline-item.retired .timeline-date{color:var(--muted)}
+  .timeline-item.upcoming .timeline-date{color:var(--warn)}
+  .timeline-title{font-size:14.5px;font-weight:700;margin-bottom:3px;color:var(--ink)}
+  .timeline-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.65}
+
+  /* ========= Overview Tab Special Layout ========= */
+  .overview-hero{
+    background:var(--grad);color:var(--paper);padding:48px;border-radius:4px;
+    margin-bottom:40px;position:relative;overflow:hidden;
+  }
+  .overview-hero::before{
+    content:"";position:absolute;top:-50%;right:-20%;width:60%;height:200%;
+    background:radial-gradient(circle, rgba(232,181,96,.15) 0%, transparent 60%);
+  }
+  .overview-hero-inner{position:relative;z-index:1;max-width:760px}
+  .overview-hero h2{color:var(--paper);font-size:2.2rem}
+  .overview-hero h2 em{color:#E8B560;font-style:italic}
+  .overview-hero p{color:#B8C8D9;font-size:15px;line-height:1.85}
+  .quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin:32px 0}
+  .quick-card{
+    padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:2px;
+    transition:all .2s;
+  }
+  .quick-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .quick-card .qnum{
+    font-family:"Fraunces",serif;font-style:italic;font-size:24px;color:var(--accent);
+    font-weight:700;line-height:1;margin-bottom:10px;
+  }
+  .quick-card h5{font-size:14.5px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+  .quick-card p{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0}
+
+  /* ========= Footer ========= */
+  footer{background:var(--ink);color:var(--paper);padding:50px 8% 36px;margin-top:60px}
+  footer .foot-grid{max-width:1200px;margin:0 auto}
+  footer h5{color:var(--paper);font-family:"Fraunces",serif;font-size:1.3rem;margin-bottom:14px}
+  footer p{color:#B8C8D9;font-size:12.5px;line-height:1.8;margin-bottom:10px}
+  footer .disclaimer{
+    margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);
+    font-size:11px;color:#8A9AAE;
+  }
+
+  /* ========= Inline tag ========= */
+  .inline-tag{display:inline-block;font-size:10.5px;padding:2px 8px;background:var(--chip);border-radius:2px;font-weight:600;color:var(--ink);margin-right:6px}
+  .new-tag{background:var(--accent);color:var(--paper)}
+
+  /* ========= Fact list ========= */
+  .fact-list{list-style:none;padding:0;margin:14px 0}
+  .fact-list li{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:16px;font-size:13.5px}
+  .fact-list li strong{color:var(--muted);font-weight:500;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase}
+
+  /* ========= Diagram ========= */
+  .diagram{background:var(--cream);padding:32px;border-radius:4px;margin:28px 0;border:1px solid var(--line)}
+  .diagram-box{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center}
+  .node{padding:20px;background:var(--paper);border:2px solid var(--ink);border-radius:4px;text-align:center}
+  .node.official{border-color:var(--success);background:#F1F9F4}
+  .node.api{border-color:var(--accent);background:var(--accent-soft)}
+  .node h6{font-size:13.5px;font-weight:700;margin-bottom:5px;color:var(--ink)}
+  .node p{font-size:11.5px;color:var(--muted);margin:0}
+  .arrow{font-family:"Fraunces",serif;font-size:24px;color:var(--accent);text-align:center;font-weight:600}
+  @media(max-width:768px){
+    .diagram-box{grid-template-columns:1fr}
+    .arrow{transform:rotate(90deg)}
+  }
+
+  /* ========= Features Grid (for plans pages) ========= */
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+  .feature{padding:22px;border:1px solid var(--line);background:var(--paper);border-radius:2px;transition:all .2s}
+  .feature:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .feature .num{font-family:"Fraunces",serif;font-style:italic;font-size:24px;color:var(--accent);font-weight:700;line-height:1;margin-bottom:10px}
+  .feature h5{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+  .feature p{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0}
+
+  /* ========= Correction notice ========= */
+  .correction-notice{
+    background:linear-gradient(135deg,#FEE8E8,#FCE8E0);padding:18px 26px;margin:22px 0;border-radius:2px;
+    border-left:4px solid var(--danger);font-size:13px;
+  }
+  .correction-notice strong{color:var(--danger);font-weight:700;display:block;margin-bottom:6px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- ================== HEADER ================== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="eyebrow">Complete Reference · 2026/05/20 Edition</div>
+    <h1 class="title">ChatGPT <em>完全ガイド</em><br>プラン・機能・著作権</h1>
+    <p class="subtitle">
+      Free・Go・Plus・Pro・Business の <strong>全プラン</strong>と、Projects・Skills・Workspace Agents など <strong>全機能</strong>を、初心者の方でも迷わない構成にまとめました。<strong>「概要・できること・使い方・制約」</strong>を機能ごとにご確認いただけます。タブで切り替えて目的の情報にすぐアクセスできます。
+    </p>
+    <div class="header-meta">
+      <div><strong>Last Updated</strong>2026年5月20日</div>
+      <div><strong>Latest Model</strong>GPT-5.5 Instant（既定）</div>
+      <div><strong>Latest Image</strong>ChatGPT Images 2.0</div>
+      <div><strong>Coverage</strong>Free / Go / Plus / Pro / Business</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================== MAIN TABS ================== -->
+<nav class="main-tabs" id="mainTabs">
+  <div class="main-tabs-inner">
+    <div class="main-tab active" data-tab="overview"><span class="num">01</span>はじめに</div>
+    <div class="main-tab" data-tab="plans"><span class="num">02</span>プラン比較</div>
+    <div class="main-tab" data-tab="models"><span class="num">03</span>モデル</div>
+    <div class="main-tab" data-tab="catalog"><span class="num">04</span>全機能カタログ</div>
+    <div class="main-tab" data-tab="agents"><span class="num">05</span>エージェント整理</div>
+    <div class="main-tab" data-tab="settings"><span class="num">06</span>設定画面</div>
+    <div class="main-tab" data-tab="integration"><span class="num">07</span>SNS連携</div>
+    <div class="main-tab" data-tab="copyright"><span class="num">08</span>著作権</div>
+    <div class="main-tab" data-tab="timeline"><span class="num">09</span>年表</div>
+  </div>
+</nav>
+
+<!-- ================== TAB 1: OVERVIEW ================== -->
+<div class="tab-panel active" id="tab-overview">
+<section class="tab-section">
+
+<div class="overview-hero">
+  <div class="overview-hero-inner">
+    <div class="section-num" style="color:#E8B560">01 ── Welcome</div>
+    <h2><em>3分で分かる</em> ChatGPT</h2>
+    <p>
+      ChatGPT は単なる「AI チャット」ではなく、<strong>画像生成・調査・コーディング・ブラウザ操作・エージェント自律実行</strong>まで含む総合 AI プラットフォームに進化しました。プランは5種類、機能は30以上あり、初めての方は何から触れば良いか迷うかもしれません。本ガイドはそうした疑問を解決するためにあります。
+    </p>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-num">Quick Start</div>
+  <h2>このガイドの<em>使い方</em></h2>
+  <p class="lede">上部のタブで目的別に情報へアクセスできます。初めての方は順番に、特定の情報を確認したい方は該当タブへ直接ジャンプしてください。</p>
+</div>
+
+<div class="quick-grid">
+  <div class="quick-card"><div class="qnum">02</div><h5>プラン比較</h5><p>Free から Business まで、自分に合うプランを選ぶための一覧表と詳細解説。</p></div>
+  <div class="quick-card"><div class="qnum">03</div><h5>モデル</h5><p>GPT-5.5 Instant・Thinking・Pro の違いと、どんな時にどれを使うか。</p></div>
+  <div class="quick-card"><div class="qnum">04</div><h5>全機能カタログ</h5><p>30以上の機能を「概要・できること・使い方・制約」で網羅。最重要タブ。</p></div>
+  <div class="quick-card"><div class="qnum">05</div><h5>エージェント整理</h5><p>GPTs・ワークスペースエージェント・Agent Mode・Skills の違い。</p></div>
+  <div class="quick-card"><div class="qnum">06</div><h5>設定画面</h5><p>8カテゴリの設定項目を網羅。プライバシー・セキュリティ・連携。</p></div>
+  <div class="quick-card"><div class="qnum">07</div><h5>SNS連携</h5><p>LINE等の連携と公式アプリの違い、ビジネス利用時のリスク。</p></div>
+  <div class="quick-card"><div class="qnum">08</div><h5>著作権</h5><p>商用利用・肖像権・データ学習ポリシーの取り扱い。</p></div>
+  <div class="quick-card"><div class="qnum">09</div><h5>年表</h5><p>2025-2026年の主要アップデート時系列。最新動向の把握に。</p></div>
+</div>
+
+<h3>2026年5月時点の重要な変化</h3>
+
+<div class="callout danger">
+  <h4>GPT-5.5 ファミリーへの全面移行</h4>
+  <p><strong>2026年5月5日</strong>から、全プランの既定モデルが <strong>GPT-5.5 Instant</strong> に切り替わりました。GPT-5.3 から大幅進化し、医療・法律・金融分野での事実誤認が約 <strong>52.5% 削減</strong>。応答は約 <strong>30% 短く</strong>、絵文字や過剰な装飾を抑えた素直なスタイルになっています。Plus・Pro 向けには <strong>GPT-5.5 Thinking / Pro</strong>（2026/4/23）も利用可能。</p>
+</div>
+
+<div class="callout warn">
+  <h4>動画生成 Sora は完全終了</h4>
+  <p><strong>2026年4月26日</strong>に Sora アプリ・Web が完全停止。ChatGPT 本体に動画生成機能は再統合されません。動画生成が必要な場合は Google Veo 3、Kling 3.0、Runway 等への移行を検討してください。</p>
+</div>
+
+<div class="callout info">
+  <h4>画像生成 Images 2.0 全プラン対応</h4>
+  <p><strong>2026年4月21日リリース</strong>。生成速度が <strong>従来の4倍</strong>、日本語・中国語・韓国語・ヒンディー語・ベンガル語のテキスト描画精度も大幅向上。1プロンプトから最大 <strong>8枚同時生成</strong>、最大 <strong>2K解像度</strong>。有料プランでは <strong>「Images with Thinking」</strong>モード（描画前に AI が構図を計画）も利用可能。<strong>DALL-E 3 は2026/5/12 にサポート終了</strong>。</p>
+</div>
+
+<div class="callout good">
+  <h4>業務向け新機能ラッシュ（Business/Enterprise 中心）</h4>
+  <p><strong>ワークスペースエージェント</strong>（2026/4/22）<strong>・Skills</strong>（業務ワークフローを SKILL.md として再利用可能化、ベータ）<strong>・ChatGPT for Excel/Sheets</strong>（2026/5/6 グローバル展開、2026/6/2 までプレビュー無料）が立て続けに登場。GPTs は今後ワークスペースエージェント・Skills への移行が予告されています。</p>
+</div>
+
+<h3>初心者の方が押さえるべき5つのポイント</h3>
+<div class="features-grid">
+  <div class="feature">
+    <div class="num">01</div>
+    <h5>まずは Free で試す</h5>
+    <p>無料でも GPT-5.5 Instant に触れられます。1日10回程度なら十分。物足りなくなったら次のステップへ。</p>
+  </div>
+  <div class="feature">
+    <div class="num">02</div>
+    <h5>業務で本格利用なら Plus</h5>
+    <p>月¥3,000で広告なし・主要機能フル開放。3年間価格据え置きで、コスパは最高クラス。</p>
+  </div>
+  <div class="feature">
+    <div class="num">03</div>
+    <h5>機密情報は Business 以上で</h5>
+    <p>Plus 等の個人プランは既定で入力内容が学習に使われる可能性あり。会社の情報を扱うなら Business 必須級。</p>
+  </div>
+  <div class="feature">
+    <div class="num">04</div>
+    <h5>「考えて答える」モデルを使い分け</h5>
+    <p>日常タスクは Instant、複雑な問題は Thinking、超精度が必要なら Pro。3段階で選びましょう。</p>
+  </div>
+  <div class="feature">
+    <div class="num">05</div>
+    <h5>LINE版は別物と認識する</h5>
+    <p>LINE で使える「AIチャットくん」等は OpenAI 公式ではありません。プラン契約とも無関係です。</p>
+  </div>
+</div>
+
+</section>
+</div>
+
+<!-- ================== TAB 2: PLANS ================== -->
+<div class="tab-panel" id="tab-plans">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">02 ── Plans at a Glance</div>
+  <h2>5つのプランを<em>俯瞰する</em></h2>
+  <p class="lede">ChatGPT は2026年5月現在、Enterprise を除くと <strong>5 つのプラン</strong>があります。個人用が 4 種類（Free / Go / Plus / Pro）、チーム用が 1 種類（Business）という構成です。まずは価格と対象ユーザーを俯瞰しましょう。</p>
+</div>
+
+<div class="plans-grid">
+  <div class="plan-card">
+    <h3>Free</h3>
+    <div class="plan-desc">初めて試す人向け</div>
+    <div class="price">¥0<small>/月</small></div>
+    <div class="price-note">無料・一部地域で広告表示</div>
+    <ul>
+      <li>GPT-5.5 Instant 制限つき</li>
+      <li>画像生成（Images 2.0）対応</li>
+      <li>Deep Research 月 5 回</li>
+      <li>カスタムGPT は利用のみ</li>
+      <li>インライン Web 画像表示強化（5月）</li>
+    </ul>
+  </div>
+  <div class="plan-card">
+    <h3>Go</h3>
+    <div class="plan-desc">ライトユーザー向け</div>
+    <div class="price">¥1,500<small>/月</small></div>
+    <div class="price-note">US$8 相当（98カ国で提供中）</div>
+    <ul>
+      <li>GPT-5.5 Instant が実質無制限</li>
+      <li>画像生成・ファイルアップ増量</li>
+      <li>GPT-5.4 mini で Thinking 利用可</li>
+      <li>カスタムGPT 作成可</li>
+      <li>広告あり（Free 相当）</li>
+    </ul>
+  </div>
+  <div class="plan-card featured">
+    <span class="badge">Most Popular</span>
+    <h3>Plus</h3>
+    <div class="plan-desc">個人プロ向けの定番</div>
+    <div class="price">¥3,000<small>/月</small></div>
+    <div class="price-note">US$20 相当・広告なし</div>
+    <ul>
+      <li>GPT-5.5 Thinking / Instant 両対応</li>
+      <li>Images 2.0 + Thinking モード</li>
+      <li>Codex / Deep Research / Agent Mode</li>
+      <li>Memory Sources（強化版）</li>
+      <li>Canvas / Projects / GPTs 作成</li>
+      <li>Atlas ブラウザで Agent Mode 利用可</li>
+    </ul>
+  </div>
+  <div class="plan-card">
+    <h3>Pro</h3>
+    <div class="plan-desc">ヘビーユーザー向け</div>
+    <div class="price">¥16,800〜<small>/月</small></div>
+    <div class="price-note">US$100 または US$200（¥30,000）</div>
+    <ul>
+      <li>GPT-5.5 Pro（最上位モデル）</li>
+      <li>Deep Research 月 250 回</li>
+      <li>ChatGPT Pulse（先回り提案）</li>
+      <li>Personal Finance（米国先行）</li>
+      <li>Codex Mobile プレビュー</li>
+      <li>Plus の 5〜20 倍の使用量</li>
+    </ul>
+  </div>
+  <div class="plan-card">
+    <h3>Business</h3>
+    <div class="plan-desc">チーム向け（2名以上）</div>
+    <div class="price">¥3,900<small>/人・月</small></div>
+    <div class="price-note">年契約。月払いは¥4,650/人</div>
+    <ul>
+      <li>データは学習に使われない（既定）</li>
+      <li>管理者コンソール / SSO / MFA</li>
+      <li>ワークスペースエージェント</li>
+      <li>Skills（業務フロー再利用）ベータ</li>
+      <li>ChatGPT for Excel/Sheets</li>
+      <li>60+ アプリ連携</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout info">
+  <h4>価格早見メモ</h4>
+  <p>Free → Go（+¥1,500）で回数制限が大きく緩和。Go → Plus（+¥1,500）で <strong>広告消失と機能ほぼフル開放</strong>。Plus → Pro（約5〜10倍）は使用量の上限と最上位モデルへのアクセス。Plus → Business（+約¥900/人）は <strong>データが学習されない保証</strong>とチーム管理機能・新しいワークスペース機能（Agents・Skills）が加わります。</p>
+</div>
+
+<h3>比較早見表（主要項目を一目で）</h3>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>項目</th><th>Free</th><th>Go</th><th>Plus</th><th>Pro</th><th>Business</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>月額（日本円）</td><td>¥0</td><td>¥1,500</td><td class="hl">¥3,000</td><td>¥16,800〜¥30,000</td><td>¥3,900〜4,650/人</td></tr>
+      <tr><td>月額（米ドル）</td><td>$0</td><td>$8</td><td class="hl">$20</td><td>$100 / $200</td><td>$25〜30/人</td></tr>
+      <tr><td>最上位モデル</td><td>GPT-5.5 Instant</td><td>GPT-5.5 Instant</td><td class="hl">GPT-5.5 Thinking</td><td>GPT-5.5 Pro</td><td>GPT-5.5 Pro</td></tr>
+      <tr><td>広告表示</td><td class="partial">米/加/豪/NZ あり</td><td class="partial">米/加/豪/NZ あり</td><td class="hl"><span class="check">なし</span></td><td><span class="check">なし</span></td><td><span class="check">なし</span></td></tr>
+      <tr><td>Images 2.0</td><td><span class="check">○</span></td><td><span class="check">○</span></td><td class="hl"><span class="check">○ ＋Thinking</span></td><td><span class="check">○ ＋Thinking</span></td><td><span class="check">○ ＋Thinking</span></td></tr>
+      <tr><td>Deep Research</td><td>5回/月</td><td class="cross">×</td><td class="hl">25回/月</td><td>250回/月</td><td>25回/月</td></tr>
+      <tr><td>Codex（コーディング）</td><td class="cross">×</td><td class="cross">×</td><td class="hl"><span class="check">○</span></td><td><span class="check">○（5〜20倍）</span></td><td><span class="check">○／専用席</span></td></tr>
+      <tr><td>Agent Mode</td><td class="cross">×</td><td class="cross">×</td><td class="hl"><span class="check">40回/月</span></td><td><span class="check">400回/月</span></td><td><span class="check">○</span></td></tr>
+      <tr><td>ワークスペースエージェント</td><td class="cross">×</td><td class="cross">×</td><td class="hl cross">×</td><td class="cross">×</td><td><span class="check">○（クレジット課金）</span></td></tr>
+      <tr><td>Skills（業務フロー再利用）</td><td class="cross">×</td><td class="cross">×</td><td class="hl cross">×</td><td class="cross">×</td><td><span class="check">○（ベータ）</span></td></tr>
+      <tr><td>カスタムGPT 作成</td><td class="cross">×</td><td><span class="check">○</span></td><td class="hl"><span class="check">○</span></td><td><span class="check">○</span></td><td><span class="check">○（共有可）</span></td></tr>
+      <tr><td>外部アプリ連携</td><td class="cross">×</td><td class="cross">×</td><td class="hl"><span class="check">○</span></td><td><span class="check">○</span></td><td><span class="check">60+ アプリ</span></td></tr>
+      <tr><td>ChatGPT for Excel/Sheets</td><td class="partial">限定</td><td class="partial">限定</td><td class="hl"><span class="check">○</span></td><td><span class="check">○</span></td><td><span class="check">○（プレビュー無料）</span></td></tr>
+      <tr><td>ChatGPT Atlas</td><td><span class="check">○</span></td><td><span class="check">○</span></td><td class="hl"><span class="check">○ Agent可</span></td><td><span class="check">○</span></td><td><span class="check">○</span></td></tr>
+      <tr><td>データを学習に利用</td><td class="partial">する（停止可）</td><td class="partial">する</td><td class="hl partial">する</td><td class="partial">する</td><td><span class="check">しない（既定）</span></td></tr>
+      <tr><td>SSO / MFA / RBAC</td><td class="cross">×</td><td class="cross">×</td><td class="hl cross">×</td><td class="cross">×</td><td><span class="check">○</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<p style="font-size:11.5px;color:var(--muted);margin-top:8px">※ 2026年5月20日時点。為替・税込の日本語公式ページ表示ベース。<br>※ Web経由の海外契約は為替手数料（1〜3%）で実額が表示より高くなる場合があります。</p>
+
+<h3>プランごとの詳細</h3>
+
+<!-- Plan: Free -->
+<div class="plan-detail">
+  <div class="plan-detail-header">
+    <h3>Free — 無料プラン</h3>
+    <span class="pill">¥0 / 月</span>
+  </div>
+  <p>AI をまず触ってみたい人向けの入り口。2026年5月現在、Free は GPT-5.5 Instant に触れることができ、画像生成（Images 2.0）も使えます。ただし 5時間に10メッセージ程度の上限があり、上限後は軽量モデルへフォールバック（切り替え）されます。2026年5月のアップデートで <strong>インライン Web 画像表示が強化</strong>され、人物・場所・商品などのビジュアルが回答に併記されるようになりました。</p>
+  <div class="plan-attrs">
+    <div class="plan-attr"><strong>対象</strong><span>AIを試したい初心者・学生</span></div>
+    <div class="plan-attr"><strong>主要モデル</strong><span>GPT-5.5 Instant（5時間10件）</span></div>
+    <div class="plan-attr"><strong>Deep Research</strong><span>月 5 回</span></div>
+    <div class="plan-attr"><strong>広告</strong><span>米/加/豪/NZ で表示</span></div>
+  </div>
+  <div class="callout warn">
+    <h4>広告について（2026年5月時点）</h4>
+    <p>米国（2026/2 開始）に加え、<strong>カナダ・オーストラリア・ニュージーランド</strong>の Free と Go ユーザー（18歳以上）に「Sponsored Tips」が表示されています。健康・政治・メンタルヘルス等の機微な話題では非表示。日本は未対象です。Plus・Pro・Business に広告は出ません。</p>
+  </div>
+</div>
+
+<!-- Plan: Go -->
+<div class="plan-detail">
+  <div class="plan-detail-header">
+    <h3>Go — 低価格プラン</h3>
+    <span class="pill">¥1,500 / 月</span>
+  </div>
+  <p>2025年8月にインドで先行開始、2026年1月15日からグローバル展開。さらに 2026年5月時点では <strong>98カ国でカバー</strong>（欧州8カ国を1月に追加）。Free と Plus の中間グレードで、GPT-5.5 Instant が実質無制限、画像生成・ファイルアップロード・メモリ容量が大幅に拡張されます。</p>
+  <div class="plan-attrs">
+    <div class="plan-attr"><strong>対象</strong><span>予算重視のライトユーザー</span></div>
+    <div class="plan-attr"><strong>主要モデル</strong><span>GPT-5.5 Instant（無制限相当*）</span></div>
+    <div class="plan-attr"><strong>Codex/Deep Research</strong><span>利用不可</span></div>
+    <div class="plan-attr"><strong>広告</strong><span>あり（Free相当）</span></div>
+  </div>
+  <p class="term-note">
+    <strong>実質無制限（*）とは：</strong>明確な回数制限はないものの、「不正利用防止の安全機構」の範囲内で利用する必要があります。常識的な量なら使い放題、という意味です。
+  </p>
+</div>
+
+<!-- Plan: Plus -->
+<div class="plan-detail" style="border-left-color:var(--gold)">
+  <div class="plan-detail-header">
+    <h3>Plus — 最もコスパが良い定番</h3>
+    <span class="pill" style="background:var(--gold)">¥3,000 / 月</span>
+  </div>
+  <p>仕事・学習で本気で活用する人の <strong>ほぼ正解</strong>とされるプラン。2023年2月の登場以来、約3年間価格が据え置きで、機能は継続的に追加されてきました。GPT-5.5 Thinking・Codex・Agent Mode・Deep Research・カスタム GPT・<strong>Images 2.0 + Thinking モード</strong>といった ChatGPT らしい機能がほぼすべて使えます。Memory Sources も Web 版に先行配備。</p>
+  <div class="plan-attrs">
+    <div class="plan-attr"><strong>対象</strong><span>個人の専門職全般</span></div>
+    <div class="plan-attr"><strong>GPT-5.5 Instant</strong><span>標準モデル優先アクセス</span></div>
+    <div class="plan-attr"><strong>GPT-5.5 Thinking</strong><span>推論モデル利用可</span></div>
+    <div class="plan-attr"><strong>Deep Research</strong><span>月 25 回</span></div>
+  </div>
+  <div class="callout good">
+    <h4>Plus を選ぶ判断基準</h4>
+    <p>「毎日 ChatGPT を仕事で使う」「広告は邪魔」「コードを書いてもらいたい」「Atlas で Agent Mode を使いたい」のうち <strong>2つ以上が当てはまるなら Plus</strong> にしましょう。1時間あたり数百円の時短効果で十分元が取れます。</p>
+  </div>
+</div>
+
+<!-- Plan: Pro -->
+<div class="plan-detail">
+  <div class="plan-detail-header">
+    <h3>Pro — パワーユーザー向け（2段階）</h3>
+    <span class="pill">¥16,800 または ¥30,000 / 月</span>
+  </div>
+  <p>2026年4月9日に <strong>US$100 の中間プランが新設</strong>され、Pro は 2 段階構成に。どちらも同じモデル一式（<strong>GPT-5.5 Pro</strong> 含む）にアクセスできますが、使用量の上限が異なります：<strong>US$100 は Plus の 5 倍</strong>、<strong>US$200 は Plus の 20 倍</strong>。研究者、プロ開発者、AI を一日中使う職種向けです。最近では <strong>Personal Finance</strong>（米国先行）や <strong>Codex モバイルアプリ</strong>のプレビュー機能も Pro 向けにリリースされています。</p>
+  <div class="plan-attrs">
+    <div class="plan-attr"><strong>対象</strong><span>研究者・プロ開発者・AI 起業家</span></div>
+    <div class="plan-attr"><strong>最上位モデル</strong><span>GPT-5.5 Pro</span></div>
+    <div class="plan-attr"><strong>Deep Research</strong><span>月 250 回</span></div>
+    <div class="plan-attr"><strong>特別機能</strong><span>ChatGPT Pulse / Personal Finance</span></div>
+  </div>
+  <p class="term-note">
+    <strong>ChatGPT Pulse とは：</strong>過去の会話・メモリ・設定から「次に必要としそうな情報」を <strong>朝一で先回り生成</strong>する Pro 限定機能。ニュース要約・タスクのリマインド・関連調査などを準備してくれます。<br>
+    <strong>Personal Finance とは：</strong>金融口座を安全に連携し、支出・請求・サブスク・純資産・投資・目標を1画面で管理できる新機能（2026年5月、米国 Pro 限定でプレビュー開始）。送金や決済はできず「分析・計画」のみ提供。
+  </p>
+</div>
+
+<!-- Plan: Business -->
+<div class="plan-detail">
+  <div class="plan-detail-header">
+    <h3>Business — 2名以上のチーム向け</h3>
+    <span class="pill">¥3,900〜 / 人・月（年契約）</span>
+  </div>
+  <p>従来「Team」と呼ばれていたプランが 2025年8月に Business へ改称・再編されました。Plus の個人利用を束ねるだけでなく、<strong>「入力されたデータが学習に使われない」</strong>というビジネス利用で最も重要なポリシーが既定で有効になります。2026年4月以降、<strong>ワークスペースエージェント</strong>・<strong>Skills</strong>・<strong>ChatGPT for Excel/Sheets</strong> といった業務向け機能も次々追加されています。</p>
+  <div class="plan-attrs">
+    <div class="plan-attr"><strong>対象</strong><span>2名以上の小〜中規模組織</span></div>
+    <div class="plan-attr"><strong>最低契約</strong><span>2 シート〜</span></div>
+    <div class="plan-attr"><strong>管理機能</strong><span>SAML SSO / MFA / 監査ログ / RBAC</span></div>
+    <div class="plan-attr"><strong>コンプライアンス</strong><span>GDPR / CCPA / SOC 2 Type 2</span></div>
+  </div>
+  <p class="term-note">
+    <strong>SAML SSO（シングルサインオン）：</strong>社員が一度ログインすれば複数サービスを横断的に使える企業向け認証。<strong>MFA（多要素認証）</strong>：パスワード+スマホアプリや SMS で本人確認する二重認証。<strong>RBAC（ロールベースアクセス制御）</strong>：役職・役割ごとに権限を細かく分ける仕組み。<strong>SOC 2 Type 2</strong>：米国の外部監査基準。
+  </p>
+  <div class="callout warn">
+    <h4>Plus を業務利用することのリスク</h4>
+    <p>個人の Plus 契約で顧客情報や社内資料を入力すると、<strong>既定ではその内容が OpenAI のモデル学習に使われる可能性があります</strong>（オプトアウト可能）。情報漏洩リスクを避けたい企業利用なら、+¥900前後 の差額で Business に上げるのが原則的な選択です。</p>
+  </div>
+  <div class="callout info">
+    <h4>2026年4月以降の Business 限定の新機能</h4>
+    <p><strong>(1) ワークスペースエージェント</strong>（4/22）：業務フローを自律実行する共有エージェント。クレジットベース課金（30クレジット/メッセージ）。<br>
+    <strong>(2) Skills</strong>（ベータ）：再利用可能な業務手順を SKILL.md として保存・共有。<br>
+    <strong>(3) ChatGPT for Excel/Sheets</strong>（5/6 グローバル）：Excel/Sheets にサイドバー統合。<strong>2026/6/2 までプレビュー無料</strong>。</p>
+  </div>
+</div>
+
+</section>
+</div>
+
+<!-- ================== TAB 3: MODELS ================== -->
+<div class="tab-panel" id="tab-models">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">03 ── Models</div>
+  <h2>モデルの種類を<em>整理する</em></h2>
+  <p class="lede">ChatGPT の「頭脳」は複数のモデルで構成されており、プランごとに使えるモデルが違います。2026年5月20日現在、デフォルトは <strong>GPT-5.5 Instant</strong>（2026/5/5〜）、上位プランでは <strong>GPT-5.5 Thinking / Pro</strong>（2026/4/23〜）が利用可能です。</p>
+</div>
+
+<p class="term-note">
+  <strong>モデル（model）とは：</strong>AIの「種類」のこと。同じ ChatGPT の中でも、「速い・軽い」モデルと「遅いけど賢い」モデルがあり、用途で使い分けます。Word に「明朝体・ゴシック体」があるように、ChatGPT には「Instant・Thinking・Pro」があると考えると分かりやすいです。
+</p>
+
+<div class="correction-notice">
+  <strong>重要な変更の経緯</strong>
+  2026年2月13日に旧モデル（GPT-4o・4.1・o4-mini・GPT-5 Instant・GPT-5 Thinking）が引退、3月3日に GPT-5.3 Instant がデフォルトに、4月23日に <strong>GPT-5.5 Thinking／Pro</strong>、<strong>5月5日に GPT-5.5 Instant</strong> が公開されデフォルトが GPT-5.5 ファミリーに完全移行しました。GPT-5.3 Instant は有料プランで3カ月間（〜2026年8月頃）モデル設定から選択可能ですが、その後廃止予定です。
+</div>
+
+<div class="models-tree">
+  <div class="model-row">
+    <div class="model-name">GPT-5.5 Instant<small>標準モデル（2026/5/5〜デフォルト）</small></div>
+    <div class="model-desc">
+      現在の <strong>既定モデル</strong>。GPT-5.3 Instant を置き換えました。<strong>医療・法律・金融など「正確さが重要な分野」でのハルシネーション（事実誤認）を52.5%削減</strong>。応答は約30%短く、絵文字や過剰な装飾を抑制した「素っ気ない」スタイル。画像解析・STEM 系の回答・Web 検索の使い時の判断にも向上。Plus・Pro 向けには <strong>過去会話・ファイル・Gmail を文脈として活用</strong>するパーソナライズ強化も搭載。
+      <div class="model-avail">
+        <span class="tag free">Free</span>
+        <span class="tag">Go</span>
+        <span class="tag plus">Plus</span>
+        <span class="tag pro">Pro</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">GPT-5.5 Thinking<small>推論モデル（2026/4/23〜）</small></div>
+    <div class="model-desc">
+      「考えてから答える」タイプのモデル。<strong>数学・論理・複雑なコード・多段の分析</strong>などに強く、Terminal-Bench 2.0 で <strong>82.7% という業界最高水準スコア</strong>を記録。FrontierMath（高難度数学）でも 51.7%。複雑なタスクの計画・道具使用・検証を一気通貫でこなします。Codex 内でも GPT-5.5 が動作。
+      <div class="model-avail">
+        <span class="tag plus">Plus</span>
+        <span class="tag pro">Pro</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">GPT-5.5 Pro<small>最上位モデル（2026/4/23〜）</small></div>
+    <div class="model-desc">
+      Pro プラン限定の最高性能モデル。コードネーム「Spud」。<strong>最大限の計算資源を投入</strong>して、研究・複雑な数学・高難度コーディング・長大な文書処理で最も精度の高い回答を出します。Business／Enterprise でも利用可。応答時間は遅めですが、品質は別格です。
+      <div class="model-avail">
+        <span class="tag pro">Pro ($100/$200)</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">GPT-5.4 mini<small>軽量推論モデル（フォールバック用）</small></div>
+    <div class="model-desc">
+      Free / Go ユーザーが「+メニュー → Thinking」で起動できる軽量推論モデル。有料プランでは Thinking の回数上限に達したときのフォールバック先として動作。モデルピッカーには表示されません。
+      <div class="model-avail">
+        <span class="tag free">Free</span>
+        <span class="tag">Go</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">GPT-5.3 Instant Mini<small>最軽量・無音フォールバック</small></div>
+    <div class="model-desc">
+      Free プランで制限に達したときの <strong>フォールバック（切り替え先）</strong>として使われる軽量モデル。日常会話や簡単な質問には十分。モデル選択メニューには表示されません。
+      <div class="model-avail">
+        <span class="tag free">Free</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-5.3 Instant<small>2026/5/5 デフォルト退役（〜2026/8 まで選択可）</small></div>
+    <div class="model-desc" style="color:var(--muted)">
+      2026年3月3日から5月4日までデフォルトモデルだったモデル。GPT-5.5 Instant への移行に伴い退役。有料プラン契約者は3カ月間モデル設定から手動で選択可能ですが、2026年8月頃に完全廃止予定です。
+      <div class="model-avail">
+        <span class="tag retired">Retiring</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-4o / GPT-4.1 / o4-mini<small>2026/2/13 引退</small></div>
+    <div class="model-desc" style="color:var(--muted)">
+      ChatGPT UI からは完全に削除済み。旧モデルで作成された会話は裏側で GPT-5.5 系へ切り替わって継続されます。
+      <div class="model-avail">
+        <span class="tag retired">Retired</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>使い分けのコツ</h3>
+<div class="features-grid">
+  <div class="feature">
+    <div class="num">01</div>
+    <h5>Instant を既定に</h5>
+    <p>メール作成、要約、アイデア出しといった日常タスクは Instant で十分。速度が正義です。</p>
+  </div>
+  <div class="feature">
+    <div class="num">02</div>
+    <h5>複雑な判断は Thinking へ</h5>
+    <p>数学・論理パズル・コードのバグ探し・長文の論理構成は Thinking モードで。数秒〜数十秒かけて「考えて」答えます。</p>
+  </div>
+  <div class="feature">
+    <div class="num">03</div>
+    <h5>Pro は「精度最優先」の時だけ</h5>
+    <p>研究論文の査読、クリティカルな契約書レビュー等、1円でも失敗したくない場面用。日常使いはオーバースペックです。</p>
+  </div>
+</div>
+
+</section>
+</div>
+
+<!-- ================== TAB 4: FEATURE CATALOG ================== -->
+<div class="tab-panel" id="tab-catalog">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">04 ── Feature Catalog</div>
+  <h2>全機能<em>カタログ</em></h2>
+  <p class="lede">ChatGPT の全機能を「<strong>概要・できること・使い方・制約</strong>」の 4 観点で網羅したカタログです。左メニューで機能を選択してください。<strong>2026年5月20日時点</strong>の最新情報を反映しています。</p>
+</div>
+
+<div class="catalog-layout">
+  <!-- ===== Left Navigation ===== -->
+  <div class="catalog-nav" id="catalogNav">
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">A. チャット・会話の基本</div>
+      <div class="catalog-nav-item active" data-feature="chat">通常チャット</div>
+      <div class="catalog-nav-item" data-feature="canvas">Canvas</div>
+      <div class="catalog-nav-item" data-feature="projects">Projects</div>
+      <div class="catalog-nav-item" data-feature="memory">メモリ / Memory Sources<span class="new-flag">UPD</span></div>
+      <div class="catalog-nav-item" data-feature="groupchat">Group Chat</div>
+      <div class="catalog-nav-item" data-feature="fastanswers">Fast Answers</div>
+      <div class="catalog-nav-item" data-feature="voice">Advanced Voice</div>
+      <div class="catalog-nav-item" data-feature="record">Record Mode</div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">B. 画像・ビジュアル</div>
+      <div class="catalog-nav-item" data-feature="images">Images 2.0<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="imagethinking">Images with Thinking<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="imagelibrary">Image Library</div>
+      <div class="catalog-nav-item" data-feature="inlineimage">インラインWeb画像<span class="new-flag">NEW</span></div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">C. 調査・エージェント</div>
+      <div class="catalog-nav-item" data-feature="deepresearch">Deep Research</div>
+      <div class="catalog-nav-item" data-feature="websearch">Web 検索</div>
+      <div class="catalog-nav-item" data-feature="agentmode">Agent Mode</div>
+      <div class="catalog-nav-item" data-feature="pulse">ChatGPT Pulse</div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">D. 開発・コーディング</div>
+      <div class="catalog-nav-item" data-feature="codex">Codex（Web）</div>
+      <div class="catalog-nav-item" data-feature="codexmac">Codex App（macOS）</div>
+      <div class="catalog-nav-item" data-feature="codexmobile">Codex Mobile<span class="new-flag">NEW</span></div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">E. カスタマイズ・効率化</div>
+      <div class="catalog-nav-item" data-feature="customins">カスタム指示</div>
+      <div class="catalog-nav-item" data-feature="gpts">GPTs</div>
+      <div class="catalog-nav-item" data-feature="wsagents">ワークスペースエージェント<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="skills">Skills<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="tasks">Tasks</div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">F. 専門・分析</div>
+      <div class="catalog-nav-item" data-feature="ada">Advanced Data Analysis</div>
+      <div class="catalog-nav-item" data-feature="excel">ChatGPT for Excel/Sheets<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="finance">Personal Finance<span class="new-flag">NEW</span></div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">G. 連携・拡張</div>
+      <div class="catalog-nav-item" data-feature="apps">Apps / Connectors</div>
+      <div class="catalog-nav-item" data-feature="appstore">App Directory</div>
+      <div class="catalog-nav-item" data-feature="atlas">ChatGPT Atlas</div>
+      <div class="catalog-nav-item" data-feature="mcp">MCP</div>
+    </div>
+
+    <div class="catalog-nav-section">
+      <div class="catalog-nav-title">H. 安全機能</div>
+      <div class="catalog-nav-item" data-feature="trusted">Trusted Contact<span class="new-flag">NEW</span></div>
+      <div class="catalog-nav-item" data-feature="security">Advanced Account Security</div>
+    </div>
+  </div>
+
+  <!-- ===== Right Content Area ===== -->
+  <div class="catalog-content" id="catalogContent">
+
+    <!-- ===== A. CHAT FEATURES ===== -->
+
+    <!-- 通常チャット -->
+    <div class="catalog-feature active" data-panel="chat">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">通常チャット</div>
+        <div class="feature-subtitle">ChatGPT の基本機能。質問・依頼に応じて文章で答える</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>ChatGPT の最も基本的な機能。テキストを入力すると AI が文章で回答します。2026年5月時点の既定モデルは <strong>GPT-5.5 Instant</strong>。会話履歴は保存され、メモリ機能とも連動します。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>質問への回答、文章作成、要約、翻訳、相談、ブレスト</li>
+          <li>画像・PDF・Word・Excel ファイルをアップロードして読ませる</li>
+          <li>多言語対応（59言語）。日本語・英語・中国語など切り替え可</li>
+          <li>会話の途中で別モデル（Thinking 等）へ切り替え</li>
+          <li>回答の編集・再生成・複数バリエーション提示</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>chatgpt.com にアクセス、または iOS/Android/デスクトップアプリを起動</li>
+          <li>下部の入力欄に質問・依頼を入力</li>
+          <li>必要に応じて 📎 ボタンでファイルを添付</li>
+          <li>送信ボタン（または Enter）でメッセージ送信</li>
+          <li>回答が表示されたら、追加質問や修正依頼で深堀り</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free は 5時間 10メッセージ程度の上限あり（超過時は軽量モデルへ切替）</li>
+          <li>会話履歴は OpenAI のサーバーに保存される</li>
+          <li>Free / Go / Plus / Pro 個人プランは既定で入力内容が学習に利用される可能性あり（設定で停止可）</li>
+          <li>機密情報の入力は Business 以上を推奨</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <div class="catalog-feature" data-panel="canvas">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Canvas（キャンバス）</div>
+        <div class="feature-subtitle">長文・コードを横並び編集画面で対話的に推敲</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>長い文章やコードを <strong>チャットと別の編集画面（横並び）</strong>で扱える機能。Word のトラックチェンジに似た感覚で、AI と対話しながら部分修正・全体再生成・コメント追加ができます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>長文記事・レポート・小説の <strong>部分修正</strong>（選択した段落だけ書き直す）</li>
+          <li>コードのバグ修正・リファクタリング・コメント追加</li>
+          <li>「もっと簡潔に」「もっとフォーマルに」など <strong>ワンクリック調整</strong></li>
+          <li>変更履歴の確認、巻き戻し</li>
+          <li>絵文字・読みやすさ・長さの簡易調整ボタン</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャットで長文の作成や編集を依頼する（例：「ブログ記事を1500字で書いて」）</li>
+          <li>ChatGPT が即時に Canvas モードを起動、右側に編集画面が表示</li>
+          <li>編集したい部分をマウスで選択</li>
+          <li>表示される操作メニューから「短く」「丁寧に」等を選ぶ、または指示を入力</li>
+          <li>完成したら「コピー」ボタンで他のツールへ持ち出し</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>モバイル版での編集体験は PC 版より制限あり</li>
+          <li>非常に長いドキュメント（数万字）では応答が遅くなる</li>
+          <li>同時編集（複数ユーザー）には対応していない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="catalog-feature" data-panel="projects">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Projects（プロジェクト）</div>
+        <div class="feature-subtitle">関連する会話とファイルを「フォルダ」で束ねる</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>テーマごとに会話・ファイル・プロジェクト固有指示を <strong>フォルダのようにまとめられる</strong>機能。「○○社向け提案」「△△論文研究」のように整理して、関連する会話を一覧表示できます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>プロジェクト固有の <strong>指示（カスタムインストラクション）</strong>を設定</li>
+          <li>関連ファイル・PDF・参考資料をアップロードして全会話で参照</li>
+          <li>Slack チャンネル URL や Google Drive のリンクを <strong>ソースとして追加</strong>（2026年強化）</li>
+          <li>有用な回答を「プロジェクトに保存」して再利用可能なナレッジ化</li>
+          <li>メモ・ブリーフ・参考資料をテキストで直接貼り付け</li>
+          <li>関連会話の一覧表示で文脈を維持しやすい</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>左サイドバーの「+ 新規プロジェクト」をクリック</li>
+          <li>プロジェクト名を入力（例：「ABC社提案2026Q2」）</li>
+          <li>「指示」タブにプロジェクト固有のルールを入力</li>
+          <li>「ファイル」タブに関連ドキュメントをアップロード／リンク追加</li>
+          <li>そのプロジェクト内で新しい会話を開始 — 即時にコンテキストが適用</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Enterprise / Edu ではアプリ接続が管理者の RBAC で制御される</li>
+          <li>プロジェクト内のファイル容量はプランに依存</li>
+          <li>他人とのプロジェクト共有は Business 以上が前提</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Memory -->
+    <div class="catalog-feature" data-panel="memory">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">メモリ / Memory Sources</div>
+        <div class="feature-subtitle">過去の会話を覚えて、文脈を引き継いで応答</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>過去の会話から「好み・職業・文体・関心事」などを <strong>裏側で記憶</strong>し、次回以降の回答に反映する機能。2026年5月の <strong>Memory Sources</strong>追加で、「どの情報源（過去会話・メモリ・Gmail・ファイル）が応答に影響したか」が可視化されました。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>名前・職業・趣味・好みなど属性情報の学習・記憶</li>
+          <li>「いつもの文体で」など曖昧な依頼への対応</li>
+          <li><strong>Memory Sources</strong> で参照された情報源を確認・編集・削除</li>
+          <li>Plus / Pro は <strong>過去会話・ファイル・Gmail連携</strong>を文脈として活用（順次展開中）</li>
+          <li>共有チャットでは Memory Sources は他人に見られない</li>
+          <li>「一時チャット」で履歴とメモリを使わない会話も可能</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → パーソナライズ → メモリで機能をオン</li>
+          <li>通常通り会話をすると ChatGPT が重要事項を保存</li>
+          <li>「これを覚えておいて」と明示的に依頼することも可能</li>
+          <li>メモリ管理画面で保存内容を一覧確認・編集・削除</li>
+          <li>応答に「Memory Sources」表示があれば、それをクリックして根拠を確認</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>記憶された情報がモデルの学習に使われる可能性あり（Business は除く）</li>
+          <li>Memory Sources は応答に影響した「主な要因」のみ表示（全ての参照を表示するわけではない）</li>
+          <li>地域によっては利用できないパーソナライズソースあり</li>
+          <li>一時チャットではメモリの読み書きは行われない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Group Chat -->
+    <div class="catalog-feature" data-panel="groupchat">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Group Chat（グループ会話）</div>
+        <div class="feature-subtitle">複数人で同じ ChatGPT と会話するモード</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2025年11月に追加された機能。<strong>複数人が同じ ChatGPT と会話できる</strong>モードで、ブレスト・会議の補助・グループ学習などに活用されます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>友人・同僚と一緒に同じ AI に質問できる</li>
+          <li>ブレストミーティング中に AI を参加させる</li>
+          <li>グループのアイデアを AI が整理・要約</li>
+          <li>共有リンクで参加者を招待</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>新規チャット作成画面で「Group Chat」モードを選択</li>
+          <li>招待リンクを発行</li>
+          <li>参加者にリンクを共有（ChatGPT アカウント必要）</li>
+          <li>全員が参加したら通常通り会話を開始</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>同時参加可能人数に上限あり</li>
+          <li>業務利用では Business / Enterprise の管理機能が必要</li>
+          <li>機密情報の取り扱いは慎重に</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fast Answers -->
+    <div class="catalog-feature" data-panel="fastanswers">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Fast Answers（高速回答）</div>
+        <div class="feature-subtitle">パーソナライズ不要な質問への即答モード</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年4月22日に追加された機能。<strong>事実確認・一般知識など、パーソナライズが不要な質問</strong>に対し、過去会話やメモリを参照せずに高速回答するモード。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>「東京タワーの高さは？」など事実情報の瞬時回答</li>
+          <li>計算・換算・定義などの即答</li>
+          <li>応答時間の短縮（メモリ参照のオーバーヘッドなし）</li>
+          <li>設定でオン/オフ切替可能</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → 一般 → Fast Answers をオン</li>
+          <li>事実確認系の質問を入力</li>
+          <li>ChatGPT が裏側でパーソナライズをスキップして高速回答</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>個人の文脈が必要な質問では精度が落ちる</li>
+          <li>常時オンだとパーソナライズ機能が活かしにくい</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Advanced Voice -->
+    <div class="catalog-feature" data-panel="voice">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Advanced Voice Mode</div>
+        <div class="feature-subtitle">感情を込めた自然な音声会話</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free（基本版）</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>感情・アクセント・笑い・ささやきを含む <strong>自然な音声で会話</strong>できるモード。Plus 以上で高品質版（Advanced）が利用可能。Free でも基本版が使えます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>音声で質問・依頼、音声で回答を受け取る</li>
+          <li>複数の音声プリセット（Cove・Juniper・Ember 等）から選択</li>
+          <li>歩きながら・運転中など <strong>ハンズフリー</strong>で利用</li>
+          <li>多言語の発音にも対応</li>
+          <li>音声会話の途中で割り込み可能</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>モバイルアプリ右下の「波形マーク」または PC 版の音声アイコンをタップ</li>
+          <li>マイク使用の許可</li>
+          <li>普通に話しかける</li>
+          <li>ChatGPT が音声で回答</li>
+          <li>終了は ✕ ボタンまたは「終了して」と発話</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>macOS アプリの旧音声機能は 2026年1月15日に終了済み</li>
+          <li>騒音環境では認識精度が下がる</li>
+          <li>音声データも会話履歴として保存される</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Record Mode -->
+    <div class="catalog-feature" data-panel="record">
+      <div class="feature-head">
+        <div class="feature-cat">A. チャット・会話の基本</div>
+        <div class="feature-title">Record Mode（録音モード）</div>
+        <div class="feature-subtitle">会議音声を録音 → 即時に文字起こし・要約</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>会議や打ち合わせの音声を録音し、ChatGPT が裏側で <strong>文字起こし＋要約＋アクションアイテム抽出</strong>を行う機能。Plus 以上で利用可能。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>会議音声をリアルタイム録音</li>
+          <li>文字起こし（多言語対応）</li>
+          <li>議事録・要約の生成</li>
+          <li>決定事項・アクションアイテムの抽出</li>
+          <li>話者の識別（実装による）</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>新規チャットで「Record」モードを選択</li>
+          <li>録音許可を与える</li>
+          <li>会議開始時に録音ボタン</li>
+          <li>終了時に停止</li>
+          <li>生成された議事録を確認・編集</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>録音前に参加者全員の同意を得る必要あり</li>
+          <li>長時間の会議では分割処理が必要な場合あり</li>
+          <li>音質が悪いと文字起こし精度が下がる</li>
+          <li>機密性の高い会議では Business 推奨</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== B. IMAGE FEATURES ===== -->
+
+    <!-- Images 2.0 -->
+    <div class="catalog-feature" data-panel="images">
+      <div class="feature-head">
+        <div class="feature-cat">B. 画像・ビジュアル</div>
+        <div class="feature-title">ChatGPT Images 2.0</div>
+        <div class="feature-subtitle">2026年4月21日リリース・全プラン対応の新世代画像生成</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年4月21日リリースの <strong>新世代画像生成モデル</strong>。生成速度は従来の4倍に高速化、指示への忠実性・編集精度・ディテール保持が大幅向上。日本語・中国語・韓国語・ヒンディー語・ベンガル語などのテキスト描画精度も大幅改善。最大2K解像度、1プロンプトから最大8枚同時生成可能。<strong>DALL-E 3 は2026年5月12日でサポート終了</strong>。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>テキスト指示から画像生成（最大2K解像度）</li>
+          <li>1プロンプトから最大 <strong>8枚同時生成</strong></li>
+          <li><strong>日本語・中国語・韓国語などのテキスト</strong>を画像内に正確に描画</li>
+          <li>既存画像のアップロード → 部分編集（顔の同一性を保持）</li>
+          <li>マーケティング素材・コミック・インフォグラフィック作成</li>
+          <li>縦横比・アスペクト比の自由指定</li>
+          <li>プリセットフィルター・トレンドプロンプトで簡単着手</li>
+          <li><strong>likeness アップロード</strong>（自分の容姿を一度登録 → 以降再利用）</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャット入力欄で画像生成を依頼（例：「ラーメン店の看板を作って」）</li>
+          <li>または、左サイドバーの「Images」専用画面から作成</li>
+          <li>既存画像を編集する場合は 📎 ボタンでアップロード</li>
+          <li>指示の細部・アスペクト比などを調整</li>
+          <li>生成された画像を確認、必要なら「○○を変更して」と修正依頼</li>
+          <li>気に入ったら「保存」「ダウンロード」「コピー」で持ち出し</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free は1日に生成できる枚数に制限あり（数枚程度）</li>
+          <li>キャラクター同一性（同じ顔を完全に保持）は完全ではない</li>
+          <li>アダルト・NSFW コンテンツは生成不可（設定でも解除不可）</li>
+          <li>有名人・実在の特定人物の生成は基本的に拒否される</li>
+          <li>知識カットオフは2025年12月、それ以降の最新事象は反映されない場合あり</li>
+          <li>Business / Enterprise のサイドバー Images 体験は順次展開</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Images with Thinking -->
+    <div class="catalog-feature" data-panel="imagethinking">
+      <div class="feature-head">
+        <div class="feature-cat">B. 画像・ビジュアル</div>
+        <div class="feature-title">Images with Thinking</div>
+        <div class="feature-subtitle">描画前に AI が構図を計画する高精度モード</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>Images 2.0 と同時にリリースされた <strong>有料プラン限定</strong>の機能。AIが描画する前に <strong>「構図・要素配置を計画」</strong>してから絵を生成します。Web 検索で最新情報を取得し、8枚まで同時生成、出力を自己レビューすることも可能。複雑な指示や複数オブジェクトの配置に強い。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>複雑な構図・複数オブジェクトの正確な配置</li>
+          <li>密度の高いテキスト・複数言語混在の正確な描画</li>
+          <li>Web 検索でリアルタイム情報を取得して反映</li>
+          <li>マルチパネル漫画・複数サイズの広告素材を一度に生成</li>
+          <li>自己ダブルチェック機能で品質安定</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>モデルピッカーで「Thinking」または「Pro」モデルを選択</li>
+          <li>画像生成を依頼（複雑な構図の場合に効果大）</li>
+          <li>AI が描画前に「思考」プロセスで構図を検討</li>
+          <li>結果を確認し、必要なら修正依頼</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free / Go プランでは利用不可</li>
+          <li>Instant モードに比べて生成時間が長くなる</li>
+          <li>シンプルな画像にはオーバースペック</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Image Library -->
+    <div class="catalog-feature" data-panel="imagelibrary">
+      <div class="feature-head">
+        <div class="feature-cat">B. 画像・ビジュアル</div>
+        <div class="feature-title">Image Library（画像ライブラリ）</div>
+        <div class="feature-subtitle">生成画像を一覧管理する専用画面</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>過去に生成したすべての画像を <strong>サイドバーから一覧管理</strong>できる機能。編集・選択・保存・共有のボタンが備わっており、過去のチャットを掘り起こす必要がなくなりました。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>生成した画像を一覧表示</li>
+          <li>サムネイルから即編集・再生成</li>
+          <li>ダウンロード・共有リンク発行</li>
+          <li>ストレージ管理（設定→ストレージから容量確認・削除）</li>
+          <li>Library から直接削除も可能</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>左サイドバーの「Images」または「Library」をクリック</li>
+          <li>過去の画像が一覧表示される</li>
+          <li>任意の画像をクリックして編集・ダウンロード等の操作</li>
+          <li>不要な画像は削除（Library またはストレージ設定から）</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>一時チャットでアップロードしたファイルは Library に保存されない</li>
+          <li>ストレージ容量はプランに依存</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Inline Web Images -->
+    <div class="catalog-feature" data-panel="inlineimage">
+      <div class="feature-head">
+        <div class="feature-cat">B. 画像・ビジュアル</div>
+        <div class="feature-title">インライン Web 画像（強化）</div>
+        <div class="feature-subtitle">回答に Web からの参考画像を併記</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月、Free ユーザー向けに強化された機能。<strong>有名人・場所・商品など視覚情報が役立つトピック</strong>では、回答内に Web からの画像を即時に挿入し、理解を助けます。GPT-5.5 Instant を使用した応答に適用。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>「○○とはどんな場所？」→ 写真付きで回答</li>
+          <li>「△△ってどんな製品？」→ 商品画像が併記</li>
+          <li>画像をクリックして原寸・出典ソース確認</li>
+          <li>ビジュアルが必要な学習・検索体験の向上</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>視覚情報が関連する質問を入力</li>
+          <li>ChatGPT が裏側で Web 画像を含む回答を生成</li>
+          <li>画像をクリックして原寸表示・出典確認</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>すべての質問に画像が付くわけではない（AI が必要性を判断）</li>
+          <li>機微なトピックでは画像が表示されない</li>
+          <li>web と iOS でロールアウト中、その他は順次</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== C. RESEARCH/AGENT FEATURES ===== -->
+
+    <!-- Deep Research -->
+    <div class="catalog-feature" data-panel="deepresearch">
+      <div class="feature-head">
+        <div class="feature-cat">C. 調査・エージェント</div>
+        <div class="feature-title">Deep Research（深い調査）</div>
+        <div class="feature-subtitle">数百サイト横断のリサーチアナリスト並み調査</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free 5回/月</span><span class="plan-tag plus">Plus 25回/月</span>
+          <span class="plan-tag pro">Pro 250回/月</span><span class="plan-tag business">Business 25回/月</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>AI が <strong>10〜30 分かけて数百サイトを横断</strong>し、リサーチアナリスト並みの構造化レポートを生成する機能。2026年2月10日からMCPやアプリと連携可能になり、信頼できるサイトに調査範囲を限定することも可能。レガシーモードは2026年3月26日に廃止済み。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>業界調査・競合分析・市場調査のレポート作成</li>
+          <li>出典付きの構造化された報告書を生成</li>
+          <li>MCP・接続アプリ経由で社内データソースも含む調査</li>
+          <li>信頼できるサイトに調査範囲を限定</li>
+          <li>図表・グラフを含む形式でアウトプット</li>
+          <li>過去レポートとの比較・差分分析</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャット入力欄の「+」メニューから「Deep Research」を選択</li>
+          <li>調査したいテーマ・要件を詳しく記述（例：「2026年Q1 の生成AI市場で日本企業のシェアと主要トレンドを調査」）</li>
+          <li>必要に応じて参照ソースの指定や制約条件を追加</li>
+          <li>「開始」を押す → 10〜30分待機（他作業可能）</li>
+          <li>完了通知を受け取ったらレポートを確認</li>
+          <li>追加質問で深堀りや形式変換</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>月間回数制限がある（プランによる）</li>
+          <li>10〜30 分かかるため即答は不可</li>
+          <li>有料サイト・ログイン必須サイトは参照不可</li>
+          <li>非常にニッチな日本語情報源は捕捉率が低い場合あり</li>
+          <li>出力された情報は人間によるレビュー必須</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Web Search -->
+    <div class="catalog-feature" data-panel="websearch">
+      <div class="feature-head">
+        <div class="feature-cat">C. 調査・エージェント</div>
+        <div class="feature-title">Web 検索</div>
+        <div class="feature-subtitle">最新情報のリアルタイム取得</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>最新情報を <strong>リアルタイムで検索</strong>し、出典付きで回答する機能。全プラン対応（Free は回数制限あり）。Google などとは独立した AI ネイティブの検索体験。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>「今日のニュース」「現在の為替」など最新情報の取得</li>
+          <li>出典 URL のクリック可能なリンク表示</li>
+          <li>商品比較・最新トレンド調査</li>
+          <li>事実確認のためのソース提示</li>
+          <li>GPT-5.5 Instant が「いつ Web 検索すべきか」を賢く判断</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>最新情報が必要な質問を入力</li>
+          <li>ChatGPT が必要に応じて即時に Web 検索を実行</li>
+          <li>明示的に検索させたい場合は「+メニュー → 検索」を選択</li>
+          <li>回答内のリンクをクリックして出典を確認</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>非常に直近（数分前）のニュースは反映に遅延あり</li>
+          <li>ローカル情報（「近所のラーメン店」等）は Google より弱い</li>
+          <li>Free は検索回数に制限あり</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Agent Mode -->
+    <div class="catalog-feature" data-panel="agentmode">
+      <div class="feature-head">
+        <div class="feature-cat">C. 調査・エージェント</div>
+        <div class="feature-title">Agent Mode（エージェントモード）</div>
+        <div class="feature-subtitle">仮想ブラウザでタスクを自律実行</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus 40回/月</span><span class="plan-tag pro">Pro 400回/月</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>「航空券を予約して」「このフォームに入力して」といった <strong>単発の複雑タスクを AI が仮想ブラウザ上で実行</strong>する機能。Plus 40回/月、Pro 400回/月。<strong>ChatGPT Atlas ブラウザ</strong>と組み合わせるとさらに強力。途中の確認や認証ステップは利用上限にカウントされません。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>Web サイトの操作（フォーム入力・購入・予約等）</li>
+          <li>アップロードファイルの処理</li>
+          <li>メールやドキュメントリポジトリへの接続</li>
+          <li>スプレッドシート編集</li>
+          <li>複数サイトを横断する調査・比較・実行</li>
+          <li>Code Interpreter・ターミナル・アプリ連携</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャット入力欄の「+」メニューから「Agent Mode」を選択</li>
+          <li>実行してほしいタスクを記述（例：「来週月曜の東京-大阪の最安新幹線をJR東日本サイトで検索し、選択肢をリストアップして」）</li>
+          <li>AI が仮想ブラウザで操作開始</li>
+          <li>重要なステップでは人間に確認を求める</li>
+          <li>承認すると次のステップへ、または完了報告</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>送金・決済・チケット購入など最終確定操作は人間の承認が必須</li>
+          <li>CAPTCHA・2段階認証で詰まる場合あり</li>
+          <li>機密情報の入力は推奨されない</li>
+          <li>Free / Go は利用不可</li>
+          <li>長時間タスクには時間制限あり</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ChatGPT Pulse -->
+    <div class="catalog-feature" data-panel="pulse">
+      <div class="feature-head">
+        <div class="feature-cat">C. 調査・エージェント</div>
+        <div class="feature-title">ChatGPT Pulse</div>
+        <div class="feature-subtitle">朝一の先回りレポート（Pro 専用）</div>
+        <div class="feature-plans">
+          <span class="plan-tag pro">Pro のみ</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>過去会話・メモリ・設定から「<strong>次に必要としそうな情報</strong>」を AI が朝一で生成して提案する Pro 限定機能。ニュース要約・タスクリマインド・関連調査などを先回りで準備してくれます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>毎朝、関心分野のニュース要約を取得</li>
+          <li>過去会話を踏まえたフォローアップ提案</li>
+          <li>進行中プロジェクトのリマインド</li>
+          <li>関連する最新事象の通知</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>Pro プランに加入（必須）</li>
+          <li>設定 → Pulse をオン</li>
+          <li>関心領域・スケジュールを設定</li>
+          <li>毎朝指定時刻に Pulse から提案レポートを受け取る</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Pro プラン（$100/$200）限定</li>
+          <li>適切なメモリ・履歴がない場合は提案精度が低い</li>
+          <li>地域・言語によっては機能が限定的</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== D. DEVELOPER FEATURES ===== -->
+
+    <!-- Codex (Web) -->
+    <div class="catalog-feature" data-panel="codex">
+      <div class="feature-head">
+        <div class="feature-cat">D. 開発・コーディング</div>
+        <div class="feature-title">Codex（Web）</div>
+        <div class="feature-subtitle">コード生成専用の自律エージェント</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro（5〜20倍）</span>
+          <span class="plan-tag business">Business（専用席）</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>コード生成専用のエージェント。<strong>リポジトリ全体を理解</strong>してバグ修正・機能追加・テスト実装をこなします。Pro では Plus の 5〜10 倍の枠（2026年5月31日まで期間限定10倍）。GPT-5.5 が基盤で動作。世界で <strong>毎週400万人</strong>が利用中。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>GitHub リポジトリへの接続・コード変更</li>
+          <li>バグ修正・リファクタリング</li>
+          <li>新機能のフル実装（複数ファイル横断）</li>
+          <li>テストコードの生成</li>
+          <li>Pull Request の作成・差分レビュー</li>
+          <li>Plugins Directory から既製ワークフローをインストール</li>
+          <li>Skills と組み合わせて社内コーディング規約を強制</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>chatgpt.com/codex にアクセス</li>
+          <li>GitHub アカウントを連携</li>
+          <li>対象リポジトリを選択</li>
+          <li>タスクを記述（例：「ユーザー登録画面にメール認証を追加して」）</li>
+          <li>Codex が変更を生成、Pull Request を作成</li>
+          <li>差分を確認、必要なら修正指示</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free / Go では利用不可</li>
+          <li>非常に巨大なモノレポでは処理時間がかかる</li>
+          <li>セキュリティクリティカルな変更には人間レビュー必須</li>
+          <li>本番環境への直接デプロイは推奨されない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Codex macOS App -->
+    <div class="catalog-feature" data-panel="codexmac">
+      <div class="feature-head">
+        <div class="feature-cat">D. 開発・コーディング</div>
+        <div class="feature-title">Codex App（macOS）</div>
+        <div class="feature-subtitle">複数コーディングエージェントの並列管理コンソール</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business（2倍枠 期間限定）</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>macOS 向けの Codex 専用アプリ。<strong>複数のコーディングエージェントを並列で管理</strong>するコマンドセンター。長時間・バックグラウンドタスクの実行、独立した worktree からのクリーン差分レビュー、再利用可能 Skills の実行が可能。Business では2倍のレートリミット（期間限定）。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>複数の Codex タスクを同時実行</li>
+          <li>長時間バックグラウンドタスク</li>
+          <li>クリーンな差分レビュー（worktree 分離）</li>
+          <li>エージェントの進捗・判断の可視化</li>
+          <li>Skills・効率化スクリプトの実行</li>
+          <li>Codex local / cloud / app の統合管理</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>macOS App Store または公式サイトからダウンロード</li>
+          <li>ChatGPT アカウントでログイン</li>
+          <li>Codex local の有効化（Business は管理者承認が必要）</li>
+          <li>プロジェクトを開いてタスクを開始</li>
+          <li>複数エージェントの並列実行・進捗監視</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>現在 macOS 専用（Windows / Linux は未対応）</li>
+          <li>Business では管理者が Codex アクセスを許可している必要</li>
+          <li>ローカルファイルへの書き込み権限の管理が必須</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Codex Mobile -->
+    <div class="catalog-feature" data-panel="codexmobile">
+      <div class="feature-head">
+        <div class="feature-cat">D. 開発・コーディング</div>
+        <div class="feature-title">Codex Mobile（モバイル版・プレビュー）</div>
+        <div class="feature-subtitle">スマホから Codex タスクを継続・確認</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月、ChatGPT モバイルアプリに <strong>Codex プレビュー機能</strong>が追加。スマホから接続済みの Mac やデバイスで稼働している Codex の進捗確認・指示・承認が可能になりました。「離席中でも作業を止めない」ためのコンパニオン機能。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>外出先からアクティブな Codex スレッドの状況確認</li>
+          <li>スレッドの開始・継続</li>
+          <li>エージェントからの質問への即時回答</li>
+          <li>提案された変更の承認</li>
+          <li>Codex が見つけた内容のレビュー</li>
+          <li>進捗・差分・スクリーンショット・テスト結果を表示</li>
+          <li>接続済みホスト間の切り替え</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>ChatGPT モバイルアプリを最新版に更新</li>
+          <li>Mac 等で Codex を起動・タスク開始</li>
+          <li>モバイルアプリで「Codex」タブをタップ</li>
+          <li>稼働中のホストと接続</li>
+          <li>進捗確認・承認・指示を実行</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>プレビュー版（仕様変更あり）</li>
+          <li>接続済み Mac / デバイス側で Codex が稼働している必要</li>
+          <li>モバイルからの単独実行ではなく、リモート操作の位置づけ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== E. CUSTOMIZATION/AUTOMATION ===== -->
+
+    <!-- Custom Instructions -->
+    <div class="catalog-feature" data-panel="customins">
+      <div class="feature-head">
+        <div class="feature-cat">E. カスタマイズ・効率化</div>
+        <div class="feature-title">カスタム指示（Custom Instructions）</div>
+        <div class="feature-subtitle">常時の前提条件を登録</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>「私は○○業界で、△△な出力を好む」と <strong>常時の前提条件を登録</strong>しておける機能。すべての新規チャットに常時適用されます。各項目1,500字まで。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>「あなたについて知ってほしいこと」を1,500字まで登録（職業・専門分野・関心など）</li>
+          <li>「どう振る舞ってほしいか」を1,500字まで登録（口調・形式・出力スタイル）</li>
+          <li>毎回プロンプトに同じ前提条件を書かなくて済む</li>
+          <li>新規チャットすべてに常時適用</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → パーソナライズ → カスタム指示</li>
+          <li>「あなたについて知ってほしいこと」を入力</li>
+          <li>「どう振る舞ってほしいか」を入力</li>
+          <li>保存して新規チャットを開始 — 反映</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>各項目1,500字までという文字数制限あり</li>
+          <li>過度に詳細な指示は応答精度を下げる場合あり</li>
+          <li>機密情報の登録は推奨されない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GPTs -->
+    <div class="catalog-feature" data-panel="gpts">
+      <div class="feature-head">
+        <div class="feature-cat">E. カスタマイズ・効率化</div>
+        <div class="feature-title">カスタム GPT（GPTs）</div>
+        <div class="feature-subtitle">業務特化型のカスタム AI ボット</div>
+        <div class="feature-plans">
+          <span class="plan-tag go">Go（作成可）</span><span class="plan-tag plus">Plus</span>
+          <span class="plan-tag pro">Pro</span><span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>自分専用の ChatGPT を作成できる機能。社内規約や FAQ を学習させて <strong>業務特化ボット</strong>にできます。Go 以上で作成可能。<strong>Business / Enterprise / Edu / Teachers では今後ワークスペースエージェント・Skills への移行が予告</strong>されています（個人プランの GPTs は当面継続）。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>「契約書レビュー GPT」「営業メール GPT」など特化型ボット作成</li>
+          <li>独自の指示・知識ファイル・口調・例文を埋め込み可能</li>
+          <li>外部 API・ツールとの連携（Actions 機能）</li>
+          <li>個人用・組織内・公開の3段階で共有範囲を制御</li>
+          <li>GPT Store で他人の GPT を発見・利用</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>左サイドバー「GPT を探す」→「+ 作成」</li>
+          <li>GPT Builder で対話的に作成 or「設定」タブで手動構成</li>
+          <li>名前・説明・指示・会話の例を設定</li>
+          <li>知識ファイル（PDF・テキスト等）をアップロード</li>
+          <li>必要に応じて Actions（API 連携）を追加</li>
+          <li>公開範囲を選択して保存</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free では作成不可（利用のみ）</li>
+          <li>Business/Enterprise/Edu/Teachers では将来的に Workspace Agents への移行が予定</li>
+          <li>知識ファイルの容量に上限あり</li>
+          <li>機密情報を埋め込むと、共有時の漏洩リスクあり</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Workspace Agents -->
+    <div class="catalog-feature" data-panel="wsagents">
+      <div class="feature-head">
+        <div class="feature-cat">E. カスタマイズ・効率化</div>
+        <div class="feature-title">ワークスペースエージェント</div>
+        <div class="feature-subtitle">業務フローの自律実行・チーム共有（2026/4/22 リリース）</div>
+        <div class="feature-plans">
+          <span class="plan-tag business">Business のみ</span>
+          <span class="plan-tag not-avail">Free/Go/Plus/Pro</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>Business・Enterprise・Edu・Teachers 向けに2026年4月22日公開された新機能。<strong>業務フローを「専用担当者」として作成・共有・自律実行</strong>できます。Codex が基盤、クラウドで稼働。<strong>2026年5月6日以降はクレジットベース課金</strong>（30クレジット/メッセージ）。Custom GPTs の後継として位置づけられています。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>テンプレートから即作成（営業リード調査、メール下書き、週次レポート等）</li>
+          <li>Slack・Google Drive・Calendar・SharePoint・Salesforce・Notion 等と連携</li>
+          <li>スケジュール／トリガー実行（毎朝・毎週・イベント発火）</li>
+          <li>組織内ディレクトリで共有（プライベート/リンク/公開の3段階）</li>
+          <li>Slack チャンネルに「住む」設計（@メンションで応答）</li>
+          <li>バージョン履歴・分析（実行回数・ユニークユーザー数）</li>
+          <li>Skills と組み合わせて再利用可能ワークフローに</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>サイドバーの「エージェント」をクリック</li>
+          <li>テンプレートを選択 or 「ゼロから作成」</li>
+          <li>自然言語でワークフローを記述</li>
+          <li>使用するアプリ・データを選択</li>
+          <li>動作テストして指示を調整</li>
+          <li>公開範囲とスケジュールを設定して公開</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Business / Enterprise / Edu / Teachers 限定（個人プランでは使えない）</li>
+          <li>クレジットベース課金（30クレジット/メッセージ）</li>
+          <li>書き込み系操作は人間の承認が原則</li>
+          <li>管理者が有効化したアプリ・ユーザー権限の範囲でしか動かない</li>
+          <li>Enterprise Key Management（EKM）ワークスペースは別途有効化が必要</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="catalog-feature" data-panel="skills">
+      <div class="feature-head">
+        <div class="feature-cat">E. カスタマイズ・効率化</div>
+        <div class="feature-title">Skills（スキル）</div>
+        <div class="feature-subtitle">再利用可能な業務フローを SKILL.md として保存・共有</div>
+        <div class="feature-plans">
+          <span class="plan-tag business">Business（ベータ）</span>
+          <span class="plan-tag not-avail">Free/Go/Plus/Pro</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>チームの業務フローを <strong>再利用可能なインストラクション</strong>として保存・共有できる新機能（Business・Enterprise・Edu でベータ提供中）。SKILL.md という Markdown 形式ファイルで「いつ使うか」「手順」「結果の形式」を定義し、ChatGPT が関連するタスク時に <strong>即時に適用</strong>します。GPTs より柔軟、Projects より深い構造化が可能。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>業務 SOP（標準作業手順）を SKILL.md として記述</li>
+          <li>テンプレート・スタイルガイド・スキーマなど補助資料を同梱</li>
+          <li>関連するタスクで ChatGPT が <strong>裏側でスキルを適用</strong></li>
+          <li>@メンションで明示的に呼び出すことも可能</li>
+          <li>複数スキルを同時に使用可（翻訳＋法務レビュー＋契約生成など）</li>
+          <li>ワークスペース内で共有・他人にインストール</li>
+          <li>Codex でも使える（Plugins として）</li>
+          <li>RBAC で作成・共有・インストール権限を制御</li>
+          <li><strong>Agent Skills オープン標準</strong>に準拠（他ツールでも使い回し可）</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>左下のプロフィールアイコン → ポップアップから「Skills」</li>
+          <li>新規スキル作成 or 既存チャットから「Skill にする」を選択</li>
+          <li>スキル名・説明・SKILL.md（手順書）を入力</li>
+          <li>必要なら補助資料（テンプレート等）をアップロード</li>
+          <li>テストして調整</li>
+          <li>「⋯」→ 共有メニューで同僚と共有 or ワークスペースに公開</li>
+          <li>他のユーザーは @メンション or 常時適用で利用</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li><strong>Business・Enterprise・Edu のみ（個人プランでは利用不可）</strong></li>
+          <li>ベータ機能のため Enterprise/Edu では既定オフ（管理者が有効化必要）</li>
+          <li>SKILL.md の書き方を理解するのに学習コストあり（ChatGPT に書かせることも可能）</li>
+          <li>クロス製品同期は未対応（手動でエクスポート・インポート）</li>
+          <li>スキル使用は通常会話と同じデータ取り扱いポリシーが適用される</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="catalog-feature" data-panel="tasks">
+      <div class="feature-head">
+        <div class="feature-cat">E. カスタマイズ・効率化</div>
+        <div class="feature-title">Tasks（定期実行）</div>
+        <div class="feature-subtitle">スケジュール実行で繰り返し業務を効率化</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>「毎週金曜夕方に業界ニュースをまとめて」「毎朝7時に天気と予定を要約して」といった <strong>スケジュール実行</strong>機能。Plus 以上で利用可能。2026年4月9日に「週全体で安定利用」する運用に調整されました。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>定期実行（毎日・毎週・毎月など）</li>
+          <li>一回だけの予約実行</li>
+          <li>結果のメール通知 / 通知センター</li>
+          <li>Web 検索や接続済みアプリと組み合わせてレポート化</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャット入力欄の「+」メニューから「Tasks」を選択</li>
+          <li>実行内容を記述（例：「毎朝8時に Bloomberg の主要記事3本を要約して」）</li>
+          <li>頻度・時刻・終了条件を設定</li>
+          <li>「保存」で予約完了</li>
+          <li>結果は指定時刻に通知される</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free / Go は利用不可</li>
+          <li>Plus / Pro / Business でも月間実行回数に上限あり</li>
+          <li>非常に頻繁な実行（数分ごと等）は不可</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== F. SPECIALIZED FEATURES ===== -->
+
+    <!-- Advanced Data Analysis -->
+    <div class="catalog-feature" data-panel="ada">
+      <div class="feature-head">
+        <div class="feature-cat">F. 専門・分析</div>
+        <div class="feature-title">Advanced Data Analysis</div>
+        <div class="feature-subtitle">Excel/CSV を Python で分析・グラフ化</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>Excel や CSV ファイルをアップロードして <strong>Python コードで分析・グラフ化</strong>する機能。旧名は Code Interpreter。Plus 以上で利用可能。データ分析の効率化に最適。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>CSV / Excel / JSON ファイルの読み込みと分析</li>
+          <li>集計・統計（平均・標準偏差・相関等）</li>
+          <li>グラフ・チャートの生成</li>
+          <li>機械学習モデル（回帰・分類等）の構築</li>
+          <li>結果を Excel / CSV / PDF で出力</li>
+          <li>使用した Python コードの表示</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>チャットでファイルをアップロード（📎 ボタン）</li>
+          <li>分析内容を指示（例：「売上データから月次推移グラフを作って」）</li>
+          <li>ChatGPT が Python コードで分析を実行</li>
+          <li>結果（グラフ・統計値）を確認</li>
+          <li>必要なら追加の分析を依頼</li>
+          <li>結果ファイルをダウンロード</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free / Go は機能が制限される</li>
+          <li>ファイル容量に上限あり（数百MB程度）</li>
+          <li>機密データを含むファイルは Business 推奨</li>
+          <li>非常に複雑な分析は人間によるレビュー必須</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ChatGPT for Excel/Sheets -->
+    <div class="catalog-feature" data-panel="excel">
+      <div class="feature-head">
+        <div class="feature-cat">F. 専門・分析</div>
+        <div class="feature-title">ChatGPT for Excel / Google Sheets</div>
+        <div class="feature-subtitle">スプレッドシートへの ChatGPT サイドバー統合（2026/5/6 グローバル）</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free（限定）</span><span class="plan-tag go">Go（限定）</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business（〜6/2 無料）</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月6日からグローバル展開。<strong>Excel と Google スプレッドシートにサイドバー統合</strong>され、表の構築・更新・解説・レビューを対話的に実行できます。Free と Go は限定使用、Plus と Pro は Codex と同じ Agent 系の利用上限を共有。Enterprise / Edu / K-12 / Business は <strong>2026年6月2日まで無料プレビュー</strong>。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>家計簿・予算管理・トラッカーの作成</li>
+          <li>複雑な数式の作成・解説</li>
+          <li>マルチタブファイルの構造化</li>
+          <li>シナリオ分析（What-If 分析）</li>
+          <li>スプレッドシートのクリーンアップ・整形</li>
+          <li>Skills や接続済みアプリと連携（承認されたデータソースを利用）</li>
+          <li>クレジットを追加購入してプラン上限を超えた利用も可能</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>Microsoft Marketplace（Excel）または Google Workspace Marketplace（Sheets）からインストール</li>
+          <li>ChatGPT アカウントでサインイン（適格プランが必要）</li>
+          <li>Excel / Sheets を開いてサイドバーを表示</li>
+          <li>シート操作の指示を入力（例：「B列の数値を合計してC1に表示」）</li>
+          <li>提案された変更をレビュー・承認</li>
+          <li>必要なら追加クレジットを購入</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Free・Go は利用が大幅に限定される</li>
+          <li>適格な ChatGPT アカウントが必要</li>
+          <li>数式や分析は使用前にレビュー必須</li>
+          <li>2026年6月2日以降は Business もクレジット消費</li>
+          <li>巨大なファイルでは処理が遅くなる</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Personal Finance -->
+    <div class="catalog-feature" data-panel="finance">
+      <div class="feature-head">
+        <div class="feature-cat">F. 専門・分析</div>
+        <div class="feature-title">Personal Finance（個人金融）</div>
+        <div class="feature-subtitle">Pro 限定（米国先行プレビュー）の金融ダッシュボード</div>
+        <div class="feature-plans">
+          <span class="plan-tag pro">Pro（米国のみ）</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月、米国の Pro ユーザー向けにプレビュー提供開始の新機能。<strong>金融口座を安全に連携</strong>し、支出・請求・サブスク・純資産・投資情報を一画面で管理。金融状況を踏まえた質問にも回答可能。Web と iOS で利用可。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>銀行口座・クレジットカード等の連携</li>
+          <li>支出ダッシュボードでお金の流れを把握</li>
+          <li>請求・サブスク・定期支払いの追跡</li>
+          <li>純資産・投資情報の一元管理</li>
+          <li>予算・貯蓄目標・債務返済の計画立案</li>
+          <li>金融に関する質問への回答（自分のデータを踏まえて）</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>米国の Pro プランに加入</li>
+          <li>ChatGPT で Finances ページを開く</li>
+          <li>対応している金融機関を連携（OAuth 認証）</li>
+          <li>ダッシュボードで支出・残高を確認</li>
+          <li>チャットで金融相談「来月の予算を最適化して」など</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li><strong>米国 Pro ユーザーのみ</strong>（プレビュー）</li>
+          <li>送金・決済・取引・確定申告・投資助言は <strong>不可</strong>（理解と計画のみ）</li>
+          <li>法的・税務・投資アドバイザーの代替にはならない</li>
+          <li>対応金融機関は限定的</li>
+          <li>日本では未提供（提供時期未定）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== G. INTEGRATIONS ===== -->
+
+    <!-- Apps / Connectors -->
+    <div class="catalog-feature" data-panel="apps">
+      <div class="feature-head">
+        <div class="feature-cat">G. 連携・拡張</div>
+        <div class="feature-title">Apps / Connectors（外部アプリ連携）</div>
+        <div class="feature-subtitle">60以上の外部サービスとの直接接続</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>Google Drive・Gmail・Slack・Notion・GitHub・Jira など <strong>60以上のサービス</strong>を接続し、チャット内で直接データを参照・操作できる機能。Plus 以上で利用可能。Business では管理者が RBAC で利用範囲を制御できます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li><strong>Google Workspace</strong>：Drive / Gmail / Calendar / Docs / Sheets / Slides</li>
+          <li><strong>Microsoft</strong>：OneDrive / SharePoint / Outlook / Teams</li>
+          <li><strong>開発系</strong>：GitHub / Linear / Atlassian（Jira・Confluence）</li>
+          <li><strong>ビジネス系</strong>：Slack / Notion / Asana / Salesforce / Zendesk</li>
+          <li><strong>ストレージ</strong>：Dropbox / Box（Dropbox は EU 不可）</li>
+          <li>Deep Research・Agent Mode 内でも連携データを利用可能</li>
+          <li>書き込み操作（メール送信等）には承認設定あり</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → 接続済みアプリを開く</li>
+          <li>連携したいサービスの「接続」ボタンをクリック</li>
+          <li>OAuth 認証画面でアクセス権限を承認</li>
+          <li>チャット中に「@drive」など @メンションで呼び出し or 利用</li>
+          <li>不要になったら同画面で「切断」</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>Gmail・Slack・Notion・Dropbox は EU・スイス・英国で利用不可（プライバシー規制）</li>
+          <li>連携アプリから読み取れる情報は、自分がそのアプリで見られる範囲のみ</li>
+          <li>Business / Enterprise / Edu では管理者が事前承認したアプリのみ</li>
+          <li>退職時など、不要な連携は必ず切断する（情報漏洩防止）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- App Store -->
+    <div class="catalog-feature" data-panel="appstore">
+      <div class="feature-head">
+        <div class="feature-cat">G. 連携・拡張</div>
+        <div class="feature-title">ChatGPT App Directory</div>
+        <div class="feature-subtitle">第三者アプリの一覧と @メンション呼び出し</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2025年12月ローンチ。第三者が作ったアプリを <strong>@メンション</strong>でチャット内に呼び出せる仕組み。Business では新しい <strong>App Directory</strong> で承認済みアプリを一覧から参照・追加できます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>Canva・Figma・Zapier・Expedia・Instacart 等のアプリ呼び出し</li>
+          <li>@メンションで会話中にアプリを起動</li>
+          <li>セキュアな接続で第三者データを参照</li>
+          <li>Business では管理者が事前承認したアプリのみ表示</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>左サイドバーから「App Directory」を開く</li>
+          <li>欲しいアプリを検索 → 追加</li>
+          <li>チャット中に「@ アプリ名」で呼び出し</li>
+          <li>初回はアプリへの認証承認</li>
+          <li>会話の流れの中でアプリ機能を利用</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>アプリごとの品質・信頼性にばらつきあり</li>
+          <li>第三者アプリへ送信するデータは運営元のポリシーが適用</li>
+          <li>Business では管理者承認のみ利用可</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ChatGPT Atlas -->
+    <div class="catalog-feature" data-panel="atlas">
+      <div class="feature-head">
+        <div class="feature-cat">G. 連携・拡張</div>
+        <div class="feature-title">ChatGPT Atlas（AI ブラウザ）</div>
+        <div class="feature-subtitle">ChatGPT サイドバー統合の Chromium ベースブラウザ</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus（Agent可）</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2025年10月21日 macOS 版をローンチした OpenAI 製ブラウザ。Chromium ベースで <strong>ChatGPT サイドバー</strong>を標準搭載。選択テキストの即書き換え（Cursor Chat）、ブラウジング履歴を学ぶ Browser Memories などを提供。Agent Mode は Plus 以上限定。Windows / iOS / Android 版は開発中。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>閲覧中のページに対する質問・要約</li>
+          <li>選択テキストを即時書き換え・翻訳（Cursor Chat）</li>
+          <li>Browser Memories：閲覧履歴を AI が記憶し文脈化</li>
+          <li>Agent Mode でブラウザを自律操作（Plus 以上）</li>
+          <li>複数アカウント切り替え（2026年3月対応）</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>chatgpt.com/atlas から macOS 版をダウンロード</li>
+          <li>インストールして起動</li>
+          <li>ChatGPT アカウントでサインイン</li>
+          <li>右側のサイドバーで ChatGPT に質問</li>
+          <li>テキスト選択 → 右クリック → Cursor Chat で即時書き換え</li>
+          <li>Plus 以上は Agent Mode を起動して自律操作</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>現時点で <strong>macOS のみ</strong>（Windows・モバイル版は未公開）</li>
+          <li>Agent Mode 利用は Plus / Pro / Business 限定</li>
+          <li>ブラウジング履歴の AI 利用はオフ可能だが既定オン</li>
+          <li>一部の Web サイトでは ChatGPT 拡張が動作しない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MCP -->
+    <div class="catalog-feature" data-panel="mcp">
+      <div class="feature-head">
+        <div class="feature-cat">G. 連携・拡張</div>
+        <div class="feature-title">MCP（Model Context Protocol）</div>
+        <div class="feature-subtitle">外部ツール・データソースを繋ぐオープン標準規格</div>
+        <div class="feature-plans">
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2025年9月対応開始のオープン標準規格。ChatGPT が <strong>外部ツール・データソースと共通の仕組みでつながる</strong>ための規格で、開発者モードで有効化可能。Workspace Agents や Skills と組み合わせて社内システム連携を構築できます。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>社内データベース・社内システムを ChatGPT に接続</li>
+          <li>Deep Research の調査ソースとして MCP サーバを指定</li>
+          <li>Workspace Agents の Custom MCP として追加</li>
+          <li>Enterprise/Edu では管理者が MCP アクションを RBAC で制御</li>
+          <li>標準規格のため他の AI ツール（Claude 等）とも互換</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → 接続済みアプリ → MCP サーバーを追加</li>
+          <li>MCP サーバーの URL・認証情報を入力</li>
+          <li>Business では管理者が事前承認</li>
+          <li>必要に応じてアクション権限を設定</li>
+          <li>チャット中にツールが呼ばれるよう指示</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>技術的な設定知識が必要（開発者向け）</li>
+          <li>MCP サーバ自体の管理・運用は利用者側の責任</li>
+          <li>Enterprise/Edu は管理者の承認が必要</li>
+          <li>機密データの取り扱いには監査ログの導入を推奨</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== H. SAFETY FEATURES ===== -->
+
+    <!-- Trusted Contact -->
+    <div class="catalog-feature" data-panel="trusted">
+      <div class="feature-head">
+        <div class="feature-cat">H. 安全機能</div>
+        <div class="feature-title">Trusted Contact（信頼できる連絡先）</div>
+        <div class="feature-subtitle">自傷・自殺の懸念検知時に登録した人へ通知</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag not-avail">Business/Enterprise/Edu</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月から段階的にロールアウト中の <strong>任意の安全機能</strong>。個人 ChatGPT アカウント向けで、自殺などの深刻な安全懸念が <strong>検知システムと訓練を受けたレビュアー</strong>によって検知された場合、事前に登録した「信頼できる人」に通知が届き、声をかけてもらえるよう促します。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>信頼できる人を1名（または複数）登録</li>
+          <li>登録された人は招待メールに同意する仕組み</li>
+          <li>深刻な懸念が検知された場合のみ ChatGPT が通知</li>
+          <li>本人のメンタルヘルスサポートにつながる安全網</li>
+          <li>地域によって提供有無が異なる</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → 安全性 / Trusted Contact</li>
+          <li>信頼できる人のメールアドレスを入力</li>
+          <li>ChatGPT が招待メールを送信</li>
+          <li>相手が承諾すると有効化</li>
+          <li>不要になればいつでも解除可能</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>個人 ChatGPT アカウント限定（Business / Enterprise / Edu では非提供）</li>
+          <li>対応地域が限定的（順次拡大）</li>
+          <li>通知される基準は OpenAI のシステムが判断</li>
+          <li>緊急医療サービスの代替ではない</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Advanced Account Security -->
+    <div class="catalog-feature" data-panel="security">
+      <div class="feature-head">
+        <div class="feature-cat">H. 安全機能</div>
+        <div class="feature-title">Advanced Account Security</div>
+        <div class="feature-subtitle">サインイン・乗っ取り対策の強化セット</div>
+        <div class="feature-plans">
+          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
+          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag business">Business</span>
+        </div>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
+        <p>2026年5月1日リリースの個人アカウント保護機能。<strong>サインインオプションの強化・厳格な復旧フロー・ログイン通知・セッション制御</strong>などにより、不正アクセスやアカウント乗っ取りからアカウントを守ります。</p>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
+        <ul class="feature-list">
+          <li>多要素認証（MFA）の強制設定</li>
+          <li>パスキー（FIDO2）対応</li>
+          <li>不審なログインの通知</li>
+          <li>アクティブセッションの一括確認・遮断</li>
+          <li>復旧コードの厳格管理</li>
+          <li>ログイン履歴の参照</li>
+        </ul>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
+        <ol class="step-list">
+          <li>設定 → セキュリティ</li>
+          <li>多要素認証を有効化（認証アプリ or パスキー）</li>
+          <li>ログイン通知をオンに</li>
+          <li>定期的にアクティブセッションを確認</li>
+          <li>復旧コードを安全な場所に保管</li>
+        </ol>
+      </div>
+      <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
+        <ul class="limit-list">
+          <li>強力なセキュリティ設定は手間が増える</li>
+          <li>復旧コードを紛失するとアカウント回復が困難</li>
+          <li>Business 以上は SSO / SAML / SCIM など別途の認証機構が中心</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /catalog-content -->
+</div><!-- /catalog-layout -->
+
+</section>
+</div><!-- /tab-catalog -->
+
+<!-- ================== TAB 5: AGENTS ================== -->
+<div class="tab-panel" id="tab-agents">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">05 ── Agents Clarified</div>
+  <h2>「エージェント」関連機能の<em>整理</em></h2>
+  <p class="lede">ChatGPT には「エージェント」と名のつく機能がいくつもあり、混同されやすいので整理します。<strong>GPTs・ワークスペースエージェント・Agent Mode・Skills</strong> は別物です。それぞれの位置づけを把握しましょう。</p>
+</div>
+
+<div class="callout info">
+  <h4>整理の早見</h4>
+  <p><strong>GPTs</strong> ＝ チャット支援用のキャラクター／ペルソナ。<strong>ワークスペースエージェント</strong> ＝ 業務フローを自律実行する組織向けエージェント。<strong>Agent Mode</strong> ＝ 単発タスクを Web ブラウザで実行する個人向けモード。<strong>Skills</strong> ＝ 再利用可能な業務手順を SKILL.md として保存する仕組み。</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>GPTs（カスタムGPT）</th>
+        <th>ワークスペースエージェント</th>
+        <th>Agent Mode</th>
+        <th>Skills</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>登場時期</td>
+        <td>2023年11月</td>
+        <td><strong>2026年4月22日</strong></td>
+        <td>2025年</td>
+        <td><strong>2026年（ベータ）</strong></td>
+      </tr>
+      <tr>
+        <td>主な役割</td>
+        <td>個別チャット支援<br>（業務特化ボット）</td>
+        <td>繰り返し業務の<br><strong>自律実行・共有</strong></td>
+        <td>単発タスクの<br>ブラウザ操作・実行</td>
+        <td>業務手順を<br><strong>再利用可能化</strong></td>
+      </tr>
+      <tr>
+        <td>利用プラン</td>
+        <td>Go / Plus / Pro / Business / Enterprise / Edu</td>
+        <td class="hl"><strong>Business / Enterprise / Edu / Teachers</strong></td>
+        <td>Plus / Pro / Business / Enterprise / Edu</td>
+        <td class="hl"><strong>Business / Enterprise / Edu のみ</strong></td>
+      </tr>
+      <tr>
+        <td>料金</td>
+        <td>プラン内で無制限</td>
+        <td>クレジットベース<br>(30クレジット/メッセージ)</td>
+        <td>Plus 40/月、Pro 400/月</td>
+        <td>プラン内で無制限</td>
+      </tr>
+      <tr>
+        <td>スケジュール実行</td>
+        <td class="cross">限定的</td>
+        <td><span class="check">○ 毎日／毎週／トリガー</span></td>
+        <td class="cross">×（単発）</td>
+        <td class="cross">×（常時適用）</td>
+      </tr>
+      <tr>
+        <td>Slack 連携</td>
+        <td class="cross">基本は別設計</td>
+        <td><span class="check">○ チャンネル統合</span></td>
+        <td class="cross">×</td>
+        <td>連携アプリ経由</td>
+      </tr>
+      <tr>
+        <td>外部アプリ連携</td>
+        <td>GPT 設定による</td>
+        <td><span class="check">Drive/SharePoint/<br>Salesforce/Notion 等</span></td>
+        <td>仮想ブラウザ経由</td>
+        <td>Skills 内で利用</td>
+      </tr>
+      <tr>
+        <td>チーム共有</td>
+        <td>リンク・公開</td>
+        <td class="hl"><strong>組織ディレクトリで<br>本格共有</strong></td>
+        <td class="cross">×（個人作業）</td>
+        <td><span class="check">○ ワークスペース内共有</span></td>
+      </tr>
+      <tr>
+        <td>分析・履歴</td>
+        <td class="cross">限定的</td>
+        <td><span class="check">○ 実行回数・利用者</span></td>
+        <td class="cross">×</td>
+        <td>監査ログ対応</td>
+      </tr>
+      <tr>
+        <td>管理者制御</td>
+        <td>あり</td>
+        <td class="hl"><strong>RBAC で強力制御</strong></td>
+        <td>あり</td>
+        <td>RBAC・既定オフ</td>
+      </tr>
+      <tr>
+        <td>典型的な使い方</td>
+        <td>「契約書レビュー用 GPT」<br>「営業文体 GPT」</td>
+        <td>「毎朝 CRM を確認して<br>Slack で報告」</td>
+        <td>「このフォームに入力」<br>「航空券を予約」</td>
+        <td>「議事録作成手順」<br>「四半期決算手続き」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>使い分けの判断フロー</h3>
+<div class="callout good">
+  <h4>シーン別の選び方</h4>
+  <p>
+    <strong>個人で繰り返しキャラクターを使いたい</strong> → GPTs<br>
+    <strong>ブラウザで単発の操作タスクを任せたい</strong> → Agent Mode<br>
+    <strong>チーム共通の業務フローを効率化したい</strong> → ワークスペースエージェント（Business 以上）<br>
+    <strong>同じ手順を ChatGPT に毎回踏ませたい（手順書化）</strong> → Skills（Business 以上、ベータ）
+  </p>
+</div>
+
+<h3>ワークスペースエージェントの典型ユースケース</h3>
+<div class="features-grid">
+  <div class="feature">
+    <div class="num">01</div>
+    <h5>営業：リード調査</h5>
+    <p>受信したリードを調査し、企業情報・優先度を付け、Slack に共有。</p>
+  </div>
+  <div class="feature">
+    <div class="num">02</div>
+    <h5>カスタマーサポート</h5>
+    <p>問い合わせを読み取り、ナレッジベースから返信案を3案生成、担当者は最終確認のみ。</p>
+  </div>
+  <div class="feature">
+    <div class="num">03</div>
+    <h5>週次レポート</h5>
+    <p>毎週金曜に複数 SaaS からデータを取得、グラフ・要約を含む業務レポートを配信。</p>
+  </div>
+  <div class="feature">
+    <div class="num">04</div>
+    <h5>月次決算補助</h5>
+    <p>仕訳・残高調整・差異分析を準備、内部統制ポリシーに従ったワークペーパーを生成。</p>
+  </div>
+  <div class="feature">
+    <div class="num">05</div>
+    <h5>製品フィードバック整理</h5>
+    <p>Slack・サポート・公開チャネルから声を収集、優先度順に整理して週次アクション化。</p>
+  </div>
+  <div class="feature">
+    <div class="num">06</div>
+    <h5>IT 申請対応</h5>
+    <p>ソフトウェア導入申請の振り分け・ポリシー照合・承認ルーティング・チケット起票。</p>
+  </div>
+</div>
+
+<h3>安全に使うための原則</h3>
+<div class="callout warn">
+  <h4>段階的導入の推奨レベル</h4>
+  <p>
+    <strong>レベル1：下書き作成のみ</strong>（送信・編集・投稿しない）<br>
+    <strong>レベル2：限定資料の参照</strong>（特定フォルダ・チャンネルのみ）<br>
+    <strong>レベル3：承認付きで操作</strong>（書き込み前に必ず人間が承認）<br>
+    <strong>レベル4：定期実行</strong>（信頼が確立されてから自律稼働へ）
+  </p>
+  <p>機密データへのアクセスや書き込み系操作を含む場合は、必ず管理者と相談のうえ RBAC で権限を絞ってください。</p>
+</div>
+
+</section>
+</div><!-- /tab-agents -->
+
+<!-- ================== TAB 6: SETTINGS ================== -->
+<div class="tab-panel" id="tab-settings">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">06 ── Settings</div>
+  <h2>設定画面の<em>全項目</em>を読み解く</h2>
+  <p class="lede">左下のユーザーアイコン → 「設定」から開ける設定画面。2026年5月20日時点で <strong>8つの大カテゴリ</strong>があります。各タブをクリックして主要項目を確認できます。</p>
+</div>
+
+<div class="settings-layout" id="settingsLayout">
+  <div class="settings-nav">
+    <div class="settings-nav-item active" data-tab="general"><span class="icon">●</span>一般</div>
+    <div class="settings-nav-item" data-tab="notifications"><span class="icon">●</span>通知</div>
+    <div class="settings-nav-item" data-tab="personalization"><span class="icon">●</span>パーソナライズ</div>
+    <div class="settings-nav-item" data-tab="speech"><span class="icon">●</span>スピーチ（音声）</div>
+    <div class="settings-nav-item" data-tab="data"><span class="icon">●</span>データコントロール</div>
+    <div class="settings-nav-item" data-tab="apps"><span class="icon">●</span>接続済みアプリ</div>
+    <div class="settings-nav-item" data-tab="security"><span class="icon">●</span>セキュリティ</div>
+    <div class="settings-nav-item" data-tab="account"><span class="icon">●</span>アカウント</div>
+  </div>
+  <div class="settings-content">
+
+    <div class="settings-panel active" data-panel="general">
+      <h5>「一般」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">テーマ</div><div class="setting-desc">画面の配色を「ライト」「ダーク」「システムに従う」から選択。</div></div>
+      <div class="setting-row"><div class="setting-label">言語</div><div class="setting-desc">UI の表示言語。「言語をシステムが判定」のほか日本語・英語など多数選択可。</div></div>
+      <div class="setting-row"><div class="setting-label">Fast Answers</div><div class="setting-desc">パーソナライズ不要な質問への高速回答モードのオン／オフ。</div></div>
+      <div class="setting-row"><div class="setting-label">アーカイブされたチャット</div><div class="setting-desc">非表示にした会話の一覧確認・復元・削除。</div></div>
+      <div class="setting-row"><div class="setting-label">すべてのチャットをアーカイブ</div><div class="setting-desc">履歴を一括で整理。削除とは異なり復元可能。</div></div>
+      <div class="setting-row"><div class="setting-label">追加モデルを表示</div><div class="setting-desc">レガシーモデル（GPT-5.3 Instant など、〜2026/8まで）の表示。</div></div>
+      <div class="setting-row"><div class="setting-label">すべてのチャットを削除</div><div class="setting-desc">履歴を永久消去。元に戻せないので注意。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="notifications">
+      <h5>「通知」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">応答が完了したときの通知</div><div class="setting-desc">長い応答や画像生成など、処理完了時にブラウザ通知を受け取る。</div></div>
+      <div class="setting-row"><div class="setting-label">Deep Research / Agent Mode 完了通知</div><div class="setting-desc">10〜30分かかる長時間タスクの終了通知。デスクトップ・メール対応。</div></div>
+      <div class="setting-row"><div class="setting-label">Tasks の結果通知</div><div class="setting-desc">スケジュールされたタスクの実行結果の通知タイミング設定。</div></div>
+      <div class="setting-row"><div class="setting-label">Workspace Agents の実行通知</div><div class="setting-desc">Business 限定。スケジュール実行されたエージェントの結果通知。</div></div>
+      <div class="setting-row"><div class="setting-label">サウンド</div><div class="setting-desc">応答完了時のサウンド再生オン／オフ。</div></div>
+      <div class="setting-row"><div class="setting-label">新機能のお知らせ</div><div class="setting-desc">OpenAI からの新機能リリース情報を受け取るかどうか。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="personalization">
+      <h5>「パーソナライズ」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">カスタム指示（Custom Instructions）</div><div class="setting-desc">「あなたについて知ってほしいこと」「どう振る舞ってほしいか」を各1,500字まで登録。</div></div>
+      <div class="setting-row"><div class="setting-label">基本スタイル</div><div class="setting-desc">「プロフェッショナル」「フレンドリー」など複数から基本トーンを選択（「Nerdy」は2026年3月に廃止）。</div></div>
+      <div class="setting-row"><div class="setting-label">ニックネーム / 呼び方</div><div class="setting-desc">ChatGPT が自分をどう呼ぶか設定。</div></div>
+      <div class="setting-row"><div class="setting-label">職業 / 役割</div><div class="setting-desc">回答の専門性レベルや想定読者を裏側で調整するための属性入力。</div></div>
+      <div class="setting-row"><div class="setting-label">メモリ（Memory）を有効化</div><div class="setting-desc">過去会話から学習された情報を保存・参照するかどうか。</div></div>
+      <div class="setting-row"><div class="setting-label">Memory Sources（メモリの根拠表示）</div><div class="setting-desc">パーソナライズに使われた情報源（過去会話・メモリ・Gmail・ファイル）を可視化・編集（Plus/Pro 先行）。</div></div>
+      <div class="setting-row"><div class="setting-label">メモリを管理</div><div class="setting-desc">記憶された個々の項目を一覧で確認・編集・削除。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="speech">
+      <h5>「スピーチ（音声）」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">音声の種類</div><div class="setting-desc">ChatGPT が話す音声を複数プリセット（Cove、Juniper、Ember、Breeze など）から選択。</div></div>
+      <div class="setting-row"><div class="setting-label">Advanced Voice Mode</div><div class="setting-desc">感情・アクセント・笑いも表現できる高品質音声モードの有効化。Plus 以上。</div></div>
+      <div class="setting-row"><div class="setting-label">メイン言語</div><div class="setting-desc">音声入出力のメイン言語を指定。「言語をシステムが判定」も可だが、マイナー言語は明示設定推奨。</div></div>
+      <div class="setting-row"><div class="setting-label">個別音声モード</div><div class="setting-desc">文字・映像を使わず、音声のみの全画面会話モード。歩きながらの利用向け。</div></div>
+      <div class="setting-row"><div class="setting-label">通話録音の許可</div><div class="setting-desc">音声会話が OpenAI のサービス改善に利用される場合があることへの同意。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="data">
+      <h5>「データコントロール」設定の主要項目 — プライバシーの要</h5>
+      <div class="setting-row"><div class="setting-label">モデルを改善する</div><div class="setting-desc"><strong>オフにすると、入力内容が学習に使われなくなります</strong>（Business は既定でオフ）。ビジネス利用者は必ずオフ推奨。</div></div>
+      <div class="setting-row"><div class="setting-label">一時チャット</div><div class="setting-desc">履歴を残さず、メモリにも保存されない「シークレットモード」。機密情報を扱うときに。</div></div>
+      <div class="setting-row"><div class="setting-label">共有リンク</div><div class="setting-desc">過去に生成した「チャット共有リンク」の一覧管理・無効化。</div></div>
+      <div class="setting-row"><div class="setting-label">データをエクスポート</div><div class="setting-desc">全会話履歴と設定を JSON / HTML でダウンロード。登録メールに ZIP が送信される。</div></div>
+      <div class="setting-row"><div class="setting-label">ストレージ管理</div><div class="setting-desc">アップロードしたファイル・生成画像の容量確認と削除。Library と連動。</div></div>
+      <div class="setting-row"><div class="setting-label">Atlas のブラウジングデータ利用</div><div class="setting-desc">Atlas ブラウザで閲覧した Web コンテンツをモデル改善に使うかどうか（既定オフ）。</div></div>
+      <div class="setting-row"><div class="setting-label">アカウントを削除</div><div class="setting-desc">削除から 30 日以内に、紐づくカスタム指示・メモリ・履歴もすべて削除される。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="apps">
+      <h5>「接続済みアプリ」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">Google Drive / Gmail / Calendar / Docs / Sheets / Slides</div><div class="setting-desc">Drive 一括連携で Docs / Sheets / Slides も使用可能。EU・UK では Gmail に制限あり。</div></div>
+      <div class="setting-row"><div class="setting-label">Microsoft OneDrive / SharePoint / Outlook / Teams</div><div class="setting-desc">個人用・職場用それぞれ接続可。ファイルアップロードがシームレスに。</div></div>
+      <div class="setting-row"><div class="setting-label">開発ツール（GitHub / Linear / Jira / Confluence）</div><div class="setting-desc">リポジトリ、Issue、チケットへの参照・操作が可能。</div></div>
+      <div class="setting-row"><div class="setting-label">コラボツール（Slack / Notion / Asana / Salesforce）</div><div class="setting-desc">メッセージ要約、ドキュメント検索、タスク操作（Slack・Notion は EU 制限あり）。</div></div>
+      <div class="setting-row"><div class="setting-label">ストレージ（Dropbox / Box）</div><div class="setting-desc">クラウドストレージのファイル参照（Dropbox は EU 不可）。</div></div>
+      <div class="setting-row"><div class="setting-label">MCP サーバー</div><div class="setting-desc">カスタム MCP サーバーの追加。社内システム連携に。</div></div>
+      <div class="setting-row"><div class="setting-label">開発者名（Builder Profile）</div><div class="setting-desc">カスタム GPT を公開するときに表示される名前。独自ドメインの所有確認で信頼性アップ。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="security">
+      <h5>「セキュリティ」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">多要素認証（MFA）</div><div class="setting-desc">Google Authenticator や 1Password などの認証アプリで二段階認証を有効化。<strong>ビジネス利用は必須</strong>。</div></div>
+      <div class="setting-row"><div class="setting-label">パスキー（Passkey）</div><div class="setting-desc">2026年5月の Advanced Account Security で FIDO2 パスキー対応。生体認証のみでログイン可能。</div></div>
+      <div class="setting-row"><div class="setting-label">パスワード変更</div><div class="setting-desc">現在のパスワードを入力した上で新パスワードに変更。</div></div>
+      <div class="setting-row"><div class="setting-label">不審なログインの通知</div><div class="setting-desc">未知のデバイス・国からログインがあった際にメール通知。</div></div>
+      <div class="setting-row"><div class="setting-label">すべてのデバイスからログアウト</div><div class="setting-desc">不正アクセスが疑われるとき一括で全端末からサインアウト。</div></div>
+      <div class="setting-row"><div class="setting-label">ログ履歴</div><div class="setting-desc">過去のログイン記録（日時・IP・デバイス種別）の確認。</div></div>
+      <div class="setting-row"><div class="setting-label">セッションタイムアウト</div><div class="setting-desc">一定時間操作がない場合の強制ログアウト設定（Business 以上）。</div></div>
+      <div class="setting-row"><div class="setting-label">Trusted Contact</div><div class="setting-desc">深刻な安全懸念検知時に登録した人へ通知される任意機能（個人プランのみ）。</div></div>
+    </div>
+
+    <div class="settings-panel" data-panel="account">
+      <h5>「アカウント」設定の主要項目</h5>
+      <div class="setting-row"><div class="setting-label">現在のプラン</div><div class="setting-desc">Free / Go / Plus / Pro / Business のどれに加入中かを表示。アップグレード・ダウングレードもここから。</div></div>
+      <div class="setting-row"><div class="setting-label">請求情報・支払い方法</div><div class="setting-desc">クレジットカード等の支払い手段を登録・変更。請求書のダウンロードも可能。</div></div>
+      <div class="setting-row"><div class="setting-label">サブスクリプションの管理</div><div class="setting-desc">次回請求日の確認、サブスク更新オンオフ、解約手続き。App Store / Google Play 経由の契約は各ストア管理。</div></div>
+      <div class="setting-row"><div class="setting-label">クレジット残高</div><div class="setting-desc">Workspace Agents・ChatGPT for Excel/Sheets で使うクレジットの残高確認・購入。</div></div>
+      <div class="setting-row"><div class="setting-label">メールアドレス変更</div><div class="setting-desc">登録メールアドレスを更新。変更後は確認メールでの認証が必要。</div></div>
+      <div class="setting-row"><div class="setting-label">リンクされたアカウント</div><div class="setting-desc">Google / Apple / Microsoft など外部ログイン連携の状態を確認・解除。</div></div>
+      <div class="setting-row"><div class="setting-label">アカウントを削除</div><div class="setting-desc">アカウント完全削除。関連データは30日以内に消去される。取り消し不可。</div></div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+</div><!-- /tab-settings -->
+
+<!-- ================== TAB 7: SNS / INTEGRATION ================== -->
+<div class="tab-panel" id="tab-integration">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">07 ── SNS Integration</div>
+  <h2>LINE や SNS との<em>連携の違い</em></h2>
+  <p class="lede">「LINE で ChatGPT を使っている」というケースは、実は <strong>OpenAI 公式サービスではありません</strong>。公式の ChatGPT アプリと、SNS 連携版には大きな違いがあります。この章で整理します。</p>
+</div>
+
+<div class="diagram">
+  <h4 style="margin-bottom:18px">構造の違い</h4>
+  <div class="diagram-box">
+    <div class="node official">
+      <h6>公式 ChatGPT</h6>
+      <p>ブラウザ／iOS／Android／Atlas から直接 OpenAI に接続。全機能が使える。</p>
+    </div>
+    <div class="arrow">VS</div>
+    <div class="node api">
+      <h6>LINE 連携ボット</h6>
+      <p>第三者が外部ボット経由で構築。OpenAI 公式ではなくサードパーティーサービス。</p>
+    </div>
+  </div>
+</div>
+
+<div class="compare-2col">
+  <div class="compare-col a">
+    <h4>公式アプリ</h4>
+    <h5>ChatGPT 公式（Web / iOS / Android / Atlas）</h5>
+    <ul>
+      <li>OpenAI が直接運営している正規サービス</li>
+      <li>すべての機能（Canvas・GPTs・Deep Research・Agent Mode・Atlas・Codex・Images 2.0 等）が利用可能</li>
+      <li>プラン契約（Free〜Pro）に応じてモデルを使い分けられる</li>
+      <li>設定画面・メモリ・履歴・カスタム指示がすべて反映される</li>
+      <li>OpenAI のプライバシーポリシーが直接適用される</li>
+      <li>ファイルアップロード・画像生成・音声会話 OK</li>
+    </ul>
+  </div>
+  <div class="compare-col b">
+    <h4>サードパーティ連携</h4>
+    <h5>LINE で動く ChatGPT 風ボット</h5>
+    <ul>
+      <li><strong>OpenAI 公式ではない</strong> — 第三者が構築した別サービス</li>
+      <li>利用できるのはテキスト対話のみ（※ボットの実装による）</li>
+      <li>Canvas・GPTs・Deep Research・Atlas 等は使えない</li>
+      <li>OpenAI のプラン契約とは <strong>完全に別料金体系</strong></li>
+      <li>入力データは運営企業 + OpenAI の両方を経由</li>
+      <li>メモリや履歴は ChatGPT 公式アプリと <strong>同期されない</strong></li>
+      <li>運営企業の利用規約・プライバシーポリシーが別途適用</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout warn">
+  <h4>ビジネス利用での最重要ポイント</h4>
+  <p>LINE 連携ボット（AIチャットくん、公式 LINE で動く ChatGPT 風ボットなど）に社内情報や顧客情報を入力すると、データは <strong>「ボット運営会社」→「OpenAI」</strong>という2段階で外部に送信されます。<br>
+  公式 Plus / Pro よりも <strong>情報の経路が増える分、漏洩リスクが高まる</strong>ため、業務利用では原則として公式アプリを使うべきです。どうしても LINE で使いたい場合は、運営会社のセキュリティポリシーを事前に確認しましょう。</p>
+</div>
+
+<h3>主な SNS / メッセンジャー連携パターン</h3>
+<div class="features-grid">
+  <div class="feature">
+    <div class="num">01</div>
+    <h5>LINE（公式アカウント経由）</h5>
+    <p>LINE 公式アカウントを作り、外部サービスと接続。<strong>企業のカスタマーサポート</strong>でよく使われる構成。Make や Yoom などのノーコードツールで構築できます。</p>
+  </div>
+  <div class="feature">
+    <div class="num">02</div>
+    <h5>Slack（公式 Connector）</h5>
+    <p>ChatGPT Plus 以上なら、Slack 連携は <strong>公式機能として提供</strong>されています。ワークスペース管理者の承認が必要。Business では Workspace Agents との連携も可能。</p>
+  </div>
+  <div class="feature">
+    <div class="num">03</div>
+    <h5>Discord / Telegram 等</h5>
+    <p>第三者が構築した自作ボットが主流。公式サポートはありません。データ取り扱いに注意。</p>
+  </div>
+  <div class="feature">
+    <div class="num">04</div>
+    <h5>X（旧 Twitter）</h5>
+    <p>公式連携はなし。個人開発のボットが存在しますが、<strong>X 側の制限で機能は限定的</strong>です。</p>
+  </div>
+</div>
+
+<h3>LINE 連携の料金構造（参考）</h3>
+<ul class="fact-list">
+  <li><strong>ChatGPT 側</strong><span>サードパーティ運営者が ChatGPT 利用料金を負担。エンドユーザー（あなた）は ChatGPT 公式の Plus / Pro 契約とは別の料金体系。</span></li>
+  <li><strong>LINE 側</strong><span>LINE 公式アカウント。月間1,000通までは無料、それ以上は月額 5,000円〜15,000円。</span></li>
+  <li><strong>サードパーティ運営費</strong><span>ボット運営会社の独自プラン（無料〜数千円/月）。</span></li>
+  <li><strong>合計目安</strong><span>小規模利用で月 1,000〜3,000円、中規模で月 1〜3万円前後。</span></li>
+</ul>
+
+<div class="callout info">
+  <h4>公式 ChatGPT のモバイルアプリで十分</h4>
+  <p>2026年5月時点、ChatGPT の <strong>公式モバイルアプリ（iOS / Android）</strong>は無料でインストールでき、Free プランでも GPT-5.5 Instant・画像生成・音声会話などほぼフル機能が使えます。LINE のような外部サービスを使う必然性は薄れています。業務でも個人でも、まず公式アプリを試してみることをおすすめします。</p>
+</div>
+
+</section>
+</div><!-- /tab-integration -->
+
+<!-- ================== TAB 8: COPYRIGHT ================== -->
+<div class="tab-panel" id="tab-copyright">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">08 ── Rights &amp; IP</div>
+  <h2>著作権・<em>肖像権</em>の取り扱い</h2>
+  <p class="lede">「ChatGPTで作ったものは自由に商用利用できるの？」「人物を生成して大丈夫？」── 最も質問が多いこのテーマを、OpenAI 利用規約と国内外の法動向を踏まえて整理します。</p>
+</div>
+
+<h3>基本ルール：OpenAI 利用規約の要点</h3>
+
+<div class="callout info">
+  <h4>OpenAI 利用規約の生成物条項（要約）</h4>
+  <p>「お客様は本サービスへの入力（Input）と、それに基づく出力（Output）を所有します。OpenAI は利用規約に従う限り、Output に関するすべての権利および利益をお客様に譲渡します。」<br>
+  → つまり <strong>生成物の権利はユーザーに帰属</strong>し、商用利用も原則 OK。ただし後述のリスクには注意が必要です。利用規約は随時改定されるため、OpenAI のポリシーページ（openai.com/policies）で最新版をご確認ください。</p>
+</div>
+
+<div class="rights-grid">
+  <div class="rights-card ok">
+    <h5>商用利用 — 原則 OK</h5>
+    <p>ChatGPT で生成した文章・画像・コードは、規約の範囲内で <strong>販売・広告・SNS投稿・書籍化・ソフト組込み</strong>などに自由に使えます。これは全プラン共通です。</p>
+  </div>
+  <div class="rights-card ok">
+    <h5>生成物の所有権 — ユーザーに帰属</h5>
+    <p>OpenAI は出力に関する権利をユーザーに譲渡します。自社サービスに組み込んでも問題ありません。</p>
+  </div>
+  <div class="rights-card ng">
+    <h5>他人の著作物の入力 — NG</h5>
+    <p>他人の小説・記事・画像をそのまま入力して「続きを書いて」「この絵を元に生成して」と指示し、出力を公開する行為は <strong>著作権侵害</strong>になり得ます。</p>
+  </div>
+  <div class="rights-card ng">
+    <h5>特定キャラクターの模倣 — NG</h5>
+    <p>「ドラえもん風」「ジブリ風」「ディズニー風」「特定作家の文体」など、<strong>既存キャラ・作風の再現</strong>は著作権・商標権侵害のリスクが非常に高いです。</p>
+  </div>
+  <div class="rights-card ng">
+    <h5>実在人物の再現 — 原則 NG</h5>
+    <p>有名人・同僚・知人の顔写真を入力して <strong>AI 画像を作る</strong>行為は、<strong>肖像権</strong>・<strong>パブリシティ権</strong>・名誉毀損等の観点からリスク大。</p>
+  </div>
+  <div class="rights-card ng">
+    <h5>ディープフェイク — NG</h5>
+    <p>実在の人物が言っていない発言を AI で偽造・拡散する行為は、日本でも <strong>2025年9月全面施行の AI 法</strong>の対象（罰則規定はないが行政指導の対象）。EU では <strong>2026年8月2日</strong>に AI Act 透明性義務が発効し、AI生成物のマーキング・ラベル付けが必須化されます。</p>
+  </div>
+</div>
+
+<h3>肖像権・パブリシティ権の専用解説</h3>
+
+<p class="term-note">
+  <strong>肖像権とは：</strong>人が <strong>自分の容姿を勝手に撮影・公表されない権利</strong>。日本では法律で明文化されていないものの、判例で強く認められています。<br>
+  <strong>パブリシティ権とは：</strong>有名人の <strong>名前や顔に備わる経済的価値</strong>を保護する権利。タレント・スポーツ選手などの肖像を広告に無断使用するとこれに抵触します。
+</p>
+
+<div class="callout warn">
+  <h4>人物画像の生成で特に注意すべき点</h4>
+  <p><strong>(1)</strong> 既存の有名人（芸能人・政治家・スポーツ選手）を指定して AI 画像を作るとリクエストが拒否されることが多いですが、擦り抜けて生成された場合でも <strong>公開すればユーザーの責任</strong>です。<br>
+  <strong>(2)</strong> 自分や家族の顔写真を入力する場合も、<strong>その写真自体を撮影した第三者（カメラマン等）の著作権</strong>に配慮が必要です。<br>
+  <strong>(3)</strong> 2026年4月26日に Sora の動画生成機能はサービス終了しましたが、<strong>画像生成（Images 2.0）は引き続き高精度で利用可能</strong>です。人物画像の取り扱いは画像生成でも引き続き注意が必要です。<br>
+  <strong>(4)</strong> ChatGPT Images 2.0 の <strong>likeness アップロード</strong>機能で自分の容姿を再利用する場合は便利ですが、第三者の容姿は登録しないでください。</p>
+</div>
+
+<h3>世界の AI 関連法規制（2026年最新）</h3>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>国・地域</th>
+        <th>主な法規制</th>
+        <th>状態</th>
+        <th>ChatGPT 利用者への影響</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>日本</td>
+        <td>AI 法（人工知能関連技術の研究開発及び活用の推進に関する法律）</td>
+        <td>2025年9月1日<br>全面施行</td>
+        <td><strong>罰則なし</strong>。事業者は政府の調査・指導に協力する努力義務あり</td>
+      </tr>
+      <tr>
+        <td>EU</td>
+        <td>AI Act 第50条（透明性義務）</td>
+        <td>2026年8月2日<br>発効予定</td>
+        <td>AI 生成物の <strong>機械可読マーキング義務</strong>。ディープフェイクは明示ラベル必須</td>
+      </tr>
+      <tr>
+        <td>中国</td>
+        <td>人工知能生成合成内容識別弁法</td>
+        <td>2025年9月1日<br>施行済</td>
+        <td>AI 生成物には <strong>可視・不可視両方の識別マーク</strong>が義務</td>
+      </tr>
+      <tr>
+        <td>米国</td>
+        <td>大統領令（2025年12月）＋州法</td>
+        <td>発効済</td>
+        <td>連邦レベルの包括規制はまだなし。州ごとに異なるため注意</td>
+      </tr>
+      <tr>
+        <td>韓国</td>
+        <td>AI 生成コンテンツ表示義務法</td>
+        <td>2026年早期<br>施行予定</td>
+        <td>AI 生成広告（写真・動画）へのラベル表示が義務</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>企業で安全に使うための 5 つの推奨対策</h3>
+
+<div class="features-grid">
+  <div class="feature">
+    <div class="num">01</div>
+    <h5>機密情報は入力しない</h5>
+    <p>顧客名簿、契約書、ソースコード一式、個人情報は <strong>Free / Plus には入力禁止</strong>。どうしても扱うなら Business・Enterprise の非学習設定を使う。</p>
+  </div>
+  <div class="feature">
+    <div class="num">02</div>
+    <h5>出力は必ず人間がレビュー</h5>
+    <p>そのまま公開せず、<strong>既存コンテンツとの類似チェック</strong>（Google 検索、コピペチェッカー等）を実施。</p>
+  </div>
+  <div class="feature">
+    <div class="num">03</div>
+    <h5>AI 生成である旨を明示</h5>
+    <p>SNS 投稿・ブログ・広告で AI 生成コンテンツを使う場合、<strong>「AI生成」「AI加筆」等のラベル</strong>を付けるのが国際的な推奨慣行（EU AI Act では義務化）。</p>
+  </div>
+  <div class="feature">
+    <div class="num">04</div>
+    <h5>実在人物の画像を作らない</h5>
+    <p>本人の明示的な書面同意がない限り、<strong>人の顔は原則生成しない</strong>。モデル画像が必要なら商用ストック写真を併用。</p>
+  </div>
+  <div class="feature">
+    <div class="num">05</div>
+    <h5>社内ルール整備</h5>
+    <p>「入力してよいデータ」「AI 生成物の表示ルール」「責任の所在」を <strong>生成 AI 利用ガイドライン</strong>として文書化する。これはほぼ必須です。</p>
+  </div>
+</div>
+
+<h3>プラン別・データ学習ポリシーの違い</h3>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>プラン</th>
+        <th>既定での学習利用</th>
+        <th>オプトアウト（学習停止）設定</th>
+        <th>推奨される用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Free</td><td class="partial">される</td><td><span class="check">可（データコントロール）</span></td><td>個人の試用・非機密情報</td></tr>
+      <tr><td>Go</td><td class="partial">される</td><td><span class="check">可</span></td><td>個人利用・非機密情報</td></tr>
+      <tr><td>Plus</td><td class="partial">される</td><td><span class="check">可</span></td><td>個人業務（機密情報は避ける）</td></tr>
+      <tr><td>Pro</td><td class="partial">される</td><td><span class="check">可</span></td><td>個人業務（機密情報は避ける）</td></tr>
+      <tr class="hl"><td>Business</td><td><span class="check">されない（既定オフ）</span></td><td>— 既定で無効 —</td><td>企業の機密情報を含む業務全般</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout good">
+  <h4>結論：ビジネス利用の鉄則</h4>
+  <p><strong>個人の情報や非機密のアイデア出しなら Plus で十分。</strong> 顧客名・製品設計・財務数値・契約条件など機密情報を扱うなら、<strong>Business 以上の契約＋ガイドライン整備</strong>が前提です。差額は1人あたり月 ¥900 程度。数時間分の時給より安く、情報漏洩リスクを大幅に下げられます。</p>
+</div>
+
+</section>
+</div><!-- /tab-copyright -->
+
+<!-- ================== TAB 9: TIMELINE ================== -->
+<div class="tab-panel" id="tab-timeline">
+<section class="tab-section">
+
+<div class="section-header">
+  <div class="section-num">09 ── Timeline</div>
+  <h2>主要アップデート<em>年表</em></h2>
+  <p class="lede">2025〜2026年の ChatGPT 主要アップデートを時系列で整理しました。<strong>2026年は毎週のように新機能</strong>がリリースされており、本年表でも最新動向を追跡しています。</p>
+</div>
+
+<div class="timeline">
+
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年9月24日（予定）</div>
+    <div class="timeline-title">Sora の最終停止</div>
+    <div class="timeline-desc">動画生成サービスの完全終了。開発者は Google Veo、Kling 等への移行が必要。</div>
+  </div>
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年8月頃（予定）</div>
+    <div class="timeline-title">GPT-5.3 Instant 完全廃止</div>
+    <div class="timeline-desc">GPT-5.5 Instant への移行猶予期間（3カ月）終了。モデル設定からも選択不可に。</div>
+  </div>
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年8月2日（予定）</div>
+    <div class="timeline-title">EU AI Act 第50条（透明性義務）発効</div>
+    <div class="timeline-desc">EU 圏で事業するすべての生成 AI 事業者は AI 生成物の機械可読マーキングが必須に。ディープフェイクは明示ラベル義務。</div>
+  </div>
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年6月2日（予定）</div>
+    <div class="timeline-title">ChatGPT for Excel/Sheets 無料プレビュー終了</div>
+    <div class="timeline-desc">Enterprise / Edu / Business 向け無料プレビュー終了。以降は通常のクレジット課金。</div>
+  </div>
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年5月31日（予定）</div>
+    <div class="timeline-title">Pro $100 プランの Codex 10倍枠 終了</div>
+    <div class="timeline-desc">2026年4月9日開始の期間限定10倍増枠が終了。以降は通常の5倍に戻る。</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月19日</div>
+    <div class="timeline-title">Codex Mobile プレビューリリース</div>
+    <div class="timeline-desc">ChatGPT モバイルアプリに Codex プレビュー機能を追加。スマホから接続済み Mac の Codex 操作・確認が可能に。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月18日</div>
+    <div class="timeline-title">Personal Finance プレビュー（米国 Pro）</div>
+    <div class="timeline-desc">米国の Pro ユーザー向けに金融管理機能をプレビュー提供開始。支出・請求・サブスク・純資産・投資を一元管理。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月14日</div>
+    <div class="timeline-title">Free ユーザー向けインライン Web 画像強化</div>
+    <div class="timeline-desc">GPT-5.5 Instant の応答に Web からの参考画像を併記、視覚的に分かりやすい回答に。</div>
+  </div>
+  <div class="timeline-item retired">
+    <div class="timeline-date">2026年5月12日</div>
+    <div class="timeline-title">DALL-E 3 サポート終了</div>
+    <div class="timeline-desc">旧画像生成モデルの完全廃止。Images 2.0 / GPT Image 1.5 への移行を要する。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月7日</div>
+    <div class="timeline-title">Realtime API 新音声モデル</div>
+    <div class="timeline-desc">GPT-Realtime-2 など、開発者向け音声モデルが大幅刷新。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月6日</div>
+    <div class="timeline-title">ChatGPT for Excel/Sheets グローバル展開</div>
+    <div class="timeline-desc">Excel・Sheets サイドバー統合がグローバル提供開始。ワークスペースエージェントも有料化。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月5日</div>
+    <div class="timeline-title">GPT-5.5 Instant デフォルト化</div>
+    <div class="timeline-desc">全ユーザー向けにロールアウト。GPT-5.3 Instant を置き換え。ハルシネーション52.5%削減、応答30%短縮、絵文字抑制。Memory Sources も同時公開。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年5月1日</div>
+    <div class="timeline-title">Advanced Account Security</div>
+    <div class="timeline-desc">ChatGPT・Codex アカウントの保護機能を強化。パスキー対応・不審ログイン通知など。</div>
+  </div>
+  <div class="timeline-item retired">
+    <div class="timeline-date">2026年4月26日</div>
+    <div class="timeline-title">Sora アプリ・Web 完全停止</div>
+    <div class="timeline-desc">動画生成機能が ChatGPT および sora.com から完全削除。実施完了。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年4月23日</div>
+    <div class="timeline-title">GPT-5.5 Thinking / Pro リリース</div>
+    <div class="timeline-desc">Plus・Pro・Business・Enterprise 向け公開。コードネーム「Spud」。Terminal-Bench 2.0 で82.7%、業界最高水準のスコア。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年4月22日</div>
+    <div class="timeline-title">ワークスペースエージェント公開</div>
+    <div class="timeline-desc">Custom GPTs の後継として位置づけられる新機能。Business/Enterprise/Edu/Teachers 限定の研究プレビュー。Slack・Salesforce 等と連携、スケジュール実行可。Fast Answers も同日リリース。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年4月21日</div>
+    <div class="timeline-title">ChatGPT Images 2.0 リリース</div>
+    <div class="timeline-desc">画像生成モデル大幅刷新。生成速度4倍、テキスト描画・編集精度向上。Images with Thinking も同時公開。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年4月9日</div>
+    <div class="timeline-title">Pro $100 プラン新設</div>
+    <div class="timeline-desc">従来の$200に加え、$100の中間プラン（16,800円）が登場。Plus の5倍の使用量。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年4月2日</div>
+    <div class="timeline-title">Codex Seats（従量課金席）</div>
+    <div class="timeline-desc">Business/Enterprise 向けに Codex 専用席を追加可能に。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年3月26日</div>
+    <div class="timeline-title">広告テスト 4カ国へ拡大</div>
+    <div class="timeline-desc">米国に加え、カナダ・オーストラリア・ニュージーランドの Free / Go ユーザーに展開。Plus 以上は引き続き広告なし。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年3月24日</div>
+    <div class="timeline-title">Sora の終了発表（Disney 提携も白紙）</div>
+    <div class="timeline-desc">約6カ月で終了の異例決定。計算資源を Codex・推論モデルへ集中。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年3月11日</div>
+    <div class="timeline-title">GPT-5.1 シリーズ停止</div>
+    <div class="timeline-desc">既存会話は GPT-5.3 へ順次移行。</div>
+  </div>
+  <div class="timeline-item retired">
+    <div class="timeline-date">2026年2月13日</div>
+    <div class="timeline-title">GPT-4o・4.1・o4-mini 引退</div>
+    <div class="timeline-desc">旧世代モデルが ChatGPT UI から完全削除。GPT-5 系に完全移行。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年2月10日</div>
+    <div class="timeline-title">Deep Research 強化</div>
+    <div class="timeline-desc">MCP やアプリと連携可能に。信頼できるサイトに調査範囲を限定可能。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年2月9日</div>
+    <div class="timeline-title">広告テスト開始（米国）</div>
+    <div class="timeline-desc">18歳以上限定。Adobe をパイロット参加企業として配信。健康・政治・メンタルヘルス等の機微トピックでは非表示。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年1月15日</div>
+    <div class="timeline-title">ChatGPT Go グローバル展開</div>
+    <div class="timeline-desc">インド先行だった $8 プランが170カ国以上に拡大。日本では1,500円/月で提供開始。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2025年12月</div>
+    <div class="timeline-title">ChatGPT App Store 公開</div>
+    <div class="timeline-desc">第三者アプリを @メンションで呼び出せる仕組み。Free/Go/Plus/Pro で利用可。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2025年11月</div>
+    <div class="timeline-title">Group Chat 追加</div>
+    <div class="timeline-desc">複数人で同じ会話を共有できるモード。ブレスト向け。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2025年10月21日</div>
+    <div class="timeline-title">ChatGPT Atlas（AI ブラウザ）ローンチ</div>
+    <div class="timeline-desc">macOS 版が世界同時公開。Chromium ベースで ChatGPT をサイドバー統合。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2025年9月1日</div>
+    <div class="timeline-title">日本「AI 法」全面施行</div>
+    <div class="timeline-desc">罰則なしの基本法。AI 戦略本部を内閣府内に設置。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2025年8月</div>
+    <div class="timeline-title">Team → Business へ改称</div>
+    <div class="timeline-desc">法人プランのリブランディング。機能追加も含む。</div>
+  </div>
+
+</div>
+
+</section>
+</div><!-- /tab-timeline -->
+
+<!-- ================== FOOTER ================== -->
+<footer>
+  <div class="foot-grid">
+    <h5>この資料について</h5>
+    <p>本資料は <strong>2026年5月20日時点</strong>で公開されている OpenAI 公式情報および信頼できる二次資料をもとに、ChatGPT を初めて導入・検討する個人・ビジネスユーザー向けに編集された参考ガイドです。</p>
+    <p>プラン内容・価格・機能・利用規約は頻繁に更新されます。契約・業務導入前には必ず OpenAI 公式サイト（chatgpt.com/pricing、help.openai.com）および利用規約（openai.com/policies）の <strong>最新版</strong>をご確認ください。</p>
+    <p>2026年は <strong>毎週のように新モデル・新機能が公開</strong>されており、本資料の内容も急速に古くなる可能性があります。特に GPT-5.5 ファミリー、ChatGPT Images 2.0、ワークスペースエージェント、Skills といった新機能は今後さらに変更される可能性が高いため、最新版の確認を強く推奨します。</p>
+    <div class="disclaimer">
+      本ガイドは情報提供を目的としたものであり、法的助言を構成するものではありません。著作権・肖像権・個人情報保護に関する個別具体の判断については、弁護士等の専門家にご相談ください。<br>
+      掲載ロゴ・商標はそれぞれの権利者に帰属します。ChatGPT、GPT は OpenAI の登録商標です。<br>
+      <br>
+      主な参照元：OpenAI Help Center（help.openai.com）、OpenAI Release Notes、chatgpt.com/pricing、OpenAI Academy、Wikipedia（ChatGPT／Sora／ChatGPT Atlas）、内閣府公式発表、EU AI Office 公式資料、その他業界メディア。
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== Main Tab Switching ===== */
+  (function(){
+    const tabs = document.querySelectorAll('.main-tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.toggle('active', t === tab));
+        panels.forEach(p => p.classList.toggle('active', p.id === 'tab-' + target));
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+    });
+  })();
+
+  /* ===== Feature Catalog Side Nav ===== */
+  (function(){
+    const navItems = document.querySelectorAll('#catalogNav .catalog-nav-item');
+    const features = document.querySelectorAll('#catalogContent .catalog-feature');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const target = item.getAttribute('data-feature');
+        navItems.forEach(n => n.classList.toggle('active', n === item));
+        features.forEach(f => f.classList.toggle('active', f.getAttribute('data-panel') === target));
+      });
+    });
+  })();
+
+  /* ===== Settings Sub-tabs ===== */
+  (function(){
+    const layout = document.getElementById('settingsLayout');
+    if (!layout) return;
+    const navs = layout.querySelectorAll('.settings-nav-item');
+    const panels = layout.querySelectorAll('.settings-panel');
+    navs.forEach(nav => {
+      nav.addEventListener('click', () => {
+        const tab = nav.getAttribute('data-tab');
+        navs.forEach(n => n.classList.toggle('active', n === nav));
+        panels.forEach(p => p.classList.toggle('active', p.getAttribute('data-panel') === tab));
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
