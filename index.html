@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChatGPT 完全ガイド 2026年5月20日版｜プラン・機能・著作権の完全リファレンス</title>
+<title>ChatGPT 完全ガイド 2026年6月14日版｜プラン・機能・著作権の完全リファレンス</title>
+<meta name="description" content="2026年6月14日時点の ChatGPT 全機能ガイド。GPT-5.5・Dreaming V3 メモリ・新モデルピッカー・ワークスペースエージェントなど最新動向を網羅。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Noto+Sans+JP:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -486,15 +487,15 @@
 <!-- ================== HEADER ================== -->
 <header class="header">
   <div class="header-inner">
-    <div class="eyebrow">Complete Reference · 2026/05/20 Edition</div>
+    <div class="eyebrow">Complete Reference · 2026/06/14 Edition</div>
     <h1 class="title">ChatGPT <em>完全ガイド</em><br>プラン・機能・著作権</h1>
     <p class="subtitle">
       Free・Go・Plus・Pro・Business の <strong>全プラン</strong>と、Projects・Skills・Workspace Agents など <strong>全機能</strong>を、初心者の方でも迷わない構成にまとめました。<strong>「概要・できること・使い方・制約」</strong>を機能ごとにご確認いただけます。タブで切り替えて目的の情報にすぐアクセスできます。
     </p>
     <div class="header-meta">
-      <div><strong>Last Updated</strong>2026年5月20日</div>
+      <div><strong>Last Updated</strong>2026年6月14日</div>
       <div><strong>Latest Model</strong>GPT-5.5 Instant（既定）</div>
-      <div><strong>Latest Image</strong>ChatGPT Images 2.0</div>
+      <div><strong>Latest Memory</strong>Dreaming V3（6/4〜）</div>
       <div><strong>Coverage</strong>Free / Go / Plus / Pro / Business</div>
     </div>
   </div>
@@ -546,26 +547,40 @@
   <div class="quick-card"><div class="qnum">09</div><h5>年表</h5><p>2025-2026年の主要アップデート時系列。最新動向の把握に。</p></div>
 </div>
 
-<h3>2026年5月時点の重要な変化</h3>
+<h3>2026年6月時点の重要な変化</h3>
 
 <div class="callout danger">
-  <h4>GPT-5.5 ファミリーへの全面移行</h4>
-  <p><strong>2026年5月5日</strong>から、全プランの既定モデルが <strong>GPT-5.5 Instant</strong> に切り替わりました。GPT-5.3 から大幅進化し、医療・法律・金融分野での事実誤認が約 <strong>52.5% 削減</strong>。応答は約 <strong>30% 短く</strong>、絵文字や過剰な装飾を抑えた素直なスタイルになっています。Plus・Pro 向けには <strong>GPT-5.5 Thinking / Pro</strong>（2026/4/23）も利用可能。</p>
+  <h4>新メモリシステム「Dreaming V3」登場（2026/6/4〜）</h4>
+  <p><strong>2026年6月4日</strong>、ChatGPT のメモリ機能が大幅刷新されました。新アーキテクチャ <strong>Dreaming V3</strong> は、過去会話を背景プロセスで継続的に整理し、<strong>「時間経過で古くなった文脈」を更新</strong>します（例：「シンガポール旅行に行く予定」→ 旅行終了後「シンガポール旅行に行った」へ更新）。<strong>事実想起テストで 82.8%、嗜好反映で 71.3%、時間感度で 75.1%</strong> という大幅な精度向上。Plus / Pro 米国ユーザーから先行展開、Free / Go へも順次拡大。Plus / Pro はメモリ容量も <strong>2倍に拡張</strong>。</p>
 </div>
 
 <div class="callout warn">
-  <h4>動画生成 Sora は完全終了</h4>
-  <p><strong>2026年4月26日</strong>に Sora アプリ・Web が完全停止。ChatGPT 本体に動画生成機能は再統合されません。動画生成が必要な場合は Google Veo 3、Kling 3.0、Runway 等への移行を検討してください。</p>
+  <h4>モデルピッカーが大幅刷新（2026/6/10〜）</h4>
+  <p>従来の Thinking Standard / Extended / Heavy という名称が、<strong>Instant / Medium / High / Extra High / Pro Standard / Pro Extended</strong> という6段階に整理されました。Plus は Instant〜Extra High（5段階）、Pro は全6段階。<strong>「Thinking Light」は廃止</strong>。「Instant が必要に応じて Medium に裏側で切り替わる」設定もオン／オフ可能（設定 → 一般）。</p>
+</div>
+
+<div class="callout warn">
+  <h4>レガシーモデルの順次廃止</h4>
+  <p><strong>GPT-5.2 シリーズ（Instant・Thinking・Pro）は 2026年6月12日に完全廃止</strong>。GPT-5.5 系へ順次移行されました。さらに <strong>GPT-4.5 は 6月27日</strong>に、<strong>OpenAI o3 は 8月26日</strong>に ChatGPT から廃止予定です（API は別途継続）。</p>
 </div>
 
 <div class="callout info">
-  <h4>画像生成 Images 2.0 全プラン対応</h4>
-  <p><strong>2026年4月21日リリース</strong>。生成速度が <strong>従来の4倍</strong>、日本語・中国語・韓国語・ヒンディー語・ベンガル語のテキスト描画精度も大幅向上。1プロンプトから最大 <strong>8枚同時生成</strong>、最大 <strong>2K解像度</strong>。有料プランでは <strong>「Images with Thinking」</strong>モード（描画前に AI が構図を計画）も利用可能。<strong>DALL-E 3 は2026/5/12 にサポート終了</strong>。</p>
+  <h4>パーソナライズ拡大・Web 検索に画像も</h4>
+  <p><strong>GPT-5.5 Instant のパーソナライズ強化</strong>（過去会話・ファイル参照）は、<strong>2026年6月9日から Free・Go ユーザーにも展開</strong>開始（Free は過去会話の参照数を絞った版）。同日、<strong>Web 検索の応答に画像結果が併記</strong>されるようになりました。製品写真・名所・場所・イベントなどビジュアルが分かりやすく。</p>
 </div>
 
 <div class="callout good">
-  <h4>業務向け新機能ラッシュ（Business/Enterprise 中心）</h4>
-  <p><strong>ワークスペースエージェント</strong>（2026/4/22）<strong>・Skills</strong>（業務ワークフローを SKILL.md として再利用可能化、ベータ）<strong>・ChatGPT for Excel/Sheets</strong>（2026/5/6 グローバル展開、2026/6/2 までプレビュー無料）が立て続けに登場。GPTs は今後ワークスペースエージェント・Skills への移行が予告されています。</p>
+  <h4>セキュリティ・ガバナンス強化（業務利用向け）</h4>
+  <p><strong>Active Sessions</strong>：ログイン中のセッション（端末・場所・サインイン時刻）を一覧確認し、見覚えのないものを即サインアウト可能。<br>
+  <strong>App Permissions</strong>（Business・Enterprise）：管理者が「常に確認 / 任意の変更時 / 重要な操作のみ」など、接続アプリのアクセス確認タイミングを制御。<br>
+  <strong>Workspace Agents 無料期間延長</strong>：当初予定の5/6から <strong>7/6 まで延長</strong>されました（その後クレジット課金へ移行）。</p>
+</div>
+
+<div class="callout info">
+  <h4>その他の最新トピック（5月後半〜6月）</h4>
+  <p><strong>Sora は4/26で完全終了</strong>（既に動画生成は ChatGPT 上で利用不可）。<strong>DALL-E 3 もサポート終了済み</strong>（5/12）。画像生成は <strong>Images 2.0</strong> に統合。<br>
+  <strong>対話的チャート</strong>（6/8）：回答内に棒・折れ線・円・散布図のインタラクティブグラフが描画されるように。<br>
+  <strong>Codex 強化</strong>：Windows 版 Computer Use、Appshots（画面共有）、プラグイン共有（Enterprise/Edu 既定有効）、Codex Mobile の /goal 機能など。</p>
 </div>
 
 <h3>初心者の方が押さえるべき5つのポイント</h3>
@@ -573,22 +588,22 @@
   <div class="feature">
     <div class="num">01</div>
     <h5>まずは Free で試す</h5>
-    <p>無料でも GPT-5.5 Instant に触れられます。1日10回程度なら十分。物足りなくなったら次のステップへ。</p>
+    <p>無料でも GPT-5.5 Instant に触れられ、画像生成・Web 検索・新メモリ（Dreaming V3 順次展開中）まで使えます。物足りなくなったら次へ。</p>
   </div>
   <div class="feature">
     <div class="num">02</div>
     <h5>業務で本格利用なら Plus</h5>
-    <p>月¥3,000で広告なし・主要機能フル開放。3年間価格据え置きで、コスパは最高クラス。</p>
+    <p>月¥3,000で広告なし・主要機能フル開放。3年間価格据え置きで、コスパは最高クラス。新モデルピッカー（Instant/Medium/High/Extra High）にも対応。</p>
   </div>
   <div class="feature">
     <div class="num">03</div>
     <h5>機密情報は Business 以上で</h5>
-    <p>Plus 等の個人プランは既定で入力内容が学習に使われる可能性あり。会社の情報を扱うなら Business 必須級。</p>
+    <p>Plus 等の個人プランは既定で入力内容が学習に使われる可能性あり。会社の情報を扱うなら Business 必須級。新しい App Permissions で管理も強化。</p>
   </div>
   <div class="feature">
     <div class="num">04</div>
-    <h5>「考えて答える」モデルを使い分け</h5>
-    <p>日常タスクは Instant、複雑な問題は Thinking、超精度が必要なら Pro。3段階で選びましょう。</p>
+    <h5>モデルピッカーを使い分け</h5>
+    <p>日常タスクは Instant、深く考えるなら Medium〜High、最重要案件は Extra High や Pro Standard / Pro Extended。6段階で選びましょう。</p>
   </div>
   <div class="feature">
     <div class="num">05</div>
@@ -621,7 +636,7 @@
       <li>画像生成（Images 2.0）対応</li>
       <li>Deep Research 月 5 回</li>
       <li>カスタムGPT は利用のみ</li>
-      <li>インライン Web 画像表示強化（5月）</li>
+      <li>Dreaming V3 メモリ（順次展開中）</li>
     </ul>
   </div>
   <div class="plan-card">
@@ -644,10 +659,10 @@
     <div class="price">¥3,000<small>/月</small></div>
     <div class="price-note">US$20 相当・広告なし</div>
     <ul>
-      <li>GPT-5.5 Thinking / Instant 両対応</li>
+      <li>新モデルピッカー（Instant〜Extra High）対応</li>
       <li>Images 2.0 + Thinking モード</li>
       <li>Codex / Deep Research / Agent Mode</li>
-      <li>Memory Sources（強化版）</li>
+      <li>Dreaming V3 メモリ（2倍容量）</li>
       <li>Canvas / Projects / GPTs 作成</li>
       <li>Atlas ブラウザで Agent Mode 利用可</li>
     </ul>
@@ -658,7 +673,7 @@
     <div class="price">¥16,800〜<small>/月</small></div>
     <div class="price-note">US$100 または US$200（¥30,000）</div>
     <ul>
-      <li>GPT-5.5 Pro（最上位モデル）</li>
+      <li>Pro Standard / Pro Extended 利用可</li>
       <li>Deep Research 月 250 回</li>
       <li>ChatGPT Pulse（先回り提案）</li>
       <li>Personal Finance（米国先行）</li>
@@ -696,7 +711,7 @@
     <tbody>
       <tr><td>月額（日本円）</td><td>¥0</td><td>¥1,500</td><td class="hl">¥3,000</td><td>¥16,800〜¥30,000</td><td>¥3,900〜4,650/人</td></tr>
       <tr><td>月額（米ドル）</td><td>$0</td><td>$8</td><td class="hl">$20</td><td>$100 / $200</td><td>$25〜30/人</td></tr>
-      <tr><td>最上位モデル</td><td>GPT-5.5 Instant</td><td>GPT-5.5 Instant</td><td class="hl">GPT-5.5 Thinking</td><td>GPT-5.5 Pro</td><td>GPT-5.5 Pro</td></tr>
+      <tr><td>最上位モデル</td><td>GPT-5.5 Instant</td><td>GPT-5.5 Instant</td><td class="hl">High（Thinking 系）</td><td>Pro Extended</td><td>Pro Extended</td></tr>
       <tr><td>広告表示</td><td class="partial">米/加/豪/NZ あり</td><td class="partial">米/加/豪/NZ あり</td><td class="hl"><span class="check">なし</span></td><td><span class="check">なし</span></td><td><span class="check">なし</span></td></tr>
       <tr><td>Images 2.0</td><td><span class="check">○</span></td><td><span class="check">○</span></td><td class="hl"><span class="check">○ ＋Thinking</span></td><td><span class="check">○ ＋Thinking</span></td><td><span class="check">○ ＋Thinking</span></td></tr>
       <tr><td>Deep Research</td><td>5回/月</td><td class="cross">×</td><td class="hl">25回/月</td><td>250回/月</td><td>25回/月</td></tr>
@@ -713,7 +728,7 @@
     </tbody>
   </table>
 </div>
-<p style="font-size:11.5px;color:var(--muted);margin-top:8px">※ 2026年5月20日時点。為替・税込の日本語公式ページ表示ベース。<br>※ Web経由の海外契約は為替手数料（1〜3%）で実額が表示より高くなる場合があります。</p>
+<p style="font-size:11.5px;color:var(--muted);margin-top:8px">※ 2026年6月14日時点。為替・税込の日本語公式ページ表示ベース。<br>※ Web経由の海外契約は為替手数料（1〜3%）で実額が表示より高くなる場合があります。</p>
 
 <h3>プランごとの詳細</h3>
 
@@ -814,9 +829,9 @@
   </div>
   <div class="callout info">
     <h4>2026年4月以降の Business 限定の新機能</h4>
-    <p><strong>(1) ワークスペースエージェント</strong>（4/22）：業務フローを自律実行する共有エージェント。クレジットベース課金（30クレジット/メッセージ）。<br>
+    <p><strong>(1) ワークスペースエージェント</strong>（4/22）：業務フローを自律実行する共有エージェント。<strong>無料期間が7/6まで延長</strong>、その後クレジット課金（30クレジット/メッセージ）。<br>
     <strong>(2) Skills</strong>（ベータ）：再利用可能な業務手順を SKILL.md として保存・共有。<br>
-    <strong>(3) ChatGPT for Excel/Sheets</strong>（5/6 グローバル）：Excel/Sheets にサイドバー統合。<strong>2026/6/2 までプレビュー無料</strong>。</p>
+    <strong>(3) ChatGPT for Excel/Sheets</strong>（5/6 グローバル）：Excel/Sheets にサイドバー統合。無料プレビューは <strong>2026年6月2日に終了</strong>。</p>
   </div>
 </div>
 
@@ -830,23 +845,28 @@
 <div class="section-header">
   <div class="section-num">03 ── Models</div>
   <h2>モデルの種類を<em>整理する</em></h2>
-  <p class="lede">ChatGPT の「頭脳」は複数のモデルで構成されており、プランごとに使えるモデルが違います。2026年5月20日現在、デフォルトは <strong>GPT-5.5 Instant</strong>（2026/5/5〜）、上位プランでは <strong>GPT-5.5 Thinking / Pro</strong>（2026/4/23〜）が利用可能です。</p>
+  <p class="lede">ChatGPT のモデルピッカーは <strong>2026年6月10日に大幅に再構成</strong>され、従来の「Thinking Standard/Extended/Heavy」という名称から <strong>Instant / Medium / High / Extra High / Pro Standard / Pro Extended</strong> の6段階に整理されました。基盤モデルは引き続き GPT-5.5 ファミリーです。</p>
 </div>
 
 <p class="term-note">
-  <strong>モデル（model）とは：</strong>AIの「種類」のこと。同じ ChatGPT の中でも、「速い・軽い」モデルと「遅いけど賢い」モデルがあり、用途で使い分けます。Word に「明朝体・ゴシック体」があるように、ChatGPT には「Instant・Thinking・Pro」があると考えると分かりやすいです。
+  <strong>モデルピッカーとは：</strong>同じ ChatGPT でも、用途に応じて「速く軽い回答」「じっくり考えた回答」「最大計算資源を使った回答」を選択できる仕組み。Word の「明朝・ゴシック」のように、Instant〜Pro Extended から場面に応じて切り替えます。
 </p>
 
 <div class="correction-notice">
-  <strong>重要な変更の経緯</strong>
-  2026年2月13日に旧モデル（GPT-4o・4.1・o4-mini・GPT-5 Instant・GPT-5 Thinking）が引退、3月3日に GPT-5.3 Instant がデフォルトに、4月23日に <strong>GPT-5.5 Thinking／Pro</strong>、<strong>5月5日に GPT-5.5 Instant</strong> が公開されデフォルトが GPT-5.5 ファミリーに完全移行しました。GPT-5.3 Instant は有料プランで3カ月間（〜2026年8月頃）モデル設定から選択可能ですが、その後廃止予定です。
+  <strong>2026年6月のモデル整理</strong>
+  <strong>6月10日：</strong>モデルピッカー再構成（Thinking Light を廃止し、その他は新名称に統一）。<br>
+  <strong>6月12日：</strong>GPT-5.2 シリーズ（Instant・Thinking・Pro）が ChatGPT から完全廃止。GPT-5.5 系へ切り替えて継続。<br>
+  <strong>6月27日（予定）：</strong>GPT-4.5 廃止（30日サンセット）。<strong>8月26日（予定）：</strong>OpenAI o3 廃止（90日サンセット）。<br>
+  各廃止は ChatGPT のみで、API では別途継続。
 </div>
+
+<h3>2026年6月以降の新モデルピッカー（6段階）</h3>
 
 <div class="models-tree">
   <div class="model-row">
-    <div class="model-name">GPT-5.5 Instant<small>標準モデル（2026/5/5〜デフォルト）</small></div>
+    <div class="model-name">Instant<small>速度重視・GPT-5.5 Instant ベース</small></div>
     <div class="model-desc">
-      現在の <strong>既定モデル</strong>。GPT-5.3 Instant を置き換えました。<strong>医療・法律・金融など「正確さが重要な分野」でのハルシネーション（事実誤認）を52.5%削減</strong>。応答は約30%短く、絵文字や過剰な装飾を抑制した「素っ気ない」スタイル。画像解析・STEM 系の回答・Web 検索の使い時の判断にも向上。Plus・Pro 向けには <strong>過去会話・ファイル・Gmail を文脈として活用</strong>するパーソナライズ強化も搭載。
+      <strong>既定モデル</strong>。GPT-5.5 Instant が基盤（2026/5/5〜）。日常タスク・要約・翻訳・短い質問に最適。<strong>医療・法律・金融などのハルシネーション（事実誤認）を 52.5% 削減</strong>。応答は約30%短縮、絵文字を抑制した素直なスタイル。<strong>Plus・Pro 向けには過去会話・ファイル・Gmail を文脈として活用</strong>するパーソナライズ強化も搭載（2026/6/9 から Free・Go へも順次拡大、Free は参照範囲を絞った版）。新設定で「必要時に Medium へ裏側で切り替える」のオン／オフ可能。
       <div class="model-avail">
         <span class="tag free">Free</span>
         <span class="tag">Go</span>
@@ -858,9 +878,9 @@
   </div>
 
   <div class="model-row">
-    <div class="model-name">GPT-5.5 Thinking<small>推論モデル（2026/4/23〜）</small></div>
+    <div class="model-name">Medium<small>標準推論モデル（旧 Thinking Standard）</small></div>
     <div class="model-desc">
-      「考えてから答える」タイプのモデル。<strong>数学・論理・複雑なコード・多段の分析</strong>などに強く、Terminal-Bench 2.0 で <strong>82.7% という業界最高水準スコア</strong>を記録。FrontierMath（高難度数学）でも 51.7%。複雑なタスクの計画・道具使用・検証を一気通貫でこなします。Codex 内でも GPT-5.5 が動作。
+      <strong>「考えてから答える」</strong>標準モード。複雑な質問・論理的な思考が必要な場面に。Instant より深く考え、レポート作成・文章推敲・基本的なコード解説に適しています。
       <div class="model-avail">
         <span class="tag plus">Plus</span>
         <span class="tag pro">Pro</span>
@@ -870,9 +890,33 @@
   </div>
 
   <div class="model-row">
-    <div class="model-name">GPT-5.5 Pro<small>最上位モデル（2026/4/23〜）</small></div>
+    <div class="model-name">High<small>深い推論（旧 Thinking Extended）</small></div>
     <div class="model-desc">
-      Pro プラン限定の最高性能モデル。コードネーム「Spud」。<strong>最大限の計算資源を投入</strong>して、研究・複雑な数学・高難度コーディング・長大な文書処理で最も精度の高い回答を出します。Business／Enterprise でも利用可。応答時間は遅めですが、品質は別格です。
+      Medium よりさらに時間をかけた推論。<strong>数学・論理パズル・複雑なコード・多段の分析</strong>に強い。GPT-5.5 Thinking 系の能力を活用（Terminal-Bench 2.0 で 82.7%、業界最高水準）。
+      <div class="model-avail">
+        <span class="tag plus">Plus</span>
+        <span class="tag pro">Pro</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">Extra High<small>最高水準の推論（旧 Thinking Heavy）</small></div>
+    <div class="model-desc">
+      Plus・Pro 共通で選べる最も深い思考モード。<strong>複雑な分析・多段階の問題解決</strong>を要する重要案件向け。応答時間は長めですが品質は高い。
+      <div class="model-avail">
+        <span class="tag plus">Plus</span>
+        <span class="tag pro">Pro</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">Pro Standard<small>Pro 専用・最大計算資源</small></div>
+    <div class="model-desc">
+      <strong>Pro プラン限定</strong>の高性能モード（GPT-5.5 Pro ベース、コードネーム「Spud」）。Business / Enterprise でも利用可。研究・複雑な数学・高難度コーディングで最高品質の回答。
       <div class="model-avail">
         <span class="tag pro">Pro ($100/$200)</span>
         <span class="tag">Business</span>
@@ -881,9 +925,20 @@
   </div>
 
   <div class="model-row">
-    <div class="model-name">GPT-5.4 mini<small>軽量推論モデル（フォールバック用）</small></div>
+    <div class="model-name">Pro Extended<small>Pro 専用・延長思考</small></div>
     <div class="model-desc">
-      Free / Go ユーザーが「+メニュー → Thinking」で起動できる軽量推論モデル。有料プランでは Thinking の回数上限に達したときのフォールバック先として動作。モデルピッカーには表示されません。
+      Pro Standard よりもさらに時間をかけ、<strong>最大の推論深度</strong>を提供。論文の査読・複雑な契約書レビュー・1円でも失敗したくない場面の最終確認向け。
+      <div class="model-avail">
+        <span class="tag pro">Pro ($100/$200)</span>
+        <span class="tag">Business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name">GPT-5.4 mini<small>Free / Go の Thinking フォールバック</small></div>
+    <div class="model-desc">
+      Free / Go ユーザーが「+メニュー → Thinking」で起動できる軽量推論モデル。有料プランでは上位モデルの上限到達時のフォールバック先として動作。ピッカーには表示されません。
       <div class="model-avail">
         <span class="tag free">Free</span>
         <span class="tag">Go</span>
@@ -892,11 +947,11 @@
   </div>
 
   <div class="model-row">
-    <div class="model-name">GPT-5.3 Instant Mini<small>最軽量・無音フォールバック</small></div>
-    <div class="model-desc">
-      Free プランで制限に達したときの <strong>フォールバック（切り替え先）</strong>として使われる軽量モデル。日常会話や簡単な質問には十分。モデル選択メニューには表示されません。
+    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">Thinking Light<small>2026/6/10 廃止</small></div>
+    <div class="model-desc" style="color:var(--muted)">
+      有料登録者の1%未満しか使っていなかったため廃止。Instant か Medium へ切り替えてください。
       <div class="model-avail">
-        <span class="tag free">Free</span>
+        <span class="tag retired">Retired</span>
       </div>
     </div>
   </div>
@@ -904,7 +959,7 @@
   <div class="model-row">
     <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-5.3 Instant<small>2026/5/5 デフォルト退役（〜2026/8 まで選択可）</small></div>
     <div class="model-desc" style="color:var(--muted)">
-      2026年3月3日から5月4日までデフォルトモデルだったモデル。GPT-5.5 Instant への移行に伴い退役。有料プラン契約者は3カ月間モデル設定から手動で選択可能ですが、2026年8月頃に完全廃止予定です。
+      2026年3月3日から5月4日までデフォルトだったモデル。GPT-5.5 Instant への移行で退役。有料プラン契約者は3カ月間モデル設定から手動で選択可能ですが、2026年8月頃に完全廃止予定です。
       <div class="model-avail">
         <span class="tag retired">Retiring</span>
       </div>
@@ -912,9 +967,19 @@
   </div>
 
   <div class="model-row">
-    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-4o / GPT-4.1 / o4-mini<small>2026/2/13 引退</small></div>
+    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-5.2 / GPT-4.5 / OpenAI o3<small>順次廃止中</small></div>
     <div class="model-desc" style="color:var(--muted)">
-      ChatGPT UI からは完全に削除済み。旧モデルで作成された会話は裏側で GPT-5.5 系へ切り替わって継続されます。
+      GPT-5.2 シリーズ（Instant・Thinking・Pro）は <strong>2026年6月12日</strong>に完全廃止済み。<strong>GPT-4.5 は6月27日</strong>に、<strong>OpenAI o3 は8月26日</strong>に廃止予定。既存会話は対応する GPT-5.5 系に切り替わって継続。
+      <div class="model-avail">
+        <span class="tag retired">Retired / Retiring</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-row">
+    <div class="model-name" style="text-decoration:line-through;color:var(--muted)">GPT-4o / GPT-4.1 / o4-mini<small>2026/2/13 引退済</small></div>
+    <div class="model-desc" style="color:var(--muted)">
+      ChatGPT UI から完全削除済み。旧モデルで作成された会話は GPT-5.5 系へ切り替わって継続されます。
       <div class="model-avail">
         <span class="tag retired">Retired</span>
       </div>
@@ -922,22 +987,22 @@
   </div>
 </div>
 
-<h3>使い分けのコツ</h3>
+<h3>使い分けのコツ（新ピッカー対応）</h3>
 <div class="features-grid">
   <div class="feature">
     <div class="num">01</div>
     <h5>Instant を既定に</h5>
-    <p>メール作成、要約、アイデア出しといった日常タスクは Instant で十分。速度が正義です。</p>
+    <p>メール作成、要約、アイデア出しといった日常タスクは Instant で十分。速度が正義です。「必要時に Medium へ裏側で切替」設定をオンにすれば、複雑な質問だけ深く考えてくれます。</p>
   </div>
   <div class="feature">
     <div class="num">02</div>
-    <h5>複雑な判断は Thinking へ</h5>
-    <p>数学・論理パズル・コードのバグ探し・長文の論理構成は Thinking モードで。数秒〜数十秒かけて「考えて」答えます。</p>
+    <h5>Medium / High で深い思考</h5>
+    <p>Medium は標準的な分析、High は数学・論理・コード等の難問。Extra High は重要案件の最終確認に。</p>
   </div>
   <div class="feature">
     <div class="num">03</div>
-    <h5>Pro は「精度最優先」の時だけ</h5>
-    <p>研究論文の査読、クリティカルな契約書レビュー等、1円でも失敗したくない場面用。日常使いはオーバースペックです。</p>
+    <h5>Pro Extended は最後の砦</h5>
+    <p>研究論文の査読、契約書レビュー等、1円でも失敗したくない場面用。日常使いはオーバースペックです。</p>
   </div>
 </div>
 
@@ -951,7 +1016,7 @@
 <div class="section-header">
   <div class="section-num">04 ── Feature Catalog</div>
   <h2>全機能<em>カタログ</em></h2>
-  <p class="lede">ChatGPT の全機能を「<strong>概要・できること・使い方・制約</strong>」の 4 観点で網羅したカタログです。左メニューで機能を選択してください。<strong>2026年5月20日時点</strong>の最新情報を反映しています。</p>
+  <p class="lede">ChatGPT の全機能を「<strong>概要・できること・使い方・制約</strong>」の 4 観点で網羅したカタログです。左メニューで機能を選択してください。<strong>2026年6月14日時点</strong>の最新情報を反映しています。</p>
 </div>
 
 <div class="catalog-layout">
@@ -1161,42 +1226,50 @@
     <div class="catalog-feature" data-panel="memory">
       <div class="feature-head">
         <div class="feature-cat">A. チャット・会話の基本</div>
-        <div class="feature-title">メモリ / Memory Sources</div>
-        <div class="feature-subtitle">過去の会話を覚えて、文脈を引き継いで応答</div>
+        <div class="feature-title">メモリ（Dreaming V3）</div>
+        <div class="feature-subtitle">2026年6月4日刷新・過去会話から学習し時間経過で更新する新しいメモリ</div>
         <div class="feature-plans">
-          <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
-          <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
+          <span class="plan-tag free">Free（順次拡大中）</span><span class="plan-tag go">Go（順次拡大中）</span>
+          <span class="plan-tag plus">Plus（米国先行→順次拡大）</span><span class="plan-tag pro">Pro（米国先行→順次拡大）</span>
           <span class="plan-tag business">Business</span>
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>過去の会話から「好み・職業・文体・関心事」などを <strong>裏側で記憶</strong>し、次回以降の回答に反映する機能。2026年5月の <strong>Memory Sources</strong>追加で、「どの情報源（過去会話・メモリ・Gmail・ファイル）が応答に影響したか」が可視化されました。</p>
+        <p>2026年6月4日にリリースされた <strong>Dreaming V3</strong> は、ChatGPT のメモリシステムの第3世代。過去会話を背景プロセスで継続的に整理し、<strong>時間経過に応じて記憶を更新する「ドリーミング」</strong>方式を採用（例：「7月にシンガポール旅行に行く」→旅行後「7月にシンガポール旅行に行った」へ更新）。事実想起テストで <strong>82.8%</strong>、嗜好反映で <strong>71.3%</strong>、時間感度で <strong>75.1%</strong> という大幅向上。Plus・Pro は容量 <strong>2倍</strong>、Free は計算効率 <strong>5倍</strong>改善で初提供。米国 Plus / Pro から先行展開、Free / Go を含む他地域へも順次拡大中。<strong>Memory Sources</strong>（5月公開）で「どの情報源が応答に影響したか」も可視化されます。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
           <li>名前・職業・趣味・好みなど属性情報の学習・記憶</li>
+          <li>過去会話から関連する文脈を背景プロセスで整理して活用</li>
+          <li><strong>時間経過した情報を自然に更新</strong>（旅行・予定の終了など）</li>
           <li>「いつもの文体で」など曖昧な依頼への対応</li>
-          <li><strong>Memory Sources</strong> で参照された情報源を確認・編集・削除</li>
-          <li>Plus / Pro は <strong>過去会話・ファイル・Gmail連携</strong>を文脈として活用（順次展開中）</li>
+          <li><strong>Memory Summary ページ</strong>で、ChatGPT が記憶している自分の像をレビュー・編集</li>
+          <li><strong>Memory Sources</strong> で応答の根拠を確認・編集・削除</li>
+          <li>Plus / Pro は <strong>過去会話・ファイル・Gmail 連携</strong>を文脈として活用</li>
           <li>共有チャットでは Memory Sources は他人に見られない</li>
           <li>「一時チャット」で履歴とメモリを使わない会話も可能</li>
+          <li><strong>「Delete and turn off memory」</strong>で全メモリを消去＋機能オフが可能（過去チャットは残る）</li>
         </ul>
       </div>
       <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
         <ol class="step-list">
           <li>設定 → パーソナライズ → メモリで機能をオン</li>
-          <li>通常通り会話をすると ChatGPT が重要事項を保存</li>
+          <li>通常通り会話をすると ChatGPT が重要事項を継続学習</li>
           <li>「これを覚えておいて」と明示的に依頼することも可能</li>
-          <li>メモリ管理画面で保存内容を一覧確認・編集・削除</li>
-          <li>応答に「Memory Sources」表示があれば、それをクリックして根拠を確認</li>
+          <li>Memory Summary ページで記憶された自分像を確認・編集</li>
+          <li>応答に「Memory Sources」表示があれば、それをクリックして根拠確認</li>
+          <li>不要になったら 3点メニュー →「Delete and turn off memory」</li>
         </ol>
       </div>
       <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
         <ul class="limit-list">
+          <li>Dreaming V3 はまず米国 Plus / Pro から、その他地域や Free / Go へは順次展開（2026年6月14日時点ではロールアウト中）</li>
           <li>記憶された情報がモデルの学習に使われる可能性あり（Business は除く）</li>
           <li>Memory Sources は応答に影響した「主な要因」のみ表示（全ての参照を表示するわけではない）</li>
-          <li>地域によっては利用できないパーソナライズソースあり</li>
+          <li>Free 版は過去会話の参照範囲が絞られる（短いメモリホライズン）</li>
+          <li>地域によっては利用できないパーソナライズソースあり（Gmail 連携など）</li>
           <li>一時チャットではメモリの読み書きは行われない</li>
+          <li>旧 Saved Memories スタイルに戻すオプションも設定から利用可能</li>
         </ul>
       </div>
     </div>
@@ -1602,6 +1675,7 @@
           <li>商品比較・最新トレンド調査</li>
           <li>事実確認のためのソース提示</li>
           <li>GPT-5.5 Instant が「いつ Web 検索すべきか」を賢く判断</li>
+          <li><strong>2026/6/9〜：Web 検索結果に画像も併記</strong>（商品写真・名所・場所・イベントの参考画像）</li>
         </ul>
       </div>
       <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
@@ -1717,7 +1791,7 @@
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>コード生成専用のエージェント。<strong>リポジトリ全体を理解</strong>してバグ修正・機能追加・テスト実装をこなします。Pro では Plus の 5〜10 倍の枠（2026年5月31日まで期間限定10倍）。GPT-5.5 が基盤で動作。世界で <strong>毎週400万人</strong>が利用中。</p>
+        <p>コード生成専用のエージェント。<strong>リポジトリ全体を理解</strong>してバグ修正・機能追加・テスト実装をこなします。Pro では Plus の 5〜10 倍の枠（2026年5月31日まで期間限定で10倍 → 現在は通常の5倍）。GPT-5.5 が基盤で動作。世界で <strong>毎週400万人</strong>が利用中。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
@@ -1754,7 +1828,7 @@
     <div class="catalog-feature" data-panel="codexmac">
       <div class="feature-head">
         <div class="feature-cat">D. 開発・コーディング</div>
-        <div class="feature-title">Codex App（macOS）</div>
+        <div class="feature-title">Codex App（macOS / Windows）</div>
         <div class="feature-subtitle">複数コーディングエージェントの並列管理コンソール</div>
         <div class="feature-plans">
           <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
@@ -1762,7 +1836,7 @@
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>macOS 向けの Codex 専用アプリ。<strong>複数のコーディングエージェントを並列で管理</strong>するコマンドセンター。長時間・バックグラウンドタスクの実行、独立した worktree からのクリーン差分レビュー、再利用可能 Skills の実行が可能。Business では2倍のレートリミット（期間限定）。</p>
+        <p>Codex 専用デスクトップアプリ。<strong>複数のコーディングエージェントを並列で管理</strong>するコマンドセンター。長時間・バックグラウンドタスクの実行、独立した worktree からのクリーン差分レビュー、再利用可能 Skills の実行が可能。<strong>2026年6月にはWindows版でも Computer Use（画面操作）に対応</strong>。Appshots（アプリ画面のスクリーンショット添付）、Profile 画面（使用量・トークン統計）、Plugin Directory も追加されました。Business では2倍のレートリミット（期間限定）。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
@@ -1772,22 +1846,30 @@
           <li>エージェントの進捗・判断の可視化</li>
           <li>Skills・効率化スクリプトの実行</li>
           <li>Codex local / cloud / app の統合管理</li>
+          <li><strong>Appshots</strong>：アプリウィンドウをホットキーで添付（スクリーンショット＋テキスト）</li>
+          <li><strong>Computer Use on Windows</strong>（2026年6月対応）：Windows アプリ内をクリック・タイプ・確認</li>
+          <li><strong>Plugin Directory</strong>：再利用可能なワークフローをインストール</li>
+          <li><strong>Plugin Sharing</strong>：チームでローカルプラグインを共有（Enterprise 既定オン、Edu 既定オン）</li>
+          <li>Profile 画面：使用量・トークン活動・アクティビティの可視化</li>
         </ul>
       </div>
       <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
         <ol class="step-list">
-          <li>macOS App Store または公式サイトからダウンロード</li>
+          <li>macOS App Store または公式サイトからダウンロード（Windows 版も提供開始）</li>
           <li>ChatGPT アカウントでログイン</li>
           <li>Codex local の有効化（Business は管理者承認が必要）</li>
           <li>プロジェクトを開いてタスクを開始</li>
+          <li>Appshots ホットキーで現在のアプリ画面を添付</li>
           <li>複数エージェントの並列実行・進捗監視</li>
         </ol>
       </div>
       <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
         <ul class="limit-list">
-          <li>現在 macOS 専用（Windows / Linux は未対応）</li>
+          <li>Linux は未対応</li>
           <li>Business では管理者が Codex アクセスを許可している必要</li>
+          <li>Plugin Sharing は Enterprise では既定オフ、管理者要問合せ</li>
           <li>ローカルファイルへの書き込み権限の管理が必須</li>
+          <li>Computer Use はサンドボックス内での実行が原則</li>
         </ul>
       </div>
     </div>
@@ -1796,15 +1878,15 @@
     <div class="catalog-feature" data-panel="codexmobile">
       <div class="feature-head">
         <div class="feature-cat">D. 開発・コーディング</div>
-        <div class="feature-title">Codex Mobile（モバイル版・プレビュー）</div>
-        <div class="feature-subtitle">スマホから Codex タスクを継続・確認</div>
+        <div class="feature-title">Codex Mobile</div>
+        <div class="feature-subtitle">スマホから Codex タスクを継続・確認・指示（6月強化）</div>
         <div class="feature-plans">
           <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
           <span class="plan-tag business">Business</span>
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>2026年5月、ChatGPT モバイルアプリに <strong>Codex プレビュー機能</strong>が追加。スマホから接続済みの Mac やデバイスで稼働している Codex の進捗確認・指示・承認が可能になりました。「離席中でも作業を止めない」ためのコンパニオン機能。</p>
+        <p>2026年5月、ChatGPT モバイルアプリに <strong>Codex 機能</strong>が追加。スマホから接続済みの Mac やデバイスで稼働している Codex の進捗確認・指示・承認が可能。<strong>6月のアップデートで /goal コマンド・側面チャット・インラインレビューコメント・QRペアリングが追加</strong>。「離席中でも作業を止めない」ためのコンパニオン機能。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
@@ -1815,6 +1897,9 @@
           <li>Codex が見つけた内容のレビュー</li>
           <li>進捗・差分・スクリーンショット・テスト結果を表示</li>
           <li>接続済みホスト間の切り替え</li>
+          <li><strong>/goal コマンド</strong>でゴール（目標）を作成・管理</li>
+          <li>選択した転写テキストから側面チャットへ質問</li>
+          <li>変更ファイル閲覧時にインラインレビューコメント</li>
         </ul>
       </div>
       <div class="feature-block"><h4 class="feature-block-head steps"><span class="icon">▶</span>使い方の手順</h4>
@@ -1822,15 +1907,15 @@
           <li>ChatGPT モバイルアプリを最新版に更新</li>
           <li>Mac 等で Codex を起動・タスク開始</li>
           <li>モバイルアプリで「Codex」タブをタップ</li>
-          <li>稼働中のホストと接続</li>
-          <li>進捗確認・承認・指示を実行</li>
+          <li>稼働中のホストと接続（QR ペアリングも可能）</li>
+          <li>進捗確認・承認・指示・/goal 実行</li>
         </ol>
       </div>
       <div class="feature-block"><h4 class="feature-block-head limit"><span class="icon">!</span>制約</h4>
         <ul class="limit-list">
-          <li>プレビュー版（仕様変更あり）</li>
           <li>接続済み Mac / デバイス側で Codex が稼働している必要</li>
           <li>モバイルからの単独実行ではなく、リモート操作の位置づけ</li>
+          <li>リモート制御は MFA 推奨</li>
         </ul>
       </div>
     </div>
@@ -1932,7 +2017,7 @@
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>Business・Enterprise・Edu・Teachers 向けに2026年4月22日公開された新機能。<strong>業務フローを「専用担当者」として作成・共有・自律実行</strong>できます。Codex が基盤、クラウドで稼働。<strong>2026年5月6日以降はクレジットベース課金</strong>（30クレジット/メッセージ）。Custom GPTs の後継として位置づけられています。</p>
+        <p>Business・Enterprise・Edu・Teachers 向けに2026年4月22日公開された新機能。<strong>業務フローを「専用担当者」として作成・共有・自律実行</strong>できます。Codex が基盤、クラウドで稼働。<strong>当初予定の5/6から無料期間が7/6まで延長</strong>され、それ以降にクレジットベース課金（30クレジット/メッセージ）が開始されます。Custom GPTs の後継として位置づけられています。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
@@ -2114,7 +2199,7 @@
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>2026年5月6日からグローバル展開。<strong>Excel と Google スプレッドシートにサイドバー統合</strong>され、表の構築・更新・解説・レビューを対話的に実行できます。Free と Go は限定使用、Plus と Pro は Codex と同じ Agent 系の利用上限を共有。Enterprise / Edu / K-12 / Business は <strong>2026年6月2日まで無料プレビュー</strong>。</p>
+        <p>2026年5月6日からグローバル展開。<strong>Excel と Google スプレッドシートにサイドバー統合</strong>され、表の構築・更新・解説・レビューを対話的に実行できます。Free と Go は限定使用、Plus と Pro は Codex と同じ Agent 系の利用上限を共有。Enterprise / Edu / K-12 / Business 向けの <strong>無料プレビューは2026年6月2日に終了</strong>し、現在は通常のプラン上限・クレジット消費に従って利用できます。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
@@ -2413,8 +2498,8 @@
     <div class="catalog-feature" data-panel="security">
       <div class="feature-head">
         <div class="feature-cat">H. 安全機能</div>
-        <div class="feature-title">Advanced Account Security</div>
-        <div class="feature-subtitle">サインイン・乗っ取り対策の強化セット</div>
+        <div class="feature-title">Advanced Account Security / Active Sessions</div>
+        <div class="feature-subtitle">サインイン・乗っ取り対策の強化セット（6月にセッション管理が大幅強化）</div>
         <div class="feature-plans">
           <span class="plan-tag free">Free</span><span class="plan-tag go">Go</span>
           <span class="plan-tag plus">Plus</span><span class="plan-tag pro">Pro</span>
@@ -2422,14 +2507,15 @@
         </div>
       </div>
       <div class="feature-block"><h4 class="feature-block-head overview"><span class="icon">i</span>概要</h4>
-        <p>2026年5月1日リリースの個人アカウント保護機能。<strong>サインインオプションの強化・厳格な復旧フロー・ログイン通知・セッション制御</strong>などにより、不正アクセスやアカウント乗っ取りからアカウントを守ります。</p>
+        <p>2026年5月1日リリースの個人アカウント保護機能。<strong>サインインオプションの強化・厳格な復旧フロー・ログイン通知・セッション制御</strong>などにより、不正アクセスやアカウント乗っ取りからアカウントを守ります。さらに <strong>2026年6月、Active Sessions 機能が強化</strong>され、現在ログイン中の端末・場所・サインイン時刻・信頼ステータスを一覧表示し、見覚えのないセッションを即座に終了できるようになりました。</p>
       </div>
       <div class="feature-block"><h4 class="feature-block-head"><span class="icon">+</span>できること</h4>
         <ul class="feature-list">
           <li>多要素認証（MFA）の強制設定</li>
           <li>パスキー（FIDO2）対応</li>
           <li>不審なログインの通知</li>
-          <li>アクティブセッションの一括確認・遮断</li>
+          <li><strong>Active Sessions：</strong>端末・場所・サインイン時刻・信頼ステータス・現在のセッション情報を確認</li>
+          <li>見覚えのないセッションを即座にサインアウト</li>
           <li>復旧コードの厳格管理</li>
           <li>ログイン履歴の参照</li>
         </ul>
@@ -2439,7 +2525,8 @@
           <li>設定 → セキュリティ</li>
           <li>多要素認証を有効化（認証アプリ or パスキー）</li>
           <li>ログイン通知をオンに</li>
-          <li>定期的にアクティブセッションを確認</li>
+          <li><strong>Active Sessions</strong> を定期的に確認</li>
+          <li>見覚えのないセッションがあれば即時サインアウト</li>
           <li>復旧コードを安全な場所に保管</li>
         </ol>
       </div>
@@ -2633,7 +2720,7 @@
 <div class="section-header">
   <div class="section-num">06 ── Settings</div>
   <h2>設定画面の<em>全項目</em>を読み解く</h2>
-  <p class="lede">左下のユーザーアイコン → 「設定」から開ける設定画面。2026年5月20日時点で <strong>8つの大カテゴリ</strong>があります。各タブをクリックして主要項目を確認できます。</p>
+  <p class="lede">左下のユーザーアイコン → 「設定」から開ける設定画面。2026年6月14日時点で <strong>8つの大カテゴリ</strong>があります。各タブをクリックして主要項目を確認できます。</p>
 </div>
 
 <div class="settings-layout" id="settingsLayout">
@@ -2653,6 +2740,7 @@
       <h5>「一般」設定の主要項目</h5>
       <div class="setting-row"><div class="setting-label">テーマ</div><div class="setting-desc">画面の配色を「ライト」「ダーク」「システムに従う」から選択。</div></div>
       <div class="setting-row"><div class="setting-label">言語</div><div class="setting-desc">UI の表示言語。「言語をシステムが判定」のほか日本語・英語など多数選択可。</div></div>
+      <div class="setting-row"><div class="setting-label">モデルピッカー切替（2026/6/10〜）</div><div class="setting-desc"><strong>Instant が必要時に Medium へ裏側で切り替わる</strong>設定。複雑な質問だけ深く考えてくれる挙動をオン／オフで制御。</div></div>
       <div class="setting-row"><div class="setting-label">Fast Answers</div><div class="setting-desc">パーソナライズ不要な質問への高速回答モードのオン／オフ。</div></div>
       <div class="setting-row"><div class="setting-label">アーカイブされたチャット</div><div class="setting-desc">非表示にした会話の一覧確認・復元・削除。</div></div>
       <div class="setting-row"><div class="setting-label">すべてのチャットをアーカイブ</div><div class="setting-desc">履歴を一括で整理。削除とは異なり復元可能。</div></div>
@@ -2676,8 +2764,10 @@
       <div class="setting-row"><div class="setting-label">基本スタイル</div><div class="setting-desc">「プロフェッショナル」「フレンドリー」など複数から基本トーンを選択（「Nerdy」は2026年3月に廃止）。</div></div>
       <div class="setting-row"><div class="setting-label">ニックネーム / 呼び方</div><div class="setting-desc">ChatGPT が自分をどう呼ぶか設定。</div></div>
       <div class="setting-row"><div class="setting-label">職業 / 役割</div><div class="setting-desc">回答の専門性レベルや想定読者を裏側で調整するための属性入力。</div></div>
-      <div class="setting-row"><div class="setting-label">メモリ（Memory）を有効化</div><div class="setting-desc">過去会話から学習された情報を保存・参照するかどうか。</div></div>
-      <div class="setting-row"><div class="setting-label">Memory Sources（メモリの根拠表示）</div><div class="setting-desc">パーソナライズに使われた情報源（過去会話・メモリ・Gmail・ファイル）を可視化・編集（Plus/Pro 先行）。</div></div>
+      <div class="setting-row"><div class="setting-label">メモリ（Memory）を有効化</div><div class="setting-desc">過去会話から学習された情報を保存・参照するかどうか。<strong>2026/6/4〜 Dreaming V3</strong> へ刷新中（時間経過に応じて記憶が更新される）。</div></div>
+      <div class="setting-row"><div class="setting-label">Memory Summary（メモリ要約ページ）</div><div class="setting-desc">ChatGPT が記憶している自分像のレビュー画面（Dreaming V3 で導入）。記憶された詳細を追加・更新可能。</div></div>
+      <div class="setting-row"><div class="setting-label">Memory Sources（メモリの根拠表示）</div><div class="setting-desc">パーソナライズに使われた情報源（過去会話・メモリ・Gmail・ファイル）を可視化・編集。Plus/Pro 先行展開、Free/Go へも順次拡大中。</div></div>
+      <div class="setting-row"><div class="setting-label">Delete and turn off memory</div><div class="setting-desc">3点メニューから選択。<strong>メモリ要約ページの内容を全削除＋機能オフ</strong>。過去チャット自体は削除されない。</div></div>
       <div class="setting-row"><div class="setting-label">メモリを管理</div><div class="setting-desc">記憶された個々の項目を一覧で確認・編集・削除。</div></div>
     </div>
 
@@ -2717,6 +2807,8 @@
       <div class="setting-row"><div class="setting-label">多要素認証（MFA）</div><div class="setting-desc">Google Authenticator や 1Password などの認証アプリで二段階認証を有効化。<strong>ビジネス利用は必須</strong>。</div></div>
       <div class="setting-row"><div class="setting-label">パスキー（Passkey）</div><div class="setting-desc">2026年5月の Advanced Account Security で FIDO2 パスキー対応。生体認証のみでログイン可能。</div></div>
       <div class="setting-row"><div class="setting-label">パスワード変更</div><div class="setting-desc">現在のパスワードを入力した上で新パスワードに変更。</div></div>
+      <div class="setting-row"><div class="setting-label">Active Sessions（2026/6 強化）</div><div class="setting-desc">ログイン中のセッション一覧（端末・場所・サインイン時刻・信頼ステータス・現在のセッション）を確認し、見覚えのないものを即サインアウト可能。</div></div>
+      <div class="setting-row"><div class="setting-label">App Permissions（Business/Enterprise 向け・2026/6 新設）</div><div class="setting-desc">管理者が接続アプリのアクセス確認タイミングを制御：<strong>Always ask / Any changes / Important actions（既定）</strong>。RBAC・Action control とは別の制御項目。</div></div>
       <div class="setting-row"><div class="setting-label">不審なログインの通知</div><div class="setting-desc">未知のデバイス・国からログインがあった際にメール通知。</div></div>
       <div class="setting-row"><div class="setting-label">すべてのデバイスからログアウト</div><div class="setting-desc">不正アクセスが疑われるとき一括で全端末からサインアウト。</div></div>
       <div class="setting-row"><div class="setting-label">ログ履歴</div><div class="setting-desc">過去のログイン記録（日時・IP・デバイス種別）の確認。</div></div>
@@ -3023,6 +3115,11 @@
     <div class="timeline-desc">動画生成サービスの完全終了。開発者は Google Veo、Kling 等への移行が必要。</div>
   </div>
   <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年8月26日（予定）</div>
+    <div class="timeline-title">OpenAI o3 廃止</div>
+    <div class="timeline-desc">90日サンセット期間後、ChatGPT から完全廃止。API は別途継続。</div>
+  </div>
+  <div class="timeline-item upcoming">
     <div class="timeline-date">2026年8月頃（予定）</div>
     <div class="timeline-title">GPT-5.3 Instant 完全廃止</div>
     <div class="timeline-desc">GPT-5.5 Instant への移行猶予期間（3カ月）終了。モデル設定からも選択不可に。</div>
@@ -3033,16 +3130,51 @@
     <div class="timeline-desc">EU 圏で事業するすべての生成 AI 事業者は AI 生成物の機械可読マーキングが必須に。ディープフェイクは明示ラベル義務。</div>
   </div>
   <div class="timeline-item upcoming">
-    <div class="timeline-date">2026年6月2日（予定）</div>
-    <div class="timeline-title">ChatGPT for Excel/Sheets 無料プレビュー終了</div>
-    <div class="timeline-desc">Enterprise / Edu / Business 向け無料プレビュー終了。以降は通常のクレジット課金。</div>
+    <div class="timeline-date">2026年7月6日（予定）</div>
+    <div class="timeline-title">ワークスペースエージェント有料化</div>
+    <div class="timeline-desc">無料期間が当初予定の5/6から7/6まで延長された後、クレジットベース課金（30クレジット/メッセージ）開始。</div>
   </div>
   <div class="timeline-item upcoming">
-    <div class="timeline-date">2026年5月31日（予定）</div>
-    <div class="timeline-title">Pro $100 プランの Codex 10倍枠 終了</div>
-    <div class="timeline-desc">2026年4月9日開始の期間限定10倍増枠が終了。以降は通常の5倍に戻る。</div>
+    <div class="timeline-date">2026年6月27日（予定）</div>
+    <div class="timeline-title">GPT-4.5 廃止</div>
+    <div class="timeline-desc">30日サンセット期間後、ChatGPT から完全廃止。API は別途継続。</div>
+  </div>
+  <div class="timeline-item upcoming">
+    <div class="timeline-date">2026年6月24日（予定）</div>
+    <div class="timeline-title">Codex 紹介プログラム終了</div>
+    <div class="timeline-desc">Plus/Pro ユーザー向けの友人招待キャンペーン（最大3名）の終了予定。</div>
   </div>
 
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月12日</div>
+    <div class="timeline-title">GPT-5.2 完全廃止</div>
+    <div class="timeline-desc">GPT-5.2 Instant・Thinking・Pro すべてが ChatGPT から削除。GPT-5.5 系に切り替えて継続。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月11日</div>
+    <div class="timeline-title">Codex 紹介プログラム開始</div>
+    <div class="timeline-desc">Plus/Pro ユーザーは友人を最大3名招待可。初メッセージ送信で双方にレート上限リセット報酬（6/24まで）。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月10日</div>
+    <div class="timeline-title">モデルピッカー大幅再構成</div>
+    <div class="timeline-desc">Instant / Medium / High / Extra High / Pro Standard / Pro Extended の6段階に統一。Thinking Light は廃止。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月9日</div>
+    <div class="timeline-title">パーソナライズ拡大・Web検索に画像追加</div>
+    <div class="timeline-desc">GPT-5.5 Instant のパーソナライズ強化が Free・Go にも展開（Free は参照範囲を絞った版）。同時に Web 検索結果に画像が併記されるように。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月8日</div>
+    <div class="timeline-title">対話的チャート・チャート全画面執筆を改善</div>
+    <div class="timeline-desc">回答内に棒・折れ線・円・散布図のインタラクティブグラフを描画。目次・全画面ライティングの改善も。</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2026年6月4日</div>
+    <div class="timeline-title">Dreaming V3（新メモリシステム）公開</div>
+    <div class="timeline-desc">時間経過に応じて記憶を更新する第3世代メモリ。事実想起82.8%・嗜好71.3%・時間感度75.1%へ大幅向上。Plus/Pro 米国から先行展開。Memory 容量も2倍に。</div>
+  </div>
   <div class="timeline-item">
     <div class="timeline-date">2026年5月19日</div>
     <div class="timeline-title">Codex Mobile プレビューリリース</div>
@@ -3052,11 +3184,6 @@
     <div class="timeline-date">2026年5月18日</div>
     <div class="timeline-title">Personal Finance プレビュー（米国 Pro）</div>
     <div class="timeline-desc">米国の Pro ユーザー向けに金融管理機能をプレビュー提供開始。支出・請求・サブスク・純資産・投資を一元管理。</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-date">2026年5月14日</div>
-    <div class="timeline-title">Free ユーザー向けインライン Web 画像強化</div>
-    <div class="timeline-desc">GPT-5.5 Instant の応答に Web からの参考画像を併記、視覚的に分かりやすい回答に。</div>
   </div>
   <div class="timeline-item retired">
     <div class="timeline-date">2026年5月12日</div>
@@ -3071,7 +3198,7 @@
   <div class="timeline-item">
     <div class="timeline-date">2026年5月6日</div>
     <div class="timeline-title">ChatGPT for Excel/Sheets グローバル展開</div>
-    <div class="timeline-desc">Excel・Sheets サイドバー統合がグローバル提供開始。ワークスペースエージェントも有料化。</div>
+    <div class="timeline-desc">Excel・Sheets サイドバー統合がグローバル提供開始。Business・Enterprise・Edu向け無料プレビューは6/2まで（既に終了）。</div>
   </div>
   <div class="timeline-item">
     <div class="timeline-date">2026年5月5日</div>
@@ -3183,9 +3310,9 @@
 <footer>
   <div class="foot-grid">
     <h5>この資料について</h5>
-    <p>本資料は <strong>2026年5月20日時点</strong>で公開されている OpenAI 公式情報および信頼できる二次資料をもとに、ChatGPT を初めて導入・検討する個人・ビジネスユーザー向けに編集された参考ガイドです。</p>
+    <p>本資料は <strong>2026年6月14日時点</strong>で公開されている OpenAI 公式情報および信頼できる二次資料をもとに、ChatGPT を初めて導入・検討する個人・ビジネスユーザー向けに編集された参考ガイドです。</p>
     <p>プラン内容・価格・機能・利用規約は頻繁に更新されます。契約・業務導入前には必ず OpenAI 公式サイト（chatgpt.com/pricing、help.openai.com）および利用規約（openai.com/policies）の <strong>最新版</strong>をご確認ください。</p>
-    <p>2026年は <strong>毎週のように新モデル・新機能が公開</strong>されており、本資料の内容も急速に古くなる可能性があります。特に GPT-5.5 ファミリー、ChatGPT Images 2.0、ワークスペースエージェント、Skills といった新機能は今後さらに変更される可能性が高いため、最新版の確認を強く推奨します。</p>
+    <p>2026年は <strong>毎週のように新モデル・新機能が公開</strong>されており、本資料の内容も急速に古くなる可能性があります。特に新モデルピッカー（Instant/Medium/High/Pro Standard/Pro Extended）、Dreaming V3 メモリ、ワークスペースエージェント、Skills、Codex 系新機能は今後さらに変更される可能性が高いため、最新版の確認を強く推奨します。</p>
     <div class="disclaimer">
       本ガイドは情報提供を目的としたものであり、法的助言を構成するものではありません。著作権・肖像権・個人情報保護に関する個別具体の判断については、弁護士等の専門家にご相談ください。<br>
       掲載ロゴ・商標はそれぞれの権利者に帰属します。ChatGPT、GPT は OpenAI の登録商標です。<br>
